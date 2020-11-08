@@ -1,0 +1,86 @@
+.item-list {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    & tr {
+        height: 5rem;
+    }
+
+    &__options {
+        margin-bottom: 4rem;
+
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__content {
+        width: 100%;
+    }
+    &__heading {
+        background-color: $color-black;
+
+        color: $color-white;
+        letter-spacing: .2rem;
+
+        & th {
+            font-weight: 400;
+        }
+    }
+    &__row {
+        background-color: $color-grey-light;
+
+        &:nth-child(even) {
+            background-color: $color-white;
+        }
+
+        &--red {
+            background-color: salmon !important;
+        }
+        &--green {
+            background-color: lightgreen !important;
+        }
+        &--yellow {
+            background-color: blanchedalmond !important;
+        }
+        &--white {
+            background-color: $color-white !important;
+        }
+
+        & td {
+            border-left: 1px solid $color-grey;
+            border-right: 1px solid $color-grey;
+
+            text-align: center;
+        }
+
+        &__btn {
+            padding: .5rem 1rem;
+            border: 1px solid $color-black;
+            background-color: $color-white;
+            outline: none;
+            cursor: pointer;
+    
+            font-weight: 600;
+            font-size: $font-small;
+    
+            &:not(:last-child) {
+                margin-right: 2rem;
+            }
+            &--danger {
+                background-color: $color-red;
+                
+                color: $color-white;
+            }
+    
+            &:focus, &:active {
+                outline: none;
+                border: 1px solid $color-black;
+            }
+            &:hover {
+                box-shadow: 0 1px 5px 1px $color-white-overlay;
+            }
+        }
+    }
+}

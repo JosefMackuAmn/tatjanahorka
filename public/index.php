@@ -16,13 +16,14 @@ $easyCSRF = new \EasyCSRF\EasyCSRF($sessionProvider);
 $router = new Core\Router();
 
 ///// PAGES
-$router->add('', ['controller'=>'Home', 'action'=>'index']);
+$router->add('', ['controller'=>'Home', 'action'=>'index']); // GET
 
 ///// ADMIN
-$router->add('admin/?', ['controller'=>'Admin', 'action'=>'index']);
-$router->add('admin/login/?', ['controller'=>'Admin', 'action'=>'login']);
-$router->add('admin/logout/?', ['controller'=>'Admin', 'action'=>'logout']);
-$router->add('admin/events/?', ['controller'=>'Admin', 'action'=>'events']);
-$router->add('admin/events/{id}/?', ['controller' => 'Admin', 'action' => 'event']);
+$router->add('admin/?', ['controller'=>'Admin', 'action'=>'index']); // GET
+$router->add('admin/login/?', ['controller'=>'Admin', 'action'=>'login']); // GET, POST
+$router->add('admin/logout/?', ['controller'=>'Admin', 'action'=>'logout']); // POST
+$router->add('admin/events/?', ['controller'=>'Admin', 'action'=>'events']); // GET, POST
+$router->add('admin/events/new/?', ['controller'=>'Admin', 'action'=>'newEvent']); // GET
+$router->add('admin/events/{id:\d+}/?', ['controller' => 'Admin', 'action' => 'event']); // GET, PUT, POST
 
 $router->dispatch($_SERVER['QUERY_STRING']);

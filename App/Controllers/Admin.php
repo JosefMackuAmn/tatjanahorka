@@ -5,6 +5,7 @@ namespace App\Controllers;
 use \Core\View;
 use \App\Config;
 use \Exception;
+use \App\Models\Event;
 
 class Admin extends \Core\Controller {
     
@@ -25,6 +26,12 @@ class Admin extends \Core\Controller {
     public function logoutAction() {
         $_SESSION['isAdmin'] = false;
         return header('Location: /');
+    }
+
+    public function newEventAction() {
+        $this->loggedInCheck();
+
+        View::renderTemplate('admin/event-detail.html', []);
     }
 
     // ROUTING
@@ -66,37 +73,37 @@ class Admin extends \Core\Controller {
     }
 
     // ROUTING
-    public function eventAction() {
+    public function eventAction($params) {
         $this->loggedInCheck();
 
         switch ($_SERVER['REQUEST_METHOD']) {
             
             case 'GET':
-                return $this->getEvent();
+                return $this->getEvent($params);
                 break;
 
             case 'DELETE':
-                return $this->deleteEvent();
+                return $this->deleteEvent($params);
                 break;
 
             case 'PUT':
-                return $this->putEvent();
+                return $this->putEvent($params);
                 break;
 
             default:
-                return $this->getEvent();
+                return $this->getEvent($params);
                 break;
         }
     }
 
     ///// admin/login
-    // GET LOGIN
+    // LOGIN: GET
     private function getLogin() {
         View::renderTemplate('admin/login.html', [
             'csrfToken' => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
         ]);
     }
-    // POST LOGIN
+    // LOGIN: POST
     private function postLogin() {
 
         if (isset($_POST['submit'])) {
@@ -117,12 +124,40 @@ class Admin extends \Core\Controller {
     }
 
     ///// admin/events
+    // EVENTS: GET
     private function getEvents() {
-        View::renderTemplate('admin/events.html', []);
+        $events = Event::getEvents();
+
+        View::renderTemplate('admin/events.html', [
+            "events" => $events
+        ]);
+    }
+    // EVENTS: POST
+    private function postEvents() {
+
+        if (!isset($_POST['submit'])) {
+            header('Location: /admin/events?success=false');
+        }
+
+        $event = [
+            "title" => $_POST['title'],
+            "date" => $_POST['date'],
+            "imageUrl" => $_POST['imageUrl'],
+            "link" => $_POST['link']
+        ];
+
+        Event::addEvent($event);
+        header('Location: /admin/events?success=true');
     }
 
-    ///// admin/event
-    private function getEvent() {
-        View::renderTemplate('admin/event-detail.html', []);
+    ///// admin/events/{id:\d+}
+    private function getEvent($params) {
+        $eventId = $params['id'];
+
+        $result = Event::getEvent($eventId);
+
+        View::renderTemplate('admin/event-detail.html', [
+            "event" => $result
+        ]);
     }
 }
