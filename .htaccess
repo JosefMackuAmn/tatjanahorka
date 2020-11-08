@@ -12,3 +12,5 @@ RewriteRule ^(.*)$ public/index.php?$1 [L,QSA]
 
 RewriteCond %{REQUEST_URI} !public/
 RewriteRule (.*) public/$1 [L,QSA]
+
+SetEnv HTTP_ACCESS_CODE "123456789"

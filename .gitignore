@@ -2,3 +2,4 @@ logs/*.*
 projectInfo.txt
 documents
 vendor
+node_modules
