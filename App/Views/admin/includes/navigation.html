@@ -1,0 +1,8 @@
+<nav class="navigation" id="menu">
+    <div class="navigation__background"></div>
+    <h3 class="navigation__heading">MENU</h3>
+    <ul class="navigation__list">
+        <li class="navigation__item {% if activeLink is same as('home') %}active{% endif %}"><a href="/admin/">Domů</a></li>
+        <li class="navigation__item {% if activeLink is same as('events') %}active{% endif %}"><a href="/admin/events">Akce</a></li>
+    </ul>
+</nav>

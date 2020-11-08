@@ -5,8 +5,32 @@ namespace App\Controllers;
 use \Core\View;
 
 class Admin extends \Core\Controller {
+    protected function before() {
+        // Check if user is signed up
+    }
+
     public function indexAction() {
-        View::renderTemplate('admin/index.html', []);
+        View::renderTemplate('admin/index.html', [
+            'title' => ''
+        ]);
+    }
+
+    // ROUTING
+    public function loginAction() {
+        switch ($_SERVER['REQUEST_METHOD']) {
+            
+            case 'GET':
+                return $this->getLogin();
+            break;
+            
+            case 'POST':
+                return $this->postLogin();
+            break;
+            
+            default:
+                return $this->getLogin();
+            break;
+        }
     }
 
     // ROUTING
@@ -18,7 +42,7 @@ class Admin extends \Core\Controller {
             break;
             
             case 'POST':
-                return $this->postEvenets();
+                return $this->postEvents();
             break;
             
             default:
@@ -47,6 +71,11 @@ class Admin extends \Core\Controller {
                 return $this->getEvent();
                 break;
         }
+    }
+
+    ///// admin/login
+    private function getLogin() {
+        View::renderTemplate('admin/login.html', []);
     }
 
     ///// admin/events

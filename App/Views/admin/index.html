@@ -1,1 +1,26 @@
-THIS IS INDEX PAGE OF ADMIN CONTROLLER
+{% include 'admin/includes/head.html' %}
+</head>
+<body>
+
+    {% set navigationVars = { 'activeLink': 'home' } %}
+    {% include 'admin/includes/navigation.html' with navigationVars %}
+    
+    <div class="wrapper">
+        
+        {% set headerVars = { 'logout': true, 'adminTitle': 'Administrace' } %}
+        {% include 'admin/includes/header.html' with headerVars %}
+
+        <main class="main main--index">
+
+            <div class="visiting-card">
+                <h3 class="heading-3">AmnioN Web</h3>
+                <p class="paragraph-normal">team@amnionweb.cz</p>
+                <p class="paragraph-normal">+420 735 044 114</p>
+                <a target="_blank" rel="noopener" href="https://amnionweb.cz"><p class="paragraph-normal">www.amnionweb.cz</p></a>
+            </div>
+            
+        </main>
+
+    </div>
+    
+{% include 'admin/includes/end.html' %}

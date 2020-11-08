@@ -1,0 +1,17 @@
+@keyframes showMenuList {
+    from {
+        transform: translateX(-30rem);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeErrModal {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

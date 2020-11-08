@@ -15,6 +15,7 @@ $router->add('', ['controller'=>'Home', 'action'=>'index']);
 
 ///// ADMIN
 $router->add('admin/?', ['controller'=>'Admin', 'action'=>'index']);
+$router->add('admin/login/?', ['controller'=>'Admin', 'action'=>'login']);
 $router->add('admin/events/?', ['controller'=>'Admin', 'action'=>'events']);
 $router->add('admin/events/{id}/?', ['controller' => 'Admin', 'action' => 'event']);
 

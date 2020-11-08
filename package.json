@@ -8,7 +8,8 @@
     "node-sass": "^5.0.0"
   },
   "scripts": {
-    "compile": "node-sass src/client/scss/main.scss public/css/style.css -w"
+    "compile": "node-sass src/client/scss/main.scss public/css/style.css -w",
+    "compile:admin": "node-sass src/admin/scss/main.scss public/css/admin-style.css -w"
   },
   "repository": {
     "type": "git",
