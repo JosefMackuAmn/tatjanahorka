@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use \App\Config;
+
 class Router {
     protected $routes = [];
     protected $params = [];
@@ -41,6 +43,8 @@ class Router {
     }
 
     public function dispatch($url) {
+        $this->checkCSRF();
+        $this->generateCSRF();
 
         $url = $this->removeQueryStringVariables($url);
 
@@ -98,5 +102,28 @@ class Router {
         }
 
         return $namespace;
+    }
+
+    protected function checkCSRF() {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            $csrfToken = $_POST['_csrf'] ?: $_PUT['_csrf'];
+
+            global $easyCSRF;
+
+            $easyCSRF->check(Config::TOKEN_SECRET, $csrfToken, 60*60);
+
+            return true;
+            
+        } else {
+            return true;
+        }
+    }
+
+    protected function generateCSRF() {      
+
+        global $easyCSRF;
+          
+        $token = $easyCSRF->generate(Config::TOKEN_SECRET);
+        return $token;
     }
 }

@@ -1,0 +1,26 @@
+{% include 'admin/includes/head.html' %}
+</head>
+<body>
+
+    {% set navigationVars = { 'activeLink': 'error' } %}
+    {% include 'admin/includes/navigation.html' with navigationVars %}
+    
+    <div class="wrapper wrapper--error">
+        
+        {% set headerVars = { 'logout': true, 'adminTitle': 'Administrace' } %}
+        {% include 'admin/includes/header.html' with headerVars %}
+
+        <main class="main main--error">
+
+            <h3 class="heading-3">{{ title }}</h3>
+            <p>An error occured on the server side. Please try again or contact AmnioN Web.</p><br/>
+            <p>Complete messasge:</p>
+            <p>{{ message }}</p>
+            
+        </main>
+
+        {% include 'admin/includes/footer.html' %}
+
+    </div>
+    
+{% include 'admin/includes/end.html' %}

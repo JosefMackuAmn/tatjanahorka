@@ -3,16 +3,28 @@
 namespace App\Controllers;
 
 use \Core\View;
+use \App\Config;
+use \Exception;
 
 class Admin extends \Core\Controller {
-    protected function before() {
-        // Check if user is signed up
+    
+    protected function loggedInCheck() {
+        if (!isset($_SESSION['isAdmin']) OR !$_SESSION['isAdmin']) {
+            header('Location: /');
+            exit('You have to be signed in');
+        }
     }
 
     public function indexAction() {
+        $this->loggedInCheck();
         View::renderTemplate('admin/index.html', [
             'title' => ''
         ]);
+    }
+
+    public function logoutAction() {
+        $_SESSION['isAdmin'] = false;
+        return header('Location: /');
     }
 
     // ROUTING
@@ -35,6 +47,8 @@ class Admin extends \Core\Controller {
 
     // ROUTING
     public function eventsAction() {
+        $this->loggedInCheck();
+
         switch ($_SERVER['REQUEST_METHOD']) {
             
             case 'GET':
@@ -53,6 +67,8 @@ class Admin extends \Core\Controller {
 
     // ROUTING
     public function eventAction() {
+        $this->loggedInCheck();
+
         switch ($_SERVER['REQUEST_METHOD']) {
             
             case 'GET':
@@ -74,8 +90,30 @@ class Admin extends \Core\Controller {
     }
 
     ///// admin/login
+    // GET LOGIN
     private function getLogin() {
-        View::renderTemplate('admin/login.html', []);
+        View::renderTemplate('admin/login.html', [
+            'csrfToken' => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
+        ]);
+    }
+    // POST LOGIN
+    private function postLogin() {
+
+        if (isset($_POST['submit'])) {
+            $accesKey = $_POST['password'];
+
+            if ($accesKey === getenv('HTTP_ACCESS_CODE')) {
+                $_SESSION['isAdmin'] = true;
+                return header('Location: /admin');
+            } else {
+                throw new Exception('Bad access code');
+            }
+
+        } else {
+            throw new Exception('Bad access code');
+        }
+
+        
     }
 
     ///// admin/events
