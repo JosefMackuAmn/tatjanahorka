@@ -5,7 +5,6 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 set_error_handler('Core\Error::errorHandler');
 set_exception_handler('Core\Error::exceptionHandler');
 
-
 /////
 // ROUTES
 /////
