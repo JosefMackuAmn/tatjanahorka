@@ -1,3 +1,43 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box; }
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif; }
+
+a,
+a:visited,
+a:link {
+  text-decoration: none;
+  color: inherit; }
+
 .cooperation {
   width: 100%;
   color: red; }
+
+.events {
+  width: 100%;
+  height: 80rem;
+  background-image: url("../img/eventsBackground.svg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .events__btn-block {
+    width: 30rem;
+    height: 30rem;
+    background-color: black; }
+    .events__btn-block svg {
+      width: 100%;
+      height: 100%;
+      fill: #F0F5E9; }
+  .events__event {
+    width: 15rem;
+    height: 15rem;
+    background-color: black; }
