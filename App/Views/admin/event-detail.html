@@ -11,17 +11,50 @@
         {% set headerVars = { 'logout': true, 'adminTitle': 'Akce: ' ~ dynamicTitle } %}
         {% include 'admin/includes/header.html' with headerVars %}
 
-        <main class="main main--index">
+        <main class="main main--event-detail">
 
-            {{ event.event_id }}
-            {{ event.event_id }}
-            {{ event.event_id }}
-            {{ event.event_id }}
-            {{ event.event_id }}
-            {{ event.event_id }}
-            {{ event.event_id }}
-            {{ event.event_id }}
-            {{ event.event_id }}
+            <form class="event-form" id="event-form" enctype="multipart/form-data" method="POST" action="/admin/events/{{ event.event_id }}">
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                <input type="hidden" name="imageUrl" value="url">
+                <div class="event-form__row">
+                    <div class="event-form__data-cell">
+                        <label for="title">Název akce</label>
+                        <input type="text" name="title" id="title" placeholder="Název akce" value="{{ event.event_title }}">
+                    </div>
+                    <div class="event-form__data-cell">
+                        <label for="dateFrom">Od:</label>
+                        <input type="date" name="dateFrom" id="dateFrom" value="{{ event.event_dateFrom }}">
+                    </div>
+                    <div class="event-form__data-cell">
+                        <label for="dateTo">Do:</label>
+                        <input type="date" name="dateTo" id="dateTo" value="{{ event.event_dateTo }}">
+                    </div>
+                </div>
+                <div class="event-form__row">
+                    <div class="event-form__data-cell">
+                        <label for="link">Odkaz</label>
+                        <input type="text" name="link" id="link" placeholder="Odkaz" value="{{ event.event_link }}" />
+                    </div>
+
+                    <div class="event-form__row">
+                        <div class="event-form__data-cell">
+                            <label for="image">Obrázek</label>
+                            <% if (editMode) { %>
+                                <img class="event-form__image" src="/<%= event.event_imageUrl %>" alt="{{ event.event_imageUrl }}">    
+                            <% } %>
+                            <% if (editMode) { %>
+                                <p class="event-form__image-text">Vybrat nový obrázek</p>
+                            <% } %>
+                            <input type="file" name="image" id="image">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="event-form__actions">
+                    <input class="event-form__btn event-form__btn--submit" type="submit" value="Odeslat">
+                    <a href="/admin/events" class="event-form__btn event-form__btn--cancel">Zrušit</a>
+                </div>
+            </form>
             
         </main>
 

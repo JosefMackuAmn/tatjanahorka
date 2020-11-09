@@ -24,6 +24,8 @@ $router->add('admin/login/?', ['controller'=>'Admin', 'action'=>'login']); // GE
 $router->add('admin/logout/?', ['controller'=>'Admin', 'action'=>'logout']); // POST
 $router->add('admin/events/?', ['controller'=>'Admin', 'action'=>'events']); // GET, POST
 $router->add('admin/events/new/?', ['controller'=>'Admin', 'action'=>'newEvent']); // GET
+$router->add('admin/events/delete/{id:\d+}/?', ['controller'=>'Admin', 'action'=>'delete']); // GET
 $router->add('admin/events/{id:\d+}/?', ['controller' => 'Admin', 'action' => 'event']); // GET, PUT, POST
+$router->add('admin/*', ['controller' => 'Admin', 'action' => 'notFound']); // GET
 
 $router->dispatch($_SERVER['QUERY_STRING']);

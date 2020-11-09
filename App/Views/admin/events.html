@@ -36,7 +36,10 @@
                             <td>{{ event.event_link }}</td>
                             <td>
                                 <a class="item-list__row__btn" href="/admin/events/{{ event.event_id }}">Upravit</a>
-                                <button class="item-list__row__btn item-list__row__btn--danger deleteProductBtn" data-id="<%= product._id %>" data-csrf="<%= csrfToken %>">Smazat</button>
+                                <form class="item-list__delete-form" action="/admin/events/delete/{{ event.event_id }}" method="POST">
+                                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                                    <input type="submit" class="item-list__row__btn item-list__row__btn--danger deleteProductBtn" value="Smazat">
+                                </form>
                             </td>
                         </tr>
 
