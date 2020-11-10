@@ -1,27 +1,108 @@
 .events {
-    width: 100%;
+    width: 100vw;
     height: 80rem;
     background-image: url('../img/eventsBackground.svg');
     background-size: cover;
+    overflow: hidden;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    position: relative;
+
     &__btn-block {
-        width: 30rem;
-        height: 30rem;
-        background-color: black;
+        width: 51rem;
+        height: 38rem;
+        filter: drop-shadow(0 2px 4px $color-black-overlay-light);
+
+        position: relative;
+
+        &--prev {
+            transform: translateX(-20%);
+
+            & .events__btn-block__btn-wrapper {
+                transform: translate(50%, -50%) scale(-1);
+
+                right: 20rem;
+
+                &:hover {                    
+                    transform: translate(50%, -50%) scale(-.95);
+                }
+            }
+        }
+        &--next {
+            transform: translateX(20%);
+
+            & .events__btn-block__btn-wrapper {
+                transform: translate(-50%, -50%);                
+
+                left: 20rem;
+
+                &:hover {                    
+                    transform: translate(-50%, -50%) scale(.95);
+                }
+            }
+        }
 
         & svg {
             width: 100%;
             height: 100%;
             fill: $color-green-light;
         }
+        &__btn-wrapper {
+            width: 7rem;
+            height: 15rem;
+            filter: drop-shadow(0 2px 4px $color-black-overlay-light-2);
+            cursor: pointer;
+
+            position: absolute;
+            top: 50%;
+
+            transition: all .1s;
+
+            &:hover {
+                filter: drop-shadow(0 1px 1px $color-black-overlay-light-2);
+            }
+        }
+        &__btn {
+            width: 100%;
+            height: 100%;
+            background-color: $color-green;
+            clip-path: polygon(0 0, 100% 50%, 0 100%);
+        }
     }
     &__event {
-        width: 15rem;
-        height: 15rem;
-        background-color: black;
+        width: 35rem;
+        height: 25rem;
+        filter: drop-shadow(0 2px 4px $color-black-overlay-light);
+
+        position: relative;
+
+        & svg {
+            width: 100%;
+            height: 100%;
+            fill: $color-white;
+        }
+
+        &__image {
+            width: 75%;
+            border-radius: 5px;
+            transform: translate(-50%, -50%);
+
+            position: absolute;
+            top: 6rem;
+            left: 52%;
+        }
+        & .heading-4 {
+            position: absolute;
+            top: 16rem;
+            left: 5rem;
+        }
+        & .paragraph-small {
+            position: absolute;
+            top: 19rem;
+            left: 5rem;
+        }
     }
 }
