@@ -1,0 +1,22 @@
+/////
+// HEADINGS
+/////
+.heading-1 {
+
+}
+.heading-2 {
+    font-weight: 400;
+    font-size: $font-large;
+    margin-bottom: 5rem;
+}
+
+/////
+// PARAGRAPHS
+/////
+.paragraph-1 {
+    font-size: $font-regular;
+
+    &__break{
+        margin-bottom: 5rem;
+    }
+}
