@@ -1,9 +1,26 @@
+
 //////////////////////////////////
 ///// COLORS
+
+/////
+// COLORFUL COLORS
+/////
 
 // GREEN
 
 $color-green-footer: rgba(159, 191, 115, 1);
+$color-green-light: #F0F5E9;
+$color-green: #9CBD6F;
+
+/////
+// SHADES
+/////
+
+$color-black: #000000;
+$color-black-overlay: rgba($color-black, .5);
+$color-black-overlay-light: rgba($color-black, .2);
+$color-black-overlay-light-2: rgba($color-black, .1);
+$color-white: #ffffff;
 
 //////////////////////////////////
 ///// FONT SIZES
@@ -16,3 +33,10 @@ $font-bigger: 2.9rem;
 $font-large: 3.3rem;
 $font-larger: 5rem;
 $font-largest: 5.9rem;
+
+///////////////
+///// FONTS
+
+$font-cursive: 'Dancing Script', cursive;
+$font-kalam: 'Kalam', cursive;
+

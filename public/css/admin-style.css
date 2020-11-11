@@ -103,6 +103,70 @@ a:link {
   .err-modal p {
     font-size: 1.6rem; }
 
+.event-form {
+  width: 100%; }
+  .event-form__row {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between; }
+    .event-form__row > .product-form__data-cell {
+      width: 25%; }
+  .event-form__column {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between; }
+    .event-form__column > .product-form__data-cell {
+      width: 100%; }
+  .event-form__data-cell {
+    display: flex;
+    flex-direction: column; }
+    .event-form__data-cell > * {
+      width: 100%; }
+  .event-form__actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .event-form__btn {
+    width: 10rem;
+    height: 4rem;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .event-form__btn--submit {
+      background-color: lightgreen; }
+    .event-form__btn--cancel {
+      background-color: #CF7838; }
+    .event-form__btn:not(:last-child) {
+      margin-right: 2rem; }
+  .event-form__image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    object-fit: cover; }
+    .event-form__image ~ input {
+      height: auto !important; }
+  .event-form input, .event-form textarea, .event-form select {
+    min-height: 4rem;
+    height: 100%;
+    padding: 1rem;
+    margin-bottom: 3rem;
+    border: 1px solid black;
+    font-size: 1.6rem;
+    font-family: sans-serif; }
+    .event-form input:focus, .event-form input:active, .event-form textarea:focus, .event-form textarea:active, .event-form select:focus, .event-form select:active {
+      outline: none;
+      border: 1px solid black; }
+  .event-form label {
+    margin-bottom: 1rem; }
+
 .item-list {
   width: 100%;
   border-collapse: collapse; }
@@ -156,6 +220,8 @@ a:link {
         border: 1px solid black; }
       .item-list__row__btn:hover {
         box-shadow: 0 1px 5px 1px rgba(255, 255, 255, 0.5); }
+  .item-list__delete-form {
+    display: inline-block; }
 
 .login-form {
   width: 100%;

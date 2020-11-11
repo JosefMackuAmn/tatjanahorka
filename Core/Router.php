@@ -106,7 +106,7 @@ class Router {
 
     protected function checkCSRF() {
         if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-            $csrfToken = $_POST['_csrf'] ?: $_PUT['_csrf'];
+            $csrfToken = $_POST['_csrf'];
 
             global $easyCSRF;
 

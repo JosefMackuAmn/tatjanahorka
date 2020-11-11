@@ -31,7 +31,18 @@ class Admin extends \Core\Controller {
     public function newEventAction() {
         $this->loggedInCheck();
 
-        View::renderTemplate('admin/event-detail.html', []);
+        View::renderTemplate('admin/event-detail.html', [
+            "csrfToken" => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
+        ]);
+    }
+
+    public function deleteAction($params) {
+        $this->loggedInCheck();
+
+        Event::deleteEvent($params['id']);
+
+        header('Location: /admin/events');
+        exit();
     }
 
     // ROUTING
@@ -86,8 +97,8 @@ class Admin extends \Core\Controller {
                 return $this->deleteEvent($params);
                 break;
 
-            case 'PUT':
-                return $this->putEvent($params);
+            case 'POST':
+                return $this->postEvent($params);
                 break;
 
             default:
@@ -99,6 +110,12 @@ class Admin extends \Core\Controller {
     ///// admin/login
     // LOGIN: GET
     private function getLogin() {
+
+        if ($_SESSION['isAdmin']) {
+            header('Location: /admin');
+            exit();
+        }
+
         View::renderTemplate('admin/login.html', [
             'csrfToken' => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
         ]);
@@ -129,7 +146,8 @@ class Admin extends \Core\Controller {
         $events = Event::getEvents();
 
         View::renderTemplate('admin/events.html', [
-            "events" => $events
+            "events" => $events,
+            "csrfToken" => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
         ]);
     }
     // EVENTS: POST
@@ -139,15 +157,24 @@ class Admin extends \Core\Controller {
             header('Location: /admin/events?success=false');
         }
 
+        $dateFrom = $_POST['dateFrom'];
+        if (strlen($dateFrom) !== 10) {
+            throw new \Exception('Date is in wrong format');
+        }
+        $date = strtotime($dateFrom);
+
         $event = [
             "title" => $_POST['title'],
-            "date" => $_POST['date'],
+            "date" => $date,
+            "dateFrom" => $dateFrom,
+            "dateTo" => $_POST['dateTo'],
             "imageUrl" => $_POST['imageUrl'],
             "link" => $_POST['link']
         ];
 
         Event::addEvent($event);
         header('Location: /admin/events?success=true');
+        exit();
     }
 
     ///// admin/events/{id:\d+}
@@ -157,7 +184,35 @@ class Admin extends \Core\Controller {
         $result = Event::getEvent($eventId);
 
         View::renderTemplate('admin/event-detail.html', [
-            "event" => $result
+            "event" => $result,
+            "csrfToken" => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
         ]);
+    }
+    private function postEvent($params) {
+        $eventId = $params['id'];
+
+        if (!isset($_POST['submit'])) {
+            header('Location: /admin/events?success=false');
+        }
+
+        $dateFrom = $_POST['dateFrom'];
+        if (strlen($dateFrom) !== 10) {
+            throw new \Exception('Date is in wrong format');
+        }
+        $date = strtotime($dateFrom);
+
+        $event = [
+            "title" => $_POST['title'],
+            "date" => $date,
+            "dateFrom" => $dateFrom,
+            "dateTo" => $_POST['dateTo'],
+            "imageUrl" => $_POST['imageUrl'],
+            "link" => $_POST['link']
+        ];
+
+        Event::updateEvent($eventId, $event);
+
+        header('Location: /admin/events?success=true');
+        exit();
     }
 }

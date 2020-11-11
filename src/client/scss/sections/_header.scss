@@ -1,0 +1,80 @@
+.header {
+  height: 90rem;
+  background-image: url("../img/group.jpg");
+  background-size: cover;
+
+  position: relative;
+
+  &__svg {
+    position: absolute;
+
+    &--top {
+      fill: $color-green;
+      height: 20rem;
+      width: 100%;
+
+      top: 0;
+      left: 0;
+      z-index: 550;
+    }
+    &--bottom {
+      fill: $color-green;
+      height: 30rem;
+      width: 100%;
+
+      bottom: 0;
+      left: 0;
+
+      @media screen and (max-width: 1300px) {
+        height: 20rem;
+      }
+    }
+    &--flower {
+      width: 10rem;
+      height: 10rem;
+
+      bottom: 24rem;
+      right: 5rem;
+    }
+  }
+
+  &__text {
+    font-family: $font-cursive;
+    color: white;
+    text-align: center;
+
+    position: absolute;
+    z-index: 1;
+    bottom: 5rem;
+    right: 10rem;
+    //transform: translateX(50%) translateY(50%);
+
+    @media screen and (max-width: 1500px) {
+      right: 5rem;
+      bottom: 7rem;
+    }
+    @media screen and (max-width: 1300px) {
+      bottom: 4rem;
+    }
+  }
+  &__name {
+    font-size: 6rem;
+
+    @media screen and (max-width: 1500px) {
+      font-size: 5rem;
+    }
+    @media screen and (max-width: 1300px) {
+      font-size: 3.5rem;
+    }
+  }
+  &__motto {
+    font-size: 8rem;
+
+    @media screen and (max-width: 1500px) {
+      font-size: 7rem;
+    }
+    @media screen and (max-width: 1300px) {
+      font-size: 6rem;
+    }
+  }
+}

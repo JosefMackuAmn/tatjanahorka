@@ -1,13 +1,19 @@
+
 /////
 // HEADINGS
 /////
 .heading-1 {
-
+    font-family: $font-cursive;
 }
 .heading-2 {
     font-weight: 400;
     font-size: $font-large;
     margin-bottom: 5rem;
+}
+.heading-3 {
+    font-size: 3.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
 }
 
 /////
