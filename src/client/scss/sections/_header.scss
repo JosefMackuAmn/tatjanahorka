@@ -1,7 +1,6 @@
 .header {
-  height: 90rem;
-  background-image: url("../img/group.jpg");
-  background-size: cover;
+  height: 100vh;
+  margin-bottom: -15rem;
 
   position: relative;
 
@@ -15,7 +14,7 @@
 
       top: 0;
       left: 0;
-      z-index: 550;
+      z-index: 1;
     }
     &--bottom {
       fill: $color-green;
@@ -24,57 +23,52 @@
 
       bottom: 0;
       left: 0;
-
-      @media screen and (max-width: 1300px) {
-        height: 20rem;
-      }
+      z-index: 1;
     }
     &--flower {
-      width: 10rem;
-      height: 10rem;
+      width: 15rem;
+      height: 15rem;
 
-      bottom: 24rem;
+      bottom: 20rem;
       right: 5rem;
     }
+  }
+
+  &__bg {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 
   &__text {
-    font-family: $font-cursive;
-    color: white;
-    text-align: center;
-
     position: absolute;
     z-index: 1;
-    bottom: 5rem;
+    bottom: 13rem;
     right: 10rem;
-    //transform: translateX(50%) translateY(50%);
 
     @media screen and (max-width: 1500px) {
       right: 5rem;
-      bottom: 7rem;
     }
     @media screen and (max-width: 1300px) {
-      bottom: 4rem;
+      bottom: 15rem;
+      right: 3rem;
     }
   }
-  &__name {
-    font-size: 6rem;
-
-    @media screen and (max-width: 1500px) {
-      font-size: 5rem;
-    }
+  & .heading-2 {
     @media screen and (max-width: 1300px) {
-      font-size: 3.5rem;
+      font-size: 3rem;
+    }
+    @media screen and (max-width: 1200px) {
+      font-size: 3rem;
     }
   }
-  &__motto {
-    font-size: 8rem;
-
-    @media screen and (max-width: 1500px) {
-      font-size: 7rem;
-    }
+  & .heading-1 {
     @media screen and (max-width: 1300px) {
       font-size: 6rem;
+    }
+    @media screen and (max-width: 1200px) {
+      font-size: 5rem;
     }
   }
 }

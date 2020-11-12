@@ -1,0 +1,65 @@
+.cooperation-way {
+  height: 45rem;
+  width: 25rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (max-width: 1300px) {
+    width: 50rem;
+    height: 30rem;
+
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  @media screen and (max-width: 1200px) {
+    width: 48rem;
+  }
+  @media screen and (max-width: 1100px) {
+      width: 40rem;
+      height: 40rem;
+      margin-bottom: 5rem;
+
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & .heading-4 {
+    margin-bottom: 3rem;
+  }
+  &__text {
+    font-size: 1.6rem;
+  }
+  &__content {
+    @media screen and (max-width: 1300px) {
+      padding-right: 5rem;
+      width: 60%;
+    }
+    @media screen and (max-width: 1200px) {
+      padding-right: 3rem;
+    }
+    @media screen and (max-width: 1100px) {
+       width: 100%;
+       padding-right: 0;
+    }
+  }
+  &__drawing {
+    width: 20rem;
+    height: 20rem;
+    margin-top: auto;
+
+    @media screen and (max-width: 1300px) {
+      margin-top: 0;
+      width: 40%;
+    }
+    @media screen and (max-width: 1200px) {
+      width: 30%;
+    }
+    @media screen and (max-width: 1100px) {
+       width: 18rem;
+       height: 18rem;
+       margin-top: auto;
+     }
+  }
+}
