@@ -1,0 +1,51 @@
+.topics {
+    width: 100vw;
+    height: 80rem;
+
+    padding-right: 50rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+
+    &__svg {
+        position: absolute;
+        &__1 {
+            transform: translate(170rem,-20rem);
+        }
+        &__2 {
+            transform: translate(190rem,50rem);
+        }
+    }
+    &__img {
+        width: 54rem;
+        height: 80rem;
+    }
+    &__text {
+        width: 50rem;
+        height: 100%;
+
+        transform: translateY(10rem);
+
+        &__head {
+            height: 10rem;
+            margin-bottom: 5rem;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            &__svg {
+                margin-right: 2rem;
+            }
+        }
+        &__consultation {
+            margin-bottom: 5rem;
+
+        }
+        &__reflect {
+
+        }
+    }
+}

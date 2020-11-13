@@ -277,6 +277,38 @@ a:link {
       box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.1);
       text-align: center; }
 
+.topics {
+  width: 100vw;
+  height: 80rem;
+  padding-right: 50rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative; }
+  .topics__svg {
+    position: absolute; }
+    .topics__svg__1 {
+      transform: translate(170rem, -20rem); }
+    .topics__svg__2 {
+      transform: translate(190rem, 50rem); }
+  .topics__img {
+    width: 54rem;
+    height: 80rem; }
+  .topics__text {
+    width: 50rem;
+    height: 100%;
+    transform: translateY(10rem); }
+    .topics__text__head {
+      height: 10rem;
+      margin-bottom: 5rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center; }
+      .topics__text__head__svg {
+        margin-right: 2rem; }
+    .topics__text__consultation {
+      margin-bottom: 5rem; }
+
 .way {
   width: 100vw;
   padding: 10rem;
