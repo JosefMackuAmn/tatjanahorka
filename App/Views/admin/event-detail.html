@@ -15,7 +15,6 @@
 
             <form class="event-form" id="event-form" enctype="multipart/form-data" method="POST" action="/admin/events/{{ event.event_id }}">
                 <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                <input type="hidden" name="imageUrl" value="url">
                 <div class="event-form__row">
                     <div class="event-form__data-cell">
                         <label for="title">Název akce</label>
@@ -35,23 +34,13 @@
                         <label for="link">Odkaz</label>
                         <input type="text" name="link" id="link" placeholder="Odkaz" value="{{ event.event_link }}" />
                     </div>
-
-                    <div class="event-form__row">
-                        <div class="event-form__data-cell">
-                            <label for="image">Obrázek</label>
-                            <% if (editMode) { %>
-                                <img class="event-form__image" src="/<%= event.event_imageUrl %>" alt="{{ event.event_imageUrl }}">    
-                            <% } %>
-                            <% if (editMode) { %>
-                                <p class="event-form__image-text">Vybrat nový obrázek</p>
-                            <% } %>
-                            <input type="file" name="image" id="image">
-                        </div>
+                    <div class="event-form__data-cell">
+                        <label for="image">Obrázek</label>
+                        <input type="file" name="image" id="image">
                     </div>
-
                 </div>
                 <div class="event-form__actions">
-                    <input class="event-form__btn event-form__btn--submit" type="submit" value="Odeslat">
+                    <input class="event-form__btn event-form__btn--submit" id="submit" name="submit" type="submit" value="Odeslat">
                     <a href="/admin/events" class="event-form__btn event-form__btn--cancel">Zrušit</a>
                 </div>
             </form>

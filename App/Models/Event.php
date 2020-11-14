@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use PDO;
+use \Helpers\Dates;
 
 class Event extends \Core\Model {
     public static function getAll() {
@@ -17,11 +18,20 @@ class Event extends \Core\Model {
         }
     }
 
-    public static function getEvents($number = 3, $passed = false) {
+    public static function getEvents($number = 3, $passed = true) {
+        $todayDate = 0;
+        if (!$passed) {
+            $todayDate = time();
+        }
+
         try {
             $db = static::getDB();
-            $stmt = $db->query('SELECT * FROM events');
+            $stmt = $db->query("SELECT * FROM events WHERE event_date >= $todayDate ORDER BY event_date DESC LIMIT $number;");
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($results as &$result) {
+                $result['event_prettyDate'] = Dates::format($result['event_dateFrom'], $result['event_dateTo']);
+            }
 
             return $results;
         } catch (PDOException $e) {
@@ -36,6 +46,8 @@ class Event extends \Core\Model {
         $stmt->bindParam(':id', $id);
         $stmt->execute();
         $result = $stmt->fetch();
+
+        $result['event_prettyDate'] = Dates::format($result['event_dateFrom'], $result['event_dateTo']);
 
         return $result;
     }
@@ -54,15 +66,21 @@ class Event extends \Core\Model {
 
     public static function updateEvent($id, $event) {
         $db = static::getDB();
-        $stmt = $db->prepare('UPDATE events SET event_title=:title, event_date=:date, event_imageUrl=:imageUrl, event_link=:link, event_dateFrom=:dateFrom, event_dateTo=:dateTo WHERE event_id=:id;');
+
+        if ($event['imageUrl']) {
+            $stmt = $db->prepare('UPDATE events SET event_title=:title, event_date=:date, event_imageUrl=:imageUrl, event_link=:link, event_dateFrom=:dateFrom, event_dateTo=:dateTo WHERE event_id=:id;');
+            $stmt->bindParam(':imageUrl', $event['imageUrl']);
+        } else {
+            $stmt = $db->prepare('UPDATE events SET event_title=:title, event_date=:date, event_link=:link, event_dateFrom=:dateFrom, event_dateTo=:dateTo WHERE event_id=:id;');
+        }
         $stmt->bindParam(':title', $event['title']);
         $stmt->bindParam(':date', $event['date']);
-        $stmt->bindParam(':imageUrl', $event['imageUrl']);
         $stmt->bindParam(':link', $event['link']);
         $stmt->bindParam(':dateFrom', $event['dateFrom']);
         $stmt->bindParam(':dateTo', $event['dateTo']);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
+
     }
 
     public static function deleteEvent($id) {

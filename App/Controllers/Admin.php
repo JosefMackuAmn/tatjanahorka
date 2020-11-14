@@ -6,6 +6,7 @@ use \Core\View;
 use \App\Config;
 use \Exception;
 use \App\Models\Event;
+use \Helpers\File;
 
 class Admin extends \Core\Controller {
     
@@ -38,8 +39,11 @@ class Admin extends \Core\Controller {
 
     public function deleteAction($params) {
         $this->loggedInCheck();
+        $eventId = $params['id'];
 
-        Event::deleteEvent($params['id']);
+        $event = Event::getEvent($eventId);
+        File::delete($event['event_imageUrl']);
+        Event::deleteEvent($eventId);
 
         header('Location: /admin/events');
         exit();
@@ -93,10 +97,6 @@ class Admin extends \Core\Controller {
                 return $this->getEvent($params);
                 break;
 
-            case 'DELETE':
-                return $this->deleteEvent($params);
-                break;
-
             case 'POST':
                 return $this->postEvent($params);
                 break;
@@ -143,7 +143,7 @@ class Admin extends \Core\Controller {
     ///// admin/events
     // EVENTS: GET
     private function getEvents() {
-        $events = Event::getEvents();
+        $events = Event::getEvents(1000, true);
 
         View::renderTemplate('admin/events.html', [
             "events" => $events,
@@ -163,12 +163,18 @@ class Admin extends \Core\Controller {
         }
         $date = strtotime($dateFrom);
 
+        $imageUrl = File::upload();
+
+        if (!$imageUrl) {
+            throw new \Exception('No image was uploaded');
+        }
+
         $event = [
             "title" => $_POST['title'],
             "date" => $date,
             "dateFrom" => $dateFrom,
             "dateTo" => $_POST['dateTo'],
-            "imageUrl" => $_POST['imageUrl'],
+            "imageUrl" => $imageUrl,
             "link" => $_POST['link']
         ];
 
@@ -201,12 +207,22 @@ class Admin extends \Core\Controller {
         }
         $date = strtotime($dateFrom);
 
+        // Update image if isset and delete the old one
+        $imageUrl = false;
+        if (File::checkFile()) {
+            $oldEvent = Event::getEvent($eventId);
+            $oldImage = $oldEvent['event_imageUrl'];
+
+            File::delete($oldImage);
+            $imageUrl = File::upload();
+        }
+
         $event = [
             "title" => $_POST['title'],
             "date" => $date,
             "dateFrom" => $dateFrom,
             "dateTo" => $_POST['dateTo'],
-            "imageUrl" => $_POST['imageUrl'],
+            "imageUrl" => $imageUrl,
             "link" => $_POST['link']
         ];
 

@@ -6,6 +6,9 @@ set_error_handler('Core\Error::errorHandler');
 set_exception_handler('Core\Error::exceptionHandler');
 
 session_start();
+if (!isset($_SESSION['isAdmin'])) {
+    $_SESSION['isAdmin'] = false;
+}
 
 $sessionProvider = new \EasyCSRF\NativeSessionProvider();
 $easyCSRF = new \EasyCSRF\EasyCSRF($sessionProvider);
