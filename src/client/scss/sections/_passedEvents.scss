@@ -5,11 +5,19 @@
     position: relative;
     z-index: 3;
 
+    @media only screen and (max-width: 900px) {
+        height: auto;
+    }
+
     &__backgroundImage {
         width: 65%;
         height: 100%;
         transform: scaleX(-1);
         object-fit: cover;
+
+        @media only screen and (max-width: 900px) {
+            display: none;
+        }
     }
     &__content {
         height: 105%;
@@ -18,15 +26,36 @@
 
         position: absolute;
         top: 50%;
-        right: 0;
+        right: -2rem; // Who knows why there is white space
+
+        @media only screen and (max-width: 1100px) {
+            height: 100%;
+            right: -3rem;
+        }
+        @media only screen and (max-width: 900px) {
+            width: 100%;
+            height: auto;
+            background-color: $color-green;
+            transform: none;
+
+            position: static;
+        }
 
         &__background {
             height: 100%;
+
+            @media only screen and (max-width: 900px) {
+                display: none;
+            }
         }
         &__flowerBase {
             position: absolute;
             bottom: -4px; // Because of 4px blured gradient
             left: -6rem;
+
+            @media only screen and (max-width: 1100px) {
+                display: none;
+            }
         }
 
         &__text-content {
@@ -37,6 +66,19 @@
             position: absolute;
             right: 0;
             top: 0;
+
+            @media only screen and (max-width: 900px) {
+                width: 100%;
+                padding: 12rem 6rem;
+
+                position: static;
+            }
+            @media only screen and (max-width: 380px) {
+                width: 100%;
+                padding: 12rem 4rem;
+
+                position: static;
+            }
 
             & .heading-3 {
                 margin-bottom: 12rem;
@@ -58,6 +100,17 @@
                     position: absolute;
                     right: 0;
                     bottom: 0;
+                }
+
+                @media only screen and (max-width: 900px) {
+                    margin-bottom: 6rem;
+
+                    text-align: left;
+
+                    &::after {
+                        right: unset;
+                        left: 0;
+                    }
                 }
             }
         }
@@ -104,6 +157,15 @@
             box-shadow: 0 2px 4px 1px $color-black-overlay-light-2;
 
             text-align: center;
+
+            @media only screen and (max-width: 650px) {
+                width: 40rem;
+                height: 5rem;
+            }
+            @media only screen and (max-width: 500px) {
+                width: 28rem;
+                height: 5rem;
+            }
         }
     }
 }
