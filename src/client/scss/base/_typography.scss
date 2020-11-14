@@ -4,16 +4,31 @@
 /////
 .heading-1 {
     font-family: $font-cursive;
+    font-weight: normal;
+    font-size: 7rem;
+    color: white;
+    text-align: center;
 }
 .heading-2 {
-    font-weight: 400;
-    font-size: $font-large;
-    margin-bottom: 5rem;
+    font-family: $font-cursive;
+    font-weight: normal;
+    font-size: 4rem;
+    color: white;
+    text-align: center;
 }
 .heading-3 {
     font-size: 3.5rem;
     font-weight: 400;
     letter-spacing: 2px;
+}
+.heading-4 {
+    font-size: 2.5rem;
+    font-weight: normal;
+}
+.heading-5 {
+    font-weight: 400;
+    font-size: $font-large;
+    margin-bottom: 5rem;
 }
 
 /////
@@ -21,6 +36,7 @@
 /////
 .paragraph-1 {
     font-size: $font-regular;
+    font-weight: 300;
 
     &__break{
         margin-bottom: 5rem;
