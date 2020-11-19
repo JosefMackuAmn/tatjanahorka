@@ -1,3 +1,6 @@
+//VARIABLES
+$bp-cooperation-mobile: 800px;
+//
 .cooperation {
     width: 100%;
     padding-top: 15rem;
@@ -11,12 +14,29 @@
         padding-left: 5rem;
         padding-right: 5rem;
     }
+    @media screen and (max-width: $bp-cooperation-mobile) {
+        padding-bottom: 0;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
 
     & .heading-3 {
         margin-left: 11rem;
         margin-bottom: 10rem;
 
         position: relative;
+
+        @media screen and (max-width: $bp-cooperation-mobile) {
+            width: max-content;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media screen and (max-width: 400px) {
+            width: min-content;
+
+            text-align: center;
+        }
 
         &::before {
             content: "";
@@ -29,6 +49,12 @@
 
             position: absolute;
             left: -8rem;
+
+            @media screen and (max-width: $bp-cooperation-mobile) {
+               left: 50%;
+               top: -6rem;
+               transform: translateX(-50%);
+            }
         }
     }
     &__container {

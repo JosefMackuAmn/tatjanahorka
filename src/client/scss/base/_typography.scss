@@ -17,8 +17,27 @@
     font-weight: 400;
     letter-spacing: 2px;
     font-family: $font-kalam;
+    line-height: 5rem;
+
+    @media screen and (max-width: 800px) {
+       font-size: 3rem;
+       line-height: 4rem;
+    }
+    @media screen and (max-width: 500px) {
+        font-size: 2.5rem;
+     }
+     @media screen and (max-width: 400px) {
+       line-height: 3rem;
+     }
 }
 .heading-4 {
     font-size: 2.5rem;
     font-weight: normal;
+
+    @media screen and (max-width: 1100px) {
+        font-size: 2rem;
+      }
+    @media screen and (max-width: 500px) {
+       font-size: 1.5rem;
+     }
 }
