@@ -8,18 +8,17 @@
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
     position: relative;
     z-index: 2;
 
     @media only screen and (max-width: 1000px) {
-        justify-content: center;
         align-content: center;
         flex-wrap: wrap;
     }
 
-    &__btn-block {
+    /* &__btn-block {
         width: 51rem;
         height: 38rem;
         filter: drop-shadow(0 2px 4px $color-black-overlay-light);
@@ -131,7 +130,7 @@
         height: 100%;
         background-color: $color-green;
         clip-path: polygon(0 0, 100% 50%, 0 100%);
-    }
+    } */
 
     &__event {
         width: 35rem;
