@@ -1,11 +1,19 @@
+//VARIABLES
+$bp-profile-mobile: 800px;
+//
+
 .profile {
-    padding-bottom: 20rem;
+    margin-bottom: -4rem;
     background-image: linear-gradient(180deg, rgba(#9FBF73, 0.1) 0%, rgba(#81A84C, 0.1) 100%);
 
     display: flex;
     justify-content: flex-end;
 
     position: relative;
+
+    @media screen and (max-width: $bp-profile-mobile) {
+        flex-direction: column;
+    }
 
     &__svg {
         position: absolute;
@@ -20,6 +28,9 @@
             @media screen and (max-width: 1100px) {
                 width: 75%;
             }
+            @media screen and (max-width: $bp-profile-mobile) {
+                display: none;
+            }
         }
         &--root {
             width: 40%;
@@ -30,6 +41,10 @@
             transform: translateY(-50%);
             position: absolute;
             z-index: 2;
+
+            @media screen and (max-width: $bp-profile-mobile) {
+                display: none;
+            }
         }
     }
     &__photo {
@@ -50,6 +65,23 @@
         @media screen and (max-width: 1100px) {
             right: 75%;
         }
+        @media screen and (max-width: $bp-profile-mobile) {
+            width: 40rem;
+            height: 60rem;
+            margin-left: auto;
+            margin-right: auto;
+
+            position: relative;
+            right: unset;
+            top: unset;
+            transform: none;
+            bottom: -4rem;
+         }
+         @media screen and (max-width: 450px) {
+            bottom: 0;
+            width: 100%;
+            height: auto;
+        }
     }
     &__text {
         height: 65rem;
@@ -62,12 +94,17 @@
         @media screen and (max-width: 1100px) {
             width: 75%;
         }
+        @media screen and (max-width: $bp-profile-mobile) {
+          width: 100%;
+          padding-top: 10rem;
+          padding-bottom: 10rem;
+          height: auto;
+        }
     }
     &__p {
         width: 50rem;
         margin-left: auto;
         margin-right: auto;
-
 
         @media screen and (max-width: 1400px) {
             margin-left: 25rem;
@@ -75,6 +112,22 @@
         @media screen and (max-width: 1200px) {
             margin-left: 20rem;
         }
+        @media screen and (max-width: 1000px) {
+           width: 44rem;
+        }
+        @media screen and (max-width: 900px) {
+            width: 38rem;
+         }
+         @media screen and (max-width: $bp-profile-mobile) {
+           width: 40rem;
+           margin-left: auto;
+        }
+        @media screen and (max-width: 450px) {
+           width: 30rem;
+        }
+        @media screen and (max-width: 350px) {
+            width: 25rem;
+         }
 
         &:not(:last-child) {
             margin-bottom: 4rem;

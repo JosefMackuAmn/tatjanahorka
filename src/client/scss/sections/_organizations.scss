@@ -1,0 +1,142 @@
+//VARIABLES
+$bp-organizations-mobile: 800px;
+//
+.organizations {
+    padding-bottom: 20rem;
+
+    position: relative;
+
+    &__svg {
+        position: absolute;
+        z-index: 50;
+
+        &--elipse {
+            width: 50rem;
+            height: 50rem;
+
+            top: 30rem;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+
+            @media screen and (max-width: $bp-organizations-mobile) {
+                width: 45rem;
+                height: 45rem;
+            }
+            @media screen and (max-width: 500px) {
+                width: 40rem;
+                height: 40rem;
+
+                top: 25rem;
+            }
+            @media screen and (max-width: 400px) {
+                width: 30rem;
+                height: 30rem;
+            }
+        }
+        &--waterlily {
+            transition: transform .5s;
+        }
+    }
+    & .heading-3 {
+        width: 30rem;
+
+        color: $color-black;
+        text-align: center;
+       
+        top: 30rem;
+        left: 50%;
+         position: absolute;
+        transform: translateY(-50%) translateX(-50%);
+
+        @media screen and (max-width: 500px) {
+            top: 25rem;
+        }
+    }
+    & .heading-4 {
+        margin-top: -4rem;
+        position: relative;
+        z-index: 2;
+
+        @media screen and (max-width: 500px) {
+            margin-top: -3rem;
+        }
+    }
+    &__bg {
+        height: 40rem;
+        background: linear-gradient(96.16deg, #616160 1.42%, #9FBF73 109.66%);
+        opacity: 0.1;
+        clip-path: url(#organizations-clip-path);
+
+        @media screen and (max-width: 500px) {
+            height: 33rem;
+        }
+    }
+    &__container {
+        margin-top: 30rem;
+        
+        display: flex;
+        justify-content: space-around;
+
+        @media screen and (max-width: $bp-organizations-mobile) {
+            margin-top: 0;
+            padding-top: 20rem;
+            height: 50rem;
+
+            position: relative;
+        }
+        @media screen and (max-width: 400px) {
+           padding-top: 10rem;
+        }
+
+    }
+    &__organization {
+        height: 20rem;
+        width: 40rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        position: relative;
+
+        @media screen and (max-width: $bp-organizations-mobile) {
+            height: 17rem;
+            width: 30rem;
+            
+            &:first-of-type {
+                position: absolute;
+                top: 35rem;
+            }
+        }
+        @media screen and (max-width: 500px) {
+            height: 13rem;
+            width: 25rem;
+        }
+        @media screen and (max-width: 400px) {
+            height: 10rem;
+            width: 20rem;
+
+            &:first-of-type {
+                position: absolute;
+                top: 23rem;
+            }
+        }
+
+        &:hover {
+            & .organizations__svg--waterlily {
+                transform: translateY(1rem);
+            }
+        }
+    }
+    &__wave {
+        background-image: url('../img/wave.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 10rem;
+        height: 10rem;
+
+        position: absolute;
+        top: 3rem;
+        z-index: -1;
+    }
+}
