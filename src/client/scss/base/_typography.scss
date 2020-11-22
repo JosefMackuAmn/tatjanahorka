@@ -48,7 +48,7 @@
 .heading-5 {
     font-weight: 400;
     font-size: $font-large;
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
 }
 
 /////
@@ -59,6 +59,10 @@
     font-weight: 300;
 
     &__break {
-        margin-bottom: 5rem;
+        margin-bottom: 1rem;
+    }
+
+    @media only screen and (max-width: 800px) {
+        font-size: $font-smallest;
     }
 }

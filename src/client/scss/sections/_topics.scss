@@ -1,26 +1,21 @@
 .topics {
     width: 100vw;
     height: 80rem;
-
-    padding-right: 50rem;
+    padding-right: 10rem;
+    overflow: hidden;
 
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
+
     position: relative;
 
-    @media only screen and (max-width: 1900px) {
-        padding-right: 30rem;
-    }
-    @media only screen and (max-width: 1500px) {
-        padding-right: 10rem;
-    }
-    @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 1050px) {
         padding-right: 5rem;
     }
     @media only screen and (max-width: 800px) {
-        height: 110rem;
-        padding: 10rem;
+        height: auto;
 
         flex-direction: column;
         justify-content: center;
@@ -37,6 +32,7 @@
     
         right: 10%;
         top: -20%;
+        z-index: -1;
 
         @media only screen and (max-width: 1400px) {
             width: 45rem;
@@ -57,9 +53,9 @@
     }
     &__svgBottom {
         position: absolute;
-
         right: 0;
         bottom: -35%;
+        z-index: -1;
 
         @media only screen and (max-width: 1400px) {
             width: 45rem;
@@ -83,22 +79,18 @@
             width: 54rem;
             height: 80rem;
 
+            object-fit: cover;
+
             @media only screen and (max-width: 1200px) {
                 width: 35rem;
                 height: 60rem;
-            
-                transform: translateY(10rem);
-            }
-            @media only screen and (max-width: 950px) {
-                margin-right: 3rem;
             }
             @media only screen and (max-width: 800px) {
                 display: none;
             }
         }
         &__mobile {
-            width: 100%;
-
+            height: 100vw;
             transform: rotate(270deg);
 
             @media only screen and (min-width: 801px) {
@@ -107,16 +99,16 @@
         }
     }
     &__text {
-        width: 50rem;
+        padding-left: 10rem;
 
-        transform: translateY(10rem);
-
+        @media only screen and (max-width: 1050px) {
+            padding-left: 5rem;
+        }
         @media only screen and (max-width: 800px) {
-            width: 90vw;
+            width: 100%;
+            padding: 5rem;
 
             overflow-wrap: normal;
-
-            transform: none;
         }
 
         &__head {
@@ -135,19 +127,14 @@
 
             &__svg {
                 margin-right: 2rem;
-            }
-            &__text {
+
                 @media only screen and (max-width: 800px) {
-                    font-size: $font-big;
+                    margin: 0;
                 }
             }
         }
         &__consultation {
             margin-bottom: 5rem;
-
-            @media only screen and (max-width: 800px) {
-                font-size: $font-smallest;
-            }
 
         }
         &__reflect {

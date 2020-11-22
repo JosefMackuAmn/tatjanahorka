@@ -1,11 +1,17 @@
 .way {
     width: 100vw;
-    padding: 10rem;
+    padding: 15rem 10rem;
+    overflow: hidden;
 
     position: relative;
 
-    @media only screen and (max-width: 600px) {
-        padding: 6rem;
+    @media only screen and (max-width: 1200px) {
+        padding: 10rem;
+        padding-top: 0;
+    }
+    @media only screen and (max-width: 800px) {
+        padding: 5rem;
+        padding-top: 0;
     }
     @media only screen and (max-width: 400px) {
         padding: 3rem;
@@ -15,6 +21,7 @@
         position: absolute;
         top: 35%;
         left: 20%;
+        z-index: -1;
 
         @media only screen and (max-width: 1400px) {
             width: 45rem;
@@ -47,6 +54,10 @@
 
         &__svg {
             margin-right: 2rem;
+
+            @media only screen and (max-width: 800px) {
+                margin: 0;
+            }
         }
         &__text {
             @media only screen and (max-width: 400px) {

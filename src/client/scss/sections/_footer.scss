@@ -1,27 +1,14 @@
 .footer {
     width: 100vw;
-    height: 60rem;
     padding: 10rem;
     background-color: $color-green-footer;
+
     color: white;
 
     position: relative;
 
-    @media only screen and (max-width: 1200px) {
-        height: 50rem;
-    }
-    @media only screen and (max-width: 1050px) {
-        padding: 5rem;
-    }
-    @media only screen and (max-width: 1000px) {
-        height: 40rem;
-
-        padding: 5rem 0;
-    }
     @media only screen and (max-width: 800px) {
-        height: 115rem;
-
-        padding: 5rem 15rem;
+        padding: 5rem;
     }
     @media only screen and (max-width: 680px) {
         height: 105rem;
@@ -128,30 +115,13 @@
             }
         }
 
-        &__contact {
-            margin: 3rem;
-
-            @media only screen and (max-width: 1000px) {
-                margin: 1rem;
-            }
-            @media only screen and (max-width: 800px) {
-                margin-bottom: 4rem;
-            }
-        }
-
-        &__price {
-            margin: 3rem;
-
-            @media only screen and (max-width: 1000px) {
-                margin: 1rem;
-            }
-            @media only screen and (max-width: 800px) {
-                margin-bottom: 4rem;
+        &__column {
+            &:not(:last-child) {
+                margin-right: 3rem;
             }
         }
         
         &__help {
-            margin: 3rem;
 
             @media only screen and (max-width: 1000px) {
                 margin: 1rem;
