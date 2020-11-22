@@ -31,6 +31,10 @@ $bp-profile-mobile: 800px;
             @media screen and (max-width: $bp-profile-mobile) {
                 display: none;
             }
+            @media only screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                top: -45.3%;
+                right: 0.3%;
+            }
         }
         &--root {
             width: 40%;

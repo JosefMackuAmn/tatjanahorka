@@ -42,6 +42,10 @@ $bp-cooperation-mobile: 900px;
   }
   &__text {
     font-size: 1.6rem;
+
+    @media only screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      width: 25rem; 
+    }
   }
   &__content {
     @media screen and (max-width: 1300px) {
