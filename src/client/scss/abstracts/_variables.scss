@@ -40,3 +40,19 @@ $font-largest: 5.9rem;
 $font-cursive: 'Dancing Script', cursive;
 $font-kalam: 'Kalam', cursive;
 
+///////////////
+///// BREAKPOINTS
+
+$bp-organizations-mobile: 800px;
+$bp-cooperation-mobile: 800px;
+$bp-profile-mobile: 800px;
+$bp-header-mobile: 800px;
+$bp-reviews-mobile: 800px;
+
+
+///////////////
+///// ANIMATIONS
+$animation-review-appear: reviewAppear 2s forwards;
+$animation-review-disappear: reviewDisappear 2s forwards;
+$animation-leaf-fall: leafFall 4s linear forwards;
+

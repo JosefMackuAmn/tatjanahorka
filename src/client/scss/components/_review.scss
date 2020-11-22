@@ -1,7 +1,3 @@
-//VARIABLES
-$bp-reviews-mobile: 800px;
-//
-
 .review {
   width: 70rem;
   margin-left: auto;
@@ -29,18 +25,22 @@ $bp-reviews-mobile: 800px;
   &__person {
     position: relative;
 
+    @media screen and (max-width: $bp-reviews-mobile) {
+      width: 100%;
+     }
+
     &--hidden {
       display: none;
     }
     &--hiding {
       display: flex;
   
-      animation: reviewDisappear 3s forwards;
+      animation: $animation-review-disappear;
     }
     &--visible {
       display: flex;
   
-      animation: reviewAppear 3s forwards;
+      animation: $animation-review-appear;
     }
 
     @media screen and (max-width: 1400px) {
@@ -80,7 +80,8 @@ $bp-reviews-mobile: 800px;
       margin-left: 12rem;
     }
     @media screen and (max-width: $bp-reviews-mobile) {
-      margin: 0;
+      margin-left: 0;
+      margin-top: 5rem;
 
       font-size: $font-smallest;
 
@@ -106,12 +107,12 @@ $bp-reviews-mobile: 800px;
     }
     &--hiding {
       display: block;
-      animation: leafFall 5s linear forwards;
+      animation: $animation-leaf-fall;
     }
     &--visible {
       display: block;
 
-      animation: reviewAppear 3s forwards;
+      animation: $animation-review-appear;
     }
 
     @media screen and (max-width: $bp-reviews-mobile) {
@@ -139,9 +140,13 @@ $bp-reviews-mobile: 800px;
 
     position: absolute;
     z-index: -1;
+
+    @media screen and (max-width: $bp-reviews-mobile) {
+      width: 15rem;
+      height: 17rem;
+     }
   }
   &__photo {
-    width: 100%;
     width: 20rem;
     height: 25rem;
 
@@ -152,9 +157,10 @@ $bp-reviews-mobile: 800px;
     position: relative;
 
     @media screen and (max-width: $bp-reviews-mobile) {
-     width: 15rem;
-     height: 17rem;
-    }
+      width: 100%;
+      height: 100%;
+     }
+    
   }
   & .heading-5 {
     width: 100%;
@@ -164,10 +170,10 @@ $bp-reviews-mobile: 800px;
     text-align: center;
 
     position: absolute;
-    bottom: -8rem;
+    bottom: -4rem;
 
     @media screen and (max-width: $bp-reviews-mobile) {
-      width: 120%;
+      bottom: -8rem;
      }
   }
   &__text {
@@ -177,12 +183,12 @@ $bp-reviews-mobile: 800px;
     &--hiding {
       display: flex;
   
-      animation: reviewDisappear 3s forwards;
+      animation: $animation-review-disappear;
     }
     &--visible {
       display: flex;
   
-      animation: reviewAppear 3s forwards;
+      animation: $animation-review-appear;
     }
   }
 }

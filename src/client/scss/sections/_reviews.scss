@@ -1,7 +1,3 @@
-//VARIABLES
-$bp-reviews-mobile: 800px;
-//
-
 .reviews {
     padding-top: 10rem;
     padding-bottom: 20rem;
@@ -11,6 +7,6 @@ $bp-reviews-mobile: 800px;
     flex-direction: column;
 
     @media screen and (max-width: $bp-reviews-mobile) {
-        height: 75rem;
+        height: 70rem;
     }
 }
