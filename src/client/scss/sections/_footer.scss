@@ -98,22 +98,6 @@
                 }
             }
         }
-        & .heading-5 {
-            @media only screen and (max-width: 1400px) {
-                font-size: $font-big;
-            }
-            @media only screen and (max-width: 1100px) {
-                font-size: $font-regular;
-            }
-            @media only screen and (max-width: 800px) {
-                font-size: $font-big;
-
-                margin-bottom: 3rem;
-            }
-            @media only screen and (max-width: 510px) {
-                font-size: $font-regular;
-            }
-        }
 
         &__column {
             &:not(:last-child) {
@@ -122,6 +106,7 @@
         }
         
         &__help {
+            position: relative;
 
             @media only screen and (max-width: 1000px) {
                 margin: 1rem;
@@ -132,9 +117,11 @@
 
             }
 
-            &__photo {
+            /* &__photo {
                 width: 40rem;
                 height: 22rem;
+
+                object-fit: cover;
 
                 @media only screen and (max-width: 1400px) {
                     width: 25rem;
@@ -168,37 +155,15 @@
                 @media only screen and (max-width: 330px) {
                     padding-left: 5rem;
                 }
-            }
+            } */
             &__text {
-                transform: translate(28rem,-3rem);
-                font-size: $font-big;
+                /* transform: translate(-50%, 50%);
 
-                @media only screen and (max-width: 1400px) {
-                    transform: translate(18rem,-3rem);
-                }
-                @media only screen and (max-width: 1000px) {
-                    transform: translate(8rem,-3rem);
-                }
-                @media only screen and (max-width: 800px) {
-                    padding-right: 10rem;
+                position: absolute;
+                bottom: 0; */
+                width: 100%;
 
-                    transform: translateX(22%);
-                }
-                @media only screen and (max-width: 680px) {
-                    transform: translateX(25%);
-                }
-                @media only screen and (max-width: 580px) {
-                    transform: translateX(35%);
-                }
-                @media only screen and (max-width: 430px) {
-                    transform: translateX(25%);
-                }
-                @media only screen and (max-width: 370px) {
-                    transform: translateX(27%);
-                }
-                @media only screen and (max-width: 330px) {
-                    transform: translateX(23%);
-                }
+                text-align: center;
             }
         }
     }
