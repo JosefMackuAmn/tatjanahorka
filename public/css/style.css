@@ -1,3 +1,34 @@
+@keyframes leafFall {
+  0% {
+    transform: translateY(-50%) translateX(-50%);
+    transform-origin: 0 100%; }
+  20% {
+    transform: translateY(calc(-50% + 2rem)) scaleY(-1) translateX(calc(-50% + 1rem)); }
+  40% {
+    transform: translateY(calc(-50% + 4rem)) scaleY(-1) rotateX(180deg) rotateY(30deg) translateX(-50%); }
+  50% {
+    transform: translateY(5rem) scaleY(-1) rotateX(270deg); }
+  60% {
+    transform: translateY(6rem) scaleY(-1) rotateX(360deg) rotateY(30deg) rotate(15deg) translateX(1rem); }
+  80% {
+    opacity: 1;
+    transform: translateY(9rem) scaleY(-1) rotateX(540deg) translateX(1rem); }
+  100% {
+    transform: translateY(12rem) rotateX(760deg) scaleY(-1) translateX(2rem);
+    opacity: 0; } }
+
+@keyframes reviewDisappear {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes reviewAppear {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 *,
 *::before,
 *::after {
@@ -53,14 +84,14 @@ a:link {
       line-height: 3rem; } }
 
 .heading-4 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: normal; }
   @media screen and (max-width: 1100px) {
     .heading-4 {
       font-size: 2rem; } }
   @media screen and (max-width: 500px) {
     .heading-4 {
-      font-size: 1.5rem; } }
+      font-size: 1.6rem; } }
 
 .heading-5 {
   font-weight: 400;
@@ -120,7 +151,22 @@ a:link {
   .cooperation-way__drawing {
     width: 20rem;
     height: 20rem;
-    margin-top: auto; }
+    margin-top: auto;
+    transition: all .5s; }
+    .cooperation-way__drawing--resonance {
+      transform: scaleY(1.15); }
+      .cooperation-way__drawing--resonance:hover {
+        transform: scaleY(1.15) rotate(4deg); }
+    .cooperation-way__drawing--dynamics {
+      transform: scaleY(1.4) translateY(10%); }
+      .cooperation-way__drawing--dynamics:hover {
+        transform: scaleY(1.4) translateY(10%) rotate(-4deg); }
+    .cooperation-way__drawing--institutions {
+      transform: scaleY(0.75); }
+      .cooperation-way__drawing--institutions:hover {
+        transform: scaleY(0.75) rotate(4deg); }
+    .cooperation-way__drawing--consultations:hover {
+      transform: rotate(-4deg); }
     @media screen and (max-width: 1300px) {
       .cooperation-way__drawing {
         margin-top: 0;
@@ -136,6 +182,130 @@ a:link {
     @media screen and (max-width: 900px) {
       .cooperation-way__drawing {
         margin-top: 2rem; } }
+
+.review {
+  width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .review--hidden {
+    display: none; }
+  .review--hiding {
+    display: flex;
+    animation: reviewDisappear 2s forwards; }
+  .review--visible {
+    display: flex;
+    animation: reviewAppear 2s forwards; }
+  @media screen and (max-width: 1400px) {
+    .review {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+      justify-content: flex-start; } }
+  @media screen and (max-width: 800px) {
+    .review {
+      flex-direction: column; } }
+  .review__person {
+    position: relative; }
+    @media screen and (max-width: 1400px) {
+      .review__person {
+        margin-left: auto;
+        margin-right: 30rem; } }
+    @media screen and (max-width: 1200px) {
+      .review__person {
+        margin-right: 20rem; } }
+    @media screen and (max-width: 950px) {
+      .review__person {
+        margin-right: 12rem; } }
+    @media screen and (max-width: 800px) {
+      .review__person {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 15rem; } }
+    @media screen and (max-width: 350px) {
+      .review__person {
+        margin-bottom: 17rem; } }
+  .review__text {
+    width: 30rem;
+    font-weight: 300;
+    font-size: 1.8rem;
+    position: relative; }
+    @media screen and (max-width: 1400px) {
+      .review__text {
+        margin-left: 30rem; } }
+    @media screen and (max-width: 1200px) {
+      .review__text {
+        margin-left: 20rem; } }
+    @media screen and (max-width: 950px) {
+      .review__text {
+        margin-left: 12rem; } }
+    @media screen and (max-width: 800px) {
+      .review__text {
+        margin: 0;
+        font-size: 1.6rem;
+        order: 1; } }
+    @media screen and (max-width: 350px) {
+      .review__text {
+        width: 20rem;
+        text-align: center; } }
+  .review__leaf {
+    width: 4rem;
+    height: 4rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    left: -4rem; }
+    .review__leaf--hidden {
+      display: none; }
+    .review__leaf--hiding {
+      display: block;
+      animation: leafFall 5s linear forwards; }
+    .review__leaf--visible {
+      display: block; }
+    @media screen and (max-width: 800px) {
+      .review__leaf {
+        width: 5rem;
+        height: 5rem;
+        top: -4rem;
+        left: 50%; } }
+  .review__img {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    border: 2px solid #ffffff; }
+    @media screen and (max-width: 800px) {
+      .review__img {
+        width: 10rem;
+        height: 10rem; } }
+  .review__wooden-plate {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1; }
+  .review__photo {
+    width: 100%;
+    width: 20rem;
+    height: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; }
+    @media screen and (max-width: 800px) {
+      .review__photo {
+        width: 15rem;
+        height: 17rem; } }
+  .review .heading-5 {
+    width: 100%;
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-align: center;
+    position: absolute;
+    bottom: -8rem; }
+    @media screen and (max-width: 800px) {
+      .review .heading-5 {
+        width: 120%; } }
 
 .cooperation {
   width: 100%;
@@ -494,6 +664,9 @@ a:link {
 .organizations {
   padding-bottom: 20rem;
   position: relative; }
+  @media screen and (max-width: 800px) {
+    .organizations {
+      padding-bottom: 0; } }
   .organizations__svg {
     position: absolute;
     z-index: 50; }
@@ -516,8 +689,23 @@ a:link {
         .organizations__svg--elipse {
           width: 30rem;
           height: 30rem; } }
-    .organizations__svg--waterlily {
-      transition: transform .5s; }
+    .organizations__svg--leaf {
+      width: 100%;
+      height: 100%; }
+      .organizations__svg--leaf:first-of-type {
+        transform: translateX(-3rem) translateY(0.5rem) rotate(-10deg) scale(0.75); }
+        @media screen and (max-width: 800px) {
+          .organizations__svg--leaf:first-of-type {
+            transform: translateX(-2rem) translateY(0.5rem) rotate(-10deg) scale(0.75); } }
+      .organizations__svg--leaf:not(:first-of-type) {
+        transform: translateX(2.5rem) translateY(0rem) rotate(130deg) scale(0.75); }
+        @media screen and (max-width: 800px) {
+          .organizations__svg--leaf:not(:first-of-type) {
+            transform: translateX(1.5rem) translateY(0rem) rotate(130deg) scale(0.75); } }
+    .organizations__svg--bloom {
+      width: 100%;
+      height: 100%;
+      transform: scaleX(-1) rotate(-10deg); }
   .organizations .heading-3 {
     width: 30rem;
     color: #000000;
@@ -530,12 +718,8 @@ a:link {
       .organizations .heading-3 {
         top: 25rem; } }
   .organizations .heading-4 {
-    margin-top: -4rem;
     position: relative;
     z-index: 2; }
-    @media screen and (max-width: 500px) {
-      .organizations .heading-4 {
-        margin-top: -3rem; } }
   .organizations__bg {
     height: 40rem;
     background: linear-gradient(96.16deg, #616160 1.42%, #9FBF73 109.66%);
@@ -552,29 +736,28 @@ a:link {
       .organizations__container {
         margin-top: 0;
         padding-top: 20rem;
-        height: 50rem;
+        height: 55rem;
         position: relative; } }
     @media screen and (max-width: 400px) {
       .organizations__container {
         padding-top: 10rem; } }
   .organizations__organization {
     height: 20rem;
-    width: 40rem;
+    width: 25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative; }
     @media screen and (max-width: 800px) {
       .organizations__organization {
-        height: 17rem;
-        width: 30rem; }
+        height: 10rem;
+        width: 25rem; }
         .organizations__organization:first-of-type {
           position: absolute;
           top: 35rem; } }
     @media screen and (max-width: 500px) {
       .organizations__organization {
-        height: 13rem;
-        width: 25rem; } }
+        height: 10rem; } }
     @media screen and (max-width: 400px) {
       .organizations__organization {
         height: 10rem;
@@ -582,17 +765,38 @@ a:link {
         .organizations__organization:first-of-type {
           position: absolute;
           top: 23rem; } }
-    .organizations__organization:hover .organizations__svg--waterlily {
-      transform: translateY(1rem); }
+    .organizations__organization:hover .organizations__waterlily {
+      transform: translateY(0.5rem); }
   .organizations__wave {
     background-image: url("../img/wave.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 10rem;
-    height: 10rem;
+    width: 8rem;
+    height: 8rem;
     position: absolute;
-    top: 3rem;
+    top: .5rem;
     z-index: -1; }
+    @media screen and (max-width: 1100px) {
+      .organizations__wave {
+        width: 6rem;
+        height: 6rem; } }
+    @media screen and (max-width: 800px) {
+      .organizations__wave {
+        width: 4.5rem;
+        height: 4.5rem; } }
+    @media screen and (max-width: 500px) {
+      .organizations__wave {
+        width: 4rem;
+        height: 4rem; } }
+  .organizations__waterlily {
+    width: 6rem;
+    height: 6rem;
+    transition: transform .3s;
+    position: relative; }
+    @media screen and (max-width: 800px) {
+      .organizations__waterlily {
+        width: 5rem;
+        height: 5rem; } }
 
 .passedEvents {
   width: 100vw;
@@ -878,7 +1082,8 @@ a:link {
 .way {
   width: 100vw;
   padding: 10rem;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .way__stain {
     position: absolute;
     transform: translate(15rem, 6rem); }
@@ -889,3 +1094,9 @@ a:link {
     align-items: center; }
     .way__header__svg {
       margin-right: 2rem; }
+
+.reviews {
+  padding-top: 10rem;
+  padding-bottom: 20rem;
+  display: flex;
+  flex-direction: column; }

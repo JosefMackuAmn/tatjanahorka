@@ -1,0 +1,48 @@
+@keyframes leafFall {
+ 0% {
+     transform: translateY(-50%) translateX(-50%);;
+     transform-origin: 0 100%;
+ }
+
+ 20% {
+     transform: translateY(calc(-50% + 2rem)) scaleY(-1) translateX(calc(-50% + 1rem));
+ }
+
+ 40% {
+    transform: translateY(calc(-50% + 4rem)) scaleY(-1) rotateX(180deg) rotateY(30deg) translateX(-50%);
+ }
+
+ 50% {
+    transform: translateY(5rem) scaleY(-1) rotateX(270deg) ;
+ }
+
+ 60% {
+    transform: translateY(6rem)  scaleY(-1) rotateX(360deg) rotateY(30deg) rotate(15deg) translateX(1rem);
+ }
+ 80% {
+     opacity: 1;
+     transform: translateY(9rem)  scaleY(-1) rotateX(540deg) translateX(1rem);
+ }
+ 100% {
+    transform: translateY(12rem) rotateX(760deg) scaleY(-1) translateX(2rem);
+    opacity: 0;
+ }
+}
+
+@keyframes reviewDisappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes reviewAppear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

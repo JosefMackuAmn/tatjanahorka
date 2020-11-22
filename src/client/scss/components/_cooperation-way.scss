@@ -60,6 +60,34 @@ $bp-cooperation-mobile: 900px;
     width: 20rem;
     height: 20rem;
     margin-top: auto;
+    transition: all .5s;
+
+    &--resonance {
+      transform: scaleY(1.15);
+
+      &:hover {
+        transform: scaleY(1.15) rotate(4deg);
+      }
+    }
+    &--dynamics {
+      transform: scaleY(1.4) translateY(10%);
+
+      &:hover {
+        transform: scaleY(1.4) translateY(10%) rotate(-4deg);
+      }
+    }
+    &--institutions {
+      transform: scaleY(.75);
+
+      &:hover {
+        transform: scaleY(.75) rotate(4deg);
+      }
+    }
+    &--consultations {
+      &:hover {
+        transform: rotate(-4deg);
+      }
+    }
 
     @media screen and (max-width: 1300px) {
       margin-top: 0;
