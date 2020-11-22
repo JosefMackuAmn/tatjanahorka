@@ -1,13 +1,12 @@
 .topics {
     width: 100vw;
-    height: 80rem;
-    padding-right: 10rem;
+    height: auto;
     overflow: hidden;
 
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
 
     position: relative;
 
@@ -74,10 +73,14 @@
         }
     }
     &__img {
+        &__container {
+            width: 450px;
+            flex-shrink: 0;
+        }
 
         &__regular {
-            width: 54rem;
-            height: 80rem;
+            width: 100%;
+            height: 100%;
 
             object-fit: cover;
 
@@ -99,7 +102,8 @@
         }
     }
     &__text {
-        padding-left: 10rem;
+        width: 100%;
+        margin: 15rem 10rem;
 
         @media only screen and (max-width: 1050px) {
             padding-left: 5rem;

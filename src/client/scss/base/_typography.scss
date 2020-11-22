@@ -36,7 +36,7 @@
 }
 .heading-4 {
     font-size: 2rem;
-    font-weight: normal;
+    font-weight: bold;
 
     @media screen and (max-width: 1100px) {
         font-size: 2rem;
@@ -49,6 +49,13 @@
     font-weight: 400;
     font-size: $font-big;
     margin-bottom: 1rem;
+    
+    @media only screen and (max-width: 1100px) {
+        margin-bottom: .5rem;
+    }
+    @media only screen and (max-width: 1350px) {
+        font-size: $font-regular;
+    }
 }
 
 /////
@@ -62,7 +69,7 @@
         margin-bottom: 1rem;
     }
 
-    @media only screen and (max-width: 800px) {
-        font-size: $font-smallest;
+    @media only screen and (max-width: 1350px) {
+        font-size: $font-small;
     }
 }

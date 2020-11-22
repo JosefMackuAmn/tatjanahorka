@@ -4,7 +4,7 @@ $bp-cooperation-mobile: 900px;
 
 .cooperation-way {
   height: 45rem;
-  width: 25rem;
+  width: 22%;
 
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ $bp-cooperation-mobile: 900px;
   }
 
   & .heading-4 {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 
     @media screen and (max-width: $bp-cooperation-mobile) {
       text-align: center;
