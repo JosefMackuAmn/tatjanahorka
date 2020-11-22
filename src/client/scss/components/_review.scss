@@ -7,22 +7,12 @@ $bp-reviews-mobile: 800px;
   margin-left: auto;
   margin-right: auto;
 
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
 
-  &--hidden {
-    display: none;
-  }
-  &--hiding {
+  &--active {
     display: flex;
-
-    animation: reviewDisappear 2s forwards;
-  }
-  &--visible {
-    display: flex;
-
-    animation: reviewAppear 2s forwards;
   }
 
   @media screen and (max-width: 1400px) {
@@ -38,6 +28,20 @@ $bp-reviews-mobile: 800px;
 
   &__person {
     position: relative;
+
+    &--hidden {
+      display: none;
+    }
+    &--hiding {
+      display: flex;
+  
+      animation: reviewDisappear 3s forwards;
+    }
+    &--visible {
+      display: flex;
+  
+      animation: reviewAppear 3s forwards;
+    }
 
     @media screen and (max-width: 1400px) {
       margin-left: auto;
@@ -58,7 +62,7 @@ $bp-reviews-mobile: 800px;
         margin-bottom: 17rem;
     }
   }
-  &__text {
+  &__p {
     width: 30rem;
 
     font-weight: 300;
@@ -97,8 +101,6 @@ $bp-reviews-mobile: 800px;
     transform: translateY(-50%) translateX(-50%);
     left: -4rem;
 
-    //animation: leafFall 5s linear infinite;
-
     &--hidden {
       display: none;
     }
@@ -108,6 +110,8 @@ $bp-reviews-mobile: 800px;
     }
     &--visible {
       display: block;
+
+      animation: reviewAppear 3s forwards;
     }
 
     @media screen and (max-width: $bp-reviews-mobile) {
@@ -165,5 +169,20 @@ $bp-reviews-mobile: 800px;
     @media screen and (max-width: $bp-reviews-mobile) {
       width: 120%;
      }
+  }
+  &__text {
+    &--hidden {
+      display: none;
+    }
+    &--hiding {
+      display: flex;
+  
+      animation: reviewDisappear 3s forwards;
+    }
+    &--visible {
+      display: flex;
+  
+      animation: reviewAppear 3s forwards;
+    }
   }
 }

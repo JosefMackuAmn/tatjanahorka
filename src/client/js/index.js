@@ -6,7 +6,6 @@
 // Visible class - display: block (or whatever except none) and an animation of the element appearing on the page (sliding -in or so)
 // Hiding class - animation of the element disappearing
 // Element has only one of these classes at a time.
-// The hiding class is changed to hidden class after 'animationend' event on the element
 const showOrHideEl = (element, cssClass) => {
     if([...element.classList].includes(`${cssClass}--hidden`)) {
         element.classList.remove(`${cssClass}--hidden`);
@@ -158,60 +157,75 @@ setUpWaveRange();
 
 //REVIEWS
 
+//Cyclically changes the state of review elements (HIDDEN -> VISIBLE -> HIDING -> HIDDEN -> ...)
+const showOrHideReviewElements = (reviewLeaf, reviewPerson, reviewText) => {
+    showOrHideEl(reviewLeaf, 'review__leaf');
+    showOrHideEl(reviewPerson, 'review__person');
+    showOrHideEl(reviewText, 'review__text');
+}
+
+//Hooking reviews section
 const reviewsSection = document.getElementById('reviews');
+
+//Getting array of reviews
 const reviews = reviewsSection.children;
 
+//Setting up iterator
 let currentId = 0;
+
+//When called, starts cycling through reviews (browser calls it again, when leaf animation ends) 
 const reviewCycler = () => {
+        //Getting current review
         const review = reviews[currentId];
+
+        //Adding active class, so the reviw doesn´t have display: none anymore
+        review.classList.add('review--active');
+
+        //Getting reviewLeaf, reviewText and reviewPerson
         const reviewLeaf = review.querySelector('.review__leaf');
-        const reviewText = review.querySelector('span');
-        const reviewPerson = reviewLeaf.querySelector('.review__person');
-
-      /*  showOrHideEl(reviewLeaf, 'review__leaf'); */
-       showOrHideEl(review, 'review');
+        const reviewText = review.querySelector('.review__text');
+        const reviewPerson = review.querySelector('.review__person');
+    
+        //Setting state for review elements from HIDDEN to VISIBLE
+        showOrHideReviewElements(reviewLeaf, reviewPerson, reviewText);
       
-
+        //Incrementing the iterator
         currentId++;
+
+        //If the iterator after incrementing exceeds review count, setting it back to 0, so the cycling can continue from the first review
         if(currentId === reviews.length) {
             currentId = 0;
         }
-        setTimeout(() => {
-            reviewLeaf.classList.remove('review__leaf--visible');;
-            reviewLeaf.classList.add('review__leaf--hiding');
-            review.classList.remove('review--visible');
-            review.classList.add('review--hiding');
-        }, 15000);
-        reviewLeaf.addEventListener('animationend', () => {
-            reviewLeaf.classList.remove('review__leaf--hiding');;
-            reviewLeaf.classList.add('review__leaf--hidden');
-           
 
-            /* review.addEventListener('animationend', (e) => {
-                e.stopImmediatePropagation();
+        //Setting timeout for when should the review start disappearing
+        setTimeout(() => {
+
+            //Setting state for review elements from VISIBLE to HIDING
+            showOrHideReviewElements(reviewLeaf, reviewPerson, reviewText);
+
+            //When leaf fall animation finishes
+            reviewLeaf.addEventListener('animationend', () => {
+
+                 //Setting state for review elements from HIDING to HIDDEN
+                showOrHideReviewElements(reviewLeaf, reviewPerson, reviewText);
+
+                //Removing the review active class, therefore display: none is set
+                review.classList.remove('review--active');
+
+                //Beginning antother cycle
+                reviewCycler();
+
             }, 
+            // Making sure, that the leaf fall animation event triggers only once
             {
                 capture: false,
                 once: true,
                 passive: false
-            }); */
-
-            review.classList.remove('review--hiding');
-                review.classList.add('review--hidden');
-                reviewCycler();
-           /*  review.addEventListener('animationend', (event) => {
-               
-                
-            }, {
-                capture: false,
-                once: true,
-                passive: false
-                }); */
-        }, {
-            capture: false,
-            once: true,
-            passive: false
-            });
+                });
+        }, 15000);
+       
 
 }
+
+//Starting to cycle when the page loads
 reviewCycler(); 
