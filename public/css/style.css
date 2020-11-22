@@ -187,17 +187,11 @@ a:link {
   width: 70rem;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between; }
-  .review--hidden {
-    display: none; }
-  .review--hiding {
-    display: flex;
-    animation: reviewDisappear 2s forwards; }
-  .review--visible {
-    display: flex;
-    animation: reviewAppear 2s forwards; }
+  .review--active {
+    display: flex; }
   @media screen and (max-width: 1400px) {
     .review {
       margin-left: 0;
@@ -209,6 +203,14 @@ a:link {
       flex-direction: column; } }
   .review__person {
     position: relative; }
+    .review__person--hidden {
+      display: none; }
+    .review__person--hiding {
+      display: flex;
+      animation: reviewDisappear 3s forwards; }
+    .review__person--visible {
+      display: flex;
+      animation: reviewAppear 3s forwards; }
     @media screen and (max-width: 1400px) {
       .review__person {
         margin-left: auto;
@@ -227,27 +229,27 @@ a:link {
     @media screen and (max-width: 350px) {
       .review__person {
         margin-bottom: 17rem; } }
-  .review__text {
+  .review__p {
     width: 30rem;
     font-weight: 300;
     font-size: 1.8rem;
     position: relative; }
     @media screen and (max-width: 1400px) {
-      .review__text {
+      .review__p {
         margin-left: 30rem; } }
     @media screen and (max-width: 1200px) {
-      .review__text {
+      .review__p {
         margin-left: 20rem; } }
     @media screen and (max-width: 950px) {
-      .review__text {
+      .review__p {
         margin-left: 12rem; } }
     @media screen and (max-width: 800px) {
-      .review__text {
+      .review__p {
         margin: 0;
         font-size: 1.6rem;
         order: 1; } }
     @media screen and (max-width: 350px) {
-      .review__text {
+      .review__p {
         width: 20rem;
         text-align: center; } }
   .review__leaf {
@@ -263,7 +265,8 @@ a:link {
       display: block;
       animation: leafFall 5s linear forwards; }
     .review__leaf--visible {
-      display: block; }
+      display: block;
+      animation: reviewAppear 3s forwards; }
     @media screen and (max-width: 800px) {
       .review__leaf {
         width: 5rem;
@@ -306,6 +309,14 @@ a:link {
     @media screen and (max-width: 800px) {
       .review .heading-5 {
         width: 120%; } }
+  .review__text--hidden {
+    display: none; }
+  .review__text--hiding {
+    display: flex;
+    animation: reviewDisappear 3s forwards; }
+  .review__text--visible {
+    display: flex;
+    animation: reviewAppear 3s forwards; }
 
 .cooperation {
   width: 100%;
@@ -1098,5 +1109,9 @@ a:link {
 .reviews {
   padding-top: 10rem;
   padding-bottom: 20rem;
+  height: 65rem;
   display: flex;
   flex-direction: column; }
+  @media screen and (max-width: 800px) {
+    .reviews {
+      height: 75rem; } }

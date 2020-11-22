@@ -1,7 +1,16 @@
+//VARIABLES
+$bp-reviews-mobile: 800px;
+//
+
 .reviews {
     padding-top: 10rem;
     padding-bottom: 20rem;
+    height: 65rem;
 
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: $bp-reviews-mobile) {
+        height: 75rem;
+    }
 }
