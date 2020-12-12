@@ -1,5 +1,4 @@
 .profile {
-    margin-bottom: -4rem;
     background-image: linear-gradient(180deg, rgba(#9FBF73, 0.1) 0%, rgba(#81A84C, 0.1) 100%);
 
     display: flex;
@@ -14,15 +13,15 @@
     &__svg {
         position: absolute;
 
-        &--timber {
+        /* &--timber {
             width: calc(100% - 50rem);
 
             right: 0;
             top: 0;
             transform: translateY(-1.5rem);
 
-            @media screen and (max-width: 1100px) {
-                width: 75%;
+            @media screen and (max-width: 1200px) {
+                width: calc(100% - 40rem);
             }
             @media screen and (max-width: $bp-profile-mobile) {
                 display: none;
@@ -31,7 +30,7 @@
                 top: -45.3%;
                 right: 0.3%;
             }
-        }
+        } */
         &--root {
             width: 40%;
             height: 15rem;
@@ -49,28 +48,33 @@
     }
     &__photo {
         width: 50rem;
-        height: 103%;
+        height: 110%;
         object-fit: cover;
 
         position: absolute;
-        left: 0%;
-        bottom: -.5%;
+        left: 15rem;
+        bottom: -5%;
         z-index: 3;
 
-        @media screen and (max-width: 1200px) {
-           width: 30rem;
-           height: 45rem;
-
-           top: 20rem;
+        @media screen and (max-width: 1600px) {
+            left: 10rem;
         }
-        @media screen and (max-width: 1100px) {
-            right: 75%;
+        @media screen and (max-width: 1200px) {
+            width: 40rem;
+
+            left: 0;
+        }
+        @media screen and (max-width: 1000px) {
+            width: 30rem;
+            height: 100%;
+
+            bottom: 0;
         }
         @media screen and (max-width: $bp-profile-mobile) {
-            width: 40rem;
-            height: 60rem;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
+            height: auto;
+            padding: 10rem 7.5rem;
+            padding-bottom: 0;
 
             position: relative;
             right: unset;
@@ -78,15 +82,20 @@
             transform: none;
             bottom: -4rem;
          }
-         @media screen and (max-width: 450px) {
-            bottom: 0;
-            width: 100%;
-            height: auto;
+        @media only screen and (max-width: 500px) {
+            padding: 7.5rem 5rem;
+            padding-bottom: 0;
+        }
+        @media screen and (max-width: 450px) {
+            padding: 0;
+        }
+        @media only screen and (max-width: 400px) {
+            margin: 5rem 3rem;
         }
     }
     &__text {
-        width: calc(100% - 50rem);
-        height: 65rem;
+        width: calc(100% - 65rem);
+        min-height: 65rem;
         padding: 15rem 20rem;
         background-color: $color-white;
 
@@ -94,41 +103,38 @@
         flex-direction: column;
         justify-content: center;
 
-        @media screen and (max-width: 1100px) {
-            width: 75%;
+        @media screen and (max-width: 1600px) {
+            width: calc(100% - 60rem);
+            padding: 15rem;
+        }
+        @media screen and (max-width: 1600px) {
+            width: calc(100% - 60rem);
+            padding: 10rem 15rem;
+        }
+        @media screen and (max-width: 1200px) {
+            width: calc(100% - 40rem);
+            height: 60rem;
+            padding: 10rem;
+        }
+        @media screen and (max-width: 1000px) {
+            width: calc(100% - 30rem);
+            height: auto;
+            padding: 7.5rem;
         }
         @media screen and (max-width: $bp-profile-mobile) {
           width: 100%;
-          padding-top: 10rem;
-          padding-bottom: 10rem;
+          padding: 10rem 7.5rem;
           height: auto;
+        }
+        @media only screen and (max-width: 500px) {
+            padding: 7.5rem 5rem;
+        }
+        @media only screen and (max-width: 400px) {
+            padding: 5rem 3rem;
         }
     }
     & .paragraph-1 {
         width: 100%;
-
-        @media screen and (max-width: 1400px) {
-            margin-left: 25rem;
-        }
-        @media screen and (max-width: 1200px) {
-            margin-left: 20rem;
-        }
-        @media screen and (max-width: 1000px) {
-           width: 44rem;
-        }
-        @media screen and (max-width: 900px) {
-            width: 38rem;
-         }
-         @media screen and (max-width: $bp-profile-mobile) {
-           width: 40rem;
-           margin-left: auto;
-        }
-        @media screen and (max-width: 450px) {
-           width: 30rem;
-        }
-        @media screen and (max-width: 350px) {
-            width: 25rem;
-         }
 
         &:not(:last-child) {
             margin-bottom: 4rem;

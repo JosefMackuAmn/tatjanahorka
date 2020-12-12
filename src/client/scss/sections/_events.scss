@@ -1,26 +1,39 @@
 .events {
     width: 100vw;
-    height: 100rem;
+    height: auto;
     padding-top: 12rem;
     background-image: url('../img/eventsBackground.svg');
     background-size: cover;
     overflow: hidden;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     position: relative;
     z-index: 2;
 
     @media only screen and (max-width: 1000px) {
-        align-content: center;
-        flex-wrap: wrap;
+        background-image: linear-gradient(to right bottom, white, #f4f8ef);
     }
 
+    &__container {
+        height: 100%;
+        width: 100%;
+        padding: 20rem 15rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        position: relative;
+        z-index: 2;
+    
+        @media only screen and (max-width: 1000px) {
+            align-content: center;
+            flex-wrap: wrap;
+        }
+    }
     &__event {
         width: 35rem;
         height: 25rem;
+        margin: 6rem 0;
         filter: drop-shadow(0 2px 4px $color-black-overlay-light);
         transform: translateY(-25%);
 
@@ -31,6 +44,9 @@
         @media only screen and (max-width: 1600px) {
             width: 32rem;
         }
+        @media only screen and (max-width: 1300px) {
+            width: 27rem;
+        }
 
         & svg {
             width: 100%;
@@ -40,22 +56,46 @@
 
         &__image {
             width: 75%;
+            height: 15rem;
             border-radius: 5px;
             transform: translate(-50%, -50%);
+
+            object-fit: cover;
+            object-position: center center;
 
             position: absolute;
             top: 6rem;
             left: 52%;
         }
         & .heading-4 {
+            width: calc(100% - 8rem);
+            
             position: absolute;
             top: 16rem;
             left: 5rem;
+            
+            @media only screen and (max-width: 1300px) {
+                width: calc(100% - 6rem);
+                
+                font-size: 1.6rem;
+                
+                left: 4rem;
+            }
         }
         & .paragraph-small {
+            width: calc(100% - 8rem);
             position: absolute;
             top: 26rem;
             left: 5rem;
+            
+            @media only screen and (max-width: 1300px) {
+                width: calc(100% - 6rem);
+
+                top: 24rem;
+                left: 4rem;
+
+                font-size: 1.6rem;
+            }
         }
     }
 }

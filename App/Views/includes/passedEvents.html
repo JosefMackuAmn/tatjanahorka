@@ -11,17 +11,16 @@
             <h3 class="heading-3">Kde jsme se sešli naposled</h3>
             <ul class="passedEvents__content__list">
                 <li class="passedEvents__content__item"><span>></span> Konzultační a vzdělávací servis pro skleněnku, z.s. ve Veselí nad Moravou</li>
-                <li class="passedEvents__content__item"><span>></span> Konzultační a vzdělávací servis pro skleněnku, z.s. ve Veselí nad Moravou</li>
-                <li class="passedEvents__content__item"><span>></span> Konzultační a vzdělávací servis pro skleněnku, z.s. ve Veselí nad Moravou</li>
-                <li class="passedEvents__content__item"><span>></span> Konzultační a vzdělávací servis pro skleněnku, z.s. ve Veselí nad Moravou</li>
-                <li class="passedEvents__content__item"><span>></span> Konzultační a vzdělávací servis pro skleněnku, z.s. ve Veselí nad Moravou</li>
+                <li class="passedEvents__content__item"><span>></span> pro MAS BRÁNA BRNĚNSKA, z.s., konzultace pro MŠ, ZŠ</li>
+                <li class="passedEvents__content__item"><span>></span> pro Škola Na Radosti setkání pedagogického týmu, propojení s rodiči žáků školy</li>
+                <li class="passedEvents__content__item"><span>></span> Na Slovensku společné workshopy s Mgr. Zuzanou Bajkaiovou - téma: Vnútorné dieťa aj.</li>
             </ul>
         </div>
     </div>
-    <form class="passedEvents__form" action="/subscribe" method="POST">
+    <form class="passedEvents__form" action="/subscribe" method="POST" autocomplete="off">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}">
         <label for="email">Každou akci posílám na mail</label>
         <input class="passedEvents__form__email" type="email" name="email" id="email" placeholder="vas@email.cz">
-        <input class="passedEvents__form__submit hidden" type="submit" name="submit" value="Přidat se">
+        <input class="passedEvents__form__submit hidden" type="submit" name="submit" id="submit" value="Přidat se">
     </form>
 </section>

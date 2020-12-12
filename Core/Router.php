@@ -110,7 +110,7 @@ class Router {
 
             global $easyCSRF;
 
-            $easyCSRF->check(Config::TOKEN_SECRET, $csrfToken, 60*60);
+            $easyCSRF->check(Config::TOKEN_SECRET, $csrfToken, 60*60, true);
 
             return true;
             
@@ -123,7 +123,7 @@ class Router {
 
         global $easyCSRF;
 
-        $token = $easyCSRF->generate(Config::TOKEN_SECRET);
-        return $token;
+        $_SESSION['csrfToken'] = $easyCSRF->generate(Config::TOKEN_SECRET);
+        return;
     }
 }

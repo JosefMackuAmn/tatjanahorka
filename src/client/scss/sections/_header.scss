@@ -11,23 +11,6 @@
   &__svg {
     position: absolute;
 
-    &--top {
-      fill: $color-green;
-      height: 20rem;
-      width: 100%;
-
-      top: 0;
-      left: 0;
-      z-index: 1;
-
-      @media screen and (max-width: 900px) {
-        height: 15rem;
-      }
-      @media screen and (max-width: $bp-header-mobile) {
-        background-color: $color-green;
-        height: 10rem;
-      }
-    }
     &--bottom {
       fill: $color-green;
       height: 30rem;

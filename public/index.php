@@ -18,8 +18,9 @@ $easyCSRF = new \EasyCSRF\EasyCSRF($sessionProvider);
 /////
 $router = new Core\Router();
 
-///// PAGES
+///// PAGES & USER DATA
 $router->add('', ['controller'=>'Home', 'action'=>'index']); // GET
+$router->add('subscribe', ['controller'=>'Home', 'action'=>'subscribe']); // POST
 
 ///// ADMIN
 $router->add('admin/?', ['controller'=>'Admin', 'action'=>'index']); // GET

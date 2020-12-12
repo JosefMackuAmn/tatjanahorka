@@ -1,16 +1,18 @@
 <section class="events">
+    <container class="events__container">
 
-    {% for event in events %}
+        {% for event in events %}
+    
+            <div class="events__event">
+                <svg width="414" height="308" viewBox="0 0 414 308" xmlns="http://www.w3.org/2000/svg">
+                    <use xlink:href="#eventBlock" />
+                </svg>
+                <img class="events__event__image" src="/img/{{ event.event_imageUrl }}" alt="{{ event.event_title }}">
+                <h4 class="heading-4">{{ event.event_title }}</h4>
+                <p class="paragraph-small">{{ event.event_prettyDate }}</p>
+            </div>
+    
+        {% endfor %}
 
-        <div class="events__event">
-            <svg width="414" height="308" viewBox="0 0 414 308" xmlns="http://www.w3.org/2000/svg">
-                <use xlink:href="#eventBlock" />
-            </svg>
-            <img class="events__event__image" src="/kimg/{{ event.event_imageUrl }}" alt="{{ event.event_title }}">
-            <h4 class="heading-4">{{ event.event_title }}</h4>
-            <p class="paragraph-small">{{ event.event_prettyDate }}</p>
-        </div>
-
-    {% endfor %}
-
+    </container>
 </section>

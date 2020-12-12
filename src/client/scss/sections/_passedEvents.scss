@@ -10,7 +10,7 @@
     }
 
     &__backgroundImage {
-        width: 65%;
+        width: calc(100% - 70rem);
         height: 100%;
         transform: scaleX(-1);
         object-fit: cover;
@@ -173,9 +173,10 @@
             background-color: transparent;
             cursor: pointer;
             transform: translate(-50%, -50%);
+            opacity: 0; // Restored by JS
 
             color: $color-white;
-            font-size: $font-big;
+            font-size: $font-regular;
             text-transform: uppercase;
             font-weight: 400;
             letter-spacing: 2px;
@@ -184,6 +185,8 @@
             position: absolute;
             bottom: -6rem;
             left: 50%;
+
+            transition: all .3s;
 
             &.hidden {
                 display: none;

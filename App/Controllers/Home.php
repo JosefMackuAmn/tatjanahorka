@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use \Core\View;
+use \App\Config;
 use \App\Models\Event;
+use \App\Models\Email;
 
 class Home extends \Core\Controller {
 
@@ -12,8 +14,22 @@ class Home extends \Core\Controller {
         $events = Event::getEvents(3, false);
 
         View::renderTemplate('index.html', [
-            "events" => $events
+            'events' => $events,
+            'csrfToken' => $_SESSION['csrfToken']
         ]);
+    }
+
+    public function subscribeAction() {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: /?success=false');
+            exit();
+        }
+
+        Email::addEmail($_POST['email']);
+
+        header('Location: /?success=true');
+        exit();
+
     }
 
 }

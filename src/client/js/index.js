@@ -228,4 +228,17 @@ const reviewCycler = () => {
 }
 
 //Starting to cycle when the page loads
-reviewCycler(); 
+reviewCycler();
+
+
+//////////////////
+///// POST EMAIL FORM
+//////////////////
+const emailInput = document.getElementById('email');
+emailInput.addEventListener('input', () => {
+    const submit = document.getElementById('submit');
+    submit.classList.remove('hidden');
+    setTimeout(() => {
+        submit.style.opacity = "1";
+    }, 20);
+});
