@@ -6,6 +6,7 @@ use \Core\View;
 use \App\Config;
 use \Exception;
 use \App\Models\Event;
+use \App\Models\Email;
 use \Helpers\File;
 
 class Admin extends \Core\Controller {
@@ -229,6 +230,24 @@ class Admin extends \Core\Controller {
         Event::updateEvent($eventId, $event);
 
         header('Location: /admin/events?success=true');
+        exit();
+    }
+
+    public function emailsAction() {
+        $emails = Email::getEmails();
+
+        View::renderTemplate('admin/emails.html', [
+            "emails" => $emails,
+            "csrfToken" => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
+        ]);
+    }
+
+    public function deleteEmailAction($params) {
+        $emailId = $params['id'];
+
+        Email::deleteEmail($emailId);
+
+        header('Location: /admin/emails?success=true');
         exit();
     }
 }

@@ -1,0 +1,50 @@
+{% include 'admin/includes/head.html' %}
+</head>
+<body>
+
+    {% set navigationVars = { 'activeLink': 'emails' } %}
+    {% include 'admin/includes/navigation.html' with navigationVars %}
+    
+    <div class="wrapper">
+        
+        {% set headerVars = { 'logout': true, 'adminTitle': 'E-maily' } %}
+        {% include 'admin/includes/header.html' with headerVars %}
+
+        <main class="main main--emails">
+
+            <div class="item-list__options">
+                <!-- <input type="text" placeholder="Hledat"> -->
+                <!-- <a class="add-button" href="/admin/emails/new">Nová akce</a> -->
+            </div>
+
+            <table class="item-list">
+                <tbody class="item-list__content">
+                    <tr class="item-list__heading">
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Akce</th>
+                    </tr>
+
+                    {% for email in emails %}
+
+                        <tr class="item-list__row" id="<%= product._id %>">
+                            <td>{{ email.email_id }}</td>
+                            <td>{{ email.email_email }}</td>
+                            <td>
+                                <form class="item-list__delete-form" action="/admin/emails/delete/{{ email.email_id }}" method="POST">
+                                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                                    <input type="submit" class="item-list__row__btn item-list__row__btn--danger deleteProductBtn" value="Smazat">
+                                </form>
+                            </td>
+                        </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+            
+        </main>
+
+    </div>
+    
+{% include 'admin/includes/end.html' %}

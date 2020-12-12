@@ -300,7 +300,7 @@ a:link {
     .main--error .heading-3 {
       margin-top: 25vh;
       margin-bottom: 2rem; }
-  .main--events, .main--event-detail {
+  .main--events, .main--event-detail, .main--emails {
     padding: 12rem; }
 
 .footer {

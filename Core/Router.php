@@ -44,7 +44,9 @@ class Router {
 
     public function dispatch($url) {
         $this->checkCSRF();
-        $this->generateCSRF();
+        if (!isset($_SESSION['csrfToken'])) {
+            $this->generateCSRF();
+        }
 
         $url = $this->removeQueryStringVariables($url);
 
@@ -119,7 +121,7 @@ class Router {
         }
     }
 
-    protected function generateCSRF() {      
+    protected function generateCSRF() {  
 
         global $easyCSRF;
 

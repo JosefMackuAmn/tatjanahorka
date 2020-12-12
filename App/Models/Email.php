@@ -7,7 +7,7 @@ use PDO;
 class Email extends \Core\Model {
 
     public static function getEmails() {
-
+        
         try {
             $db = static::getDB();
             $stmt = $db->query("SELECT * FROM emails");
