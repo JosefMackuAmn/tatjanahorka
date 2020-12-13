@@ -59,8 +59,40 @@
 
             transform: scaleX(-1) rotate(-10deg);
         }
-       
     }
+
+    &__svgLeaf {
+        width: 25rem;
+        height: 20rem;
+
+        position: absolute;
+
+        transform: rotate(-150deg) scaleY(-1);
+        top: 37%;
+        right: -2%;
+
+        @media only screen and (max-width: 1400px) {
+            right: -3%;
+        }
+        @media only screen and (max-width: 1150px) {
+            right: -4%;
+        }
+        @media only screen and (max-width: 1000px) {
+            width: 20rem;
+            height: 15rem;
+        }
+        @media only screen and (max-width: 949px) {
+            top: 33%;
+            right: -5%;
+        }
+        @media only screen and (max-width: 850px) {
+            right: -6%;
+        }
+        @media only screen and (max-width: 800px) {
+            display: none;
+        }
+    }
+
     & .heading-3 {
         width: 30rem;
 
