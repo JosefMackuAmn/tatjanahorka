@@ -1,5 +1,7 @@
 <section class="passedEvents">
-    <img src="img/flower.jpg" alt="Květiny" class="passedEvents__backgroundImage">
+    <container class="passedEvents__image-container toBeAnimated animation-rollInVertically">
+        <img src="img/flower.jpg" alt="Květiny" class="passedEvents__image">
+    </container>
     <div class="passedEvents__content">
         <svg class="passedEvents__content__background" width="919" height="868" viewBox="0 0 919 868" fill="none" xmlns="http://www.w3.org/2000/svg">
             <use xlink:href="#passedEventsBackground" />
@@ -19,8 +21,8 @@
     </div>
     <form class="passedEvents__form" action="/subscribe" method="POST" autocomplete="off">
         <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-        <label for="email">Každou akci posílám na mail</label>
-        <input class="passedEvents__form__email" type="email" name="email" id="email" placeholder="vas@email.cz">
+        <label class="toBeAnimated animation-bounceUp delay--10" for="email">Každou akci posílám na mail</label>
+        <input class="passedEvents__form__email delay--15 toBeAnimated animation-bounceUp" type="email" name="email" id="email" placeholder="vas@email.cz">
         <input class="passedEvents__form__submit hidden" type="submit" name="submit" id="submit" value="Přidat se">
     </form>
 </section>

@@ -4,7 +4,6 @@ Backend:
 Frontend:
 - Modal for /?success=true or /?success=false: Alert on (un)successful email registration
 - Flowers in the background instead of green stains
-- Speed up review switching
 - Add animations to photos (maybe slow zooming in and out in the .passed-events section and on other photos similar effect as it is in the current website)
 - Add leafs
 - Change the shape of the background of the .organizations section

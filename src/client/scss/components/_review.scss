@@ -7,8 +7,10 @@
   align-items: center;
   justify-content: space-between;
 
+  transform: none;
+
   &--active {
-    display: flex;
+    display: flex;  
   }
 
   @media screen and (max-width: 1400px) {

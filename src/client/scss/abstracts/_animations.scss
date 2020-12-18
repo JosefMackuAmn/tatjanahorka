@@ -1,51 +1,245 @@
+//REVIEWS
+
 @keyframes leafFall {
- 0% {
-     transform: translateY(-50%) translateX(-50%);;
-     transform-origin: 0 100%;
- }
+  0% {
+    transform: translateY(-50%) translateX(-50%);
+    transform-origin: 0 100%;
+  }
 
- 20% {
-     transform: translateY(calc(-50% + 2rem)) scaleY(-1) translateX(calc(-50% + 1rem));
- }
+  20% {
+    transform: translateY(calc(-50% + 2rem)) scaleY(-1)
+      translateX(calc(-50% + 1rem));
+  }
 
- 40% {
-    transform: translateY(calc(-50% + 4rem)) scaleY(-1) rotateX(180deg) rotateY(30deg) translateX(-50%);
- }
+  40% {
+    transform: translateY(calc(-50% + 4rem)) scaleY(-1) rotateX(180deg)
+      rotateY(30deg) translateX(-50%);
+  }
 
- 50% {
-    transform: translateY(5rem) scaleY(-1) rotateX(270deg) ;
- }
+  50% {
+    transform: translateY(5rem) scaleY(-1) rotateX(270deg);
+  }
 
- 60% {
-    transform: translateY(6rem)  scaleY(-1) rotateX(360deg) rotateY(30deg) rotate(15deg) translateX(1rem);
- }
- 80% {
-     opacity: 1;
-     transform: translateY(9rem)  scaleY(-1) rotateX(540deg) translateX(1rem);
- }
- 100% {
+  60% {
+    transform: translateY(6rem) scaleY(-1) rotateX(360deg) rotateY(30deg)
+      rotate(15deg) translateX(1rem);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(9rem) scaleY(-1) rotateX(540deg) translateX(1rem);
+  }
+  100% {
     transform: translateY(12rem) rotateX(760deg) scaleY(-1) translateX(2rem);
     opacity: 0;
- }
+  }
 }
 
 @keyframes reviewDisappear {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        filter: blur(.3px);
-    }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    filter: blur(0.3px);
+  }
 }
 
 @keyframes reviewAppear {
-    0% {
-        opacity: 0;
-        filter: blur(.3px);
+  0% {
+    opacity: 0;
+    filter: blur(0.3px);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+// PASSED EVENTS
+@keyframes flowerZoom {
+  0% {
+    transform: scale(1.2) translateX(-5rem);
+    filter: grayscale(0.75) blur(5px);
+    opacity: 0;
+  }
+  5% {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  95% {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4) rotate(5deg) translateX(-15rem);
+    filter: grayscale(0.75) blur(5px);
+    opacity: 0;
+  }
+}
+
+//ON "APPROACH" ANIMATIONS
+
+.animation-rollInVertically {
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    height: 50%;
+    width: 100%;
+    content: "";
+    background-color: $color-white;
+
+    display: block;
+
+    position: absolute;
+    z-index: 1;
+
+    transition: transform cubic-bezier(0.74, 0.01, 0.35, 0.95) 1s;
+  }
+  &::after {
+    top: 0;
+    left: 0;
+  }
+  &::before {
+    bottom: 0;
+    left: 0;
+  }
+  &:not(.toBeAnimated) {
+    &::after {
+      transform: translateY(-100%);
     }
-    100% {
-        opacity: 1;
-        filter: none;
+    &::before {
+      transform: translateY(100%);
     }
+  }
+}
+
+//Actually not needed, but we can use it in future projects so keep it there
+/*
+.animation-rollInHorizontally {
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    height: 100%;
+    width: 50%;
+    content: "";
+    background-color: $color-white;
+
+    display: block;
+
+    position: absolute;
+    z-index: 1;
+
+    transition: transform cubic-bezier(0.74, 0.01, 0.35, 0.95) 1s;
+  }
+  &::after {
+    top: 0;
+    left: 0;
+  }
+  &::before {
+    top: 0;
+    right: 0;
+  }
+  &:not(.toBeAnimated) {
+    &::after {
+      transform: translateX(-100%);
+    }
+    &::before {
+      transform: translateX(100%);
+    }
+  }
+}
+*/
+
+.animation-rollInFromLeft {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    height: 100%;
+    width: 100%;
+    content: "";
+    background-color: $color-white;
+
+    display: block;
+
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+
+    transition: transform cubic-bezier(0.74, 0.01, 0.35, 0.95) 1s;
+  }
+
+  &:not(.toBeAnimated) {
+    &::before {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.animation-rollInFromRight {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    height: 100%;
+    width: 100%;
+    content: "";
+    background-color: $color-white;
+
+    display: block;
+
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+
+    transition: transform cubic-bezier(0.74, 0.01, 0.35, 0.95) 1s;
+  }
+  &:not(.toBeAnimated) {
+    &::before {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.animation-bounceUp {
+  transform: translateY(5%);
+  opacity: 0;
+
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+
+  &:not(.toBeAnimated) {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+//DELAY CLASSES
+.delay {
+  //0.5s delay
+  &--05 {
+    &:not(.toBeAnimated) {
+      animation-delay: 0.5s;
+      transition-delay: 0.5s;
+    }
+  }
+  //1s delay
+  &--10 {
+    &:not(.toBeAnimated) {
+      animation-delay: 1s;
+      transition-delay: 1s;
+    }
+  }
+  //1.5s delay
+  &--15 {
+    &:not(.toBeAnimated) {
+      animation-delay: 1.5s;
+      transition-delay: 1.5s;
+    }
+  }
 }

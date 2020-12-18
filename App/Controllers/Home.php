@@ -11,13 +11,14 @@ class Home extends \Core\Controller {
 
     public function indexAction() {
         // Find 3 upcoming events
-        $events = Event::getEvents(3, false);
+        $events = [];//Event::getEvents(3, false);
 
         View::renderTemplate('index.html', [
             'events' => $events,
             'csrfToken' => $_SESSION['csrfToken']
         ]);
     }
+    
 
     public function subscribeAction() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

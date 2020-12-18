@@ -45,8 +45,8 @@ let animationCounter = 0;
 let keyframesList = [];
 
 // Setting max amount and min amount of waves that can appear
-const maxWaves = 6;
-const minWaves = 3;
+const maxWaves = 5;
+const minWaves = 2;
 
 //Setting initial wave range
 let waveRange = 10; //[rem]
@@ -222,7 +222,7 @@ const reviewCycler = () => {
                 once: true,
                 passive: false
                 });
-        }, 15000);
+        }, 10000);
        
 
 }
@@ -242,3 +242,66 @@ emailInput.addEventListener('input', () => {
         submit.style.opacity = "1";
     }, 20);
 });
+
+
+//////////////////
+///// ANIMATIONS
+//////////////////
+
+//Collecting all elements with class "toBeAnimated"
+const toBeAnimatedElements = document.querySelectorAll('.toBeAnimated');
+
+//Creating array of pairs of to be animated elements and their distance from document top border  -> [[element1, distance1], [element2, distance2], ... ]
+const toBeAnimated = [];
+for (const element of toBeAnimatedElements) {
+    toBeAnimated.push([element, element.getBoundingClientRect().y + document.documentElement.scrollTop]);
+}
+
+//Handler for 'scroll' event on document.window, triggers animations
+const animationTriggerer = () => {
+
+    //Contains id´s of elements (in toBeAnimated[]), that are going to be animated this function call
+    const willBeAnimated = [];
+
+
+    for (const animation of toBeAnimated) {
+
+        //If the distance between window top and element´s y coordinate is small enough, animating the element
+        if (animation[1] - document.documentElement.scrollTop <= window.innerHeight - 100) {
+
+            //Removing toBeAnimated class
+            animation[0].classList.remove('toBeAnimated');
+
+            //Finding index of the element
+            const id = toBeAnimated.findIndex((anim) => {
+                return animation === anim;
+            })
+
+            //Adding index to the list
+            willBeAnimated.push(id);
+        }  
+    }
+
+    //If there are some elements that are going to be animated this function call
+    if (willBeAnimated.length > 0) {
+
+        //Mapping toBeAnimated array to an array, in which the elements animated this function call are not included
+        toBeAnimated = toBeAnimated.map((value, idx) => {
+            for (const id of willBeAnimated) {
+                if (id === idx) {
+                    return;
+                }
+            }
+            return value;
+        })
+    }
+    
+}
+
+//When user scrolls, triggering animations
+window.addEventListener('scroll', () => {
+    animationTriggerer();
+})
+
+//Triggering animations on page load
+animationTriggerer();
