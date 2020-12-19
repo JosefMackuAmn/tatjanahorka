@@ -854,7 +854,7 @@ a:link {
       transform: scaleX(-1) rotate(-10deg); }
   .organizations .heading-3 {
     width: 30rem;
-    color: #ffffff;
+    color: #000000;
     text-align: center;
     line-height: 1.2;
     position: absolute;
@@ -866,6 +866,7 @@ a:link {
       width: 40rem;
       height: 40rem;
       border-radius: 50%;
+      background-image: radial-gradient(white 56%, transparent 68%);
       display: block;
       position: absolute;
       top: 50%;
@@ -1055,7 +1056,7 @@ a:link {
       font-size: 2rem;
       line-height: 135%; }
       .passedEvents__content__item:not(:last-child) {
-        margin-bottom: 2rem; }
+        margin-bottom: 4rem; }
       .passedEvents__content__item span {
         font-weight: 600; }
   .passedEvents__form {
