@@ -271,7 +271,7 @@ a:link {
       margin-bottom: 5rem;
       flex-direction: column;
       align-items: center; } }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 900px) {
     .cooperation-way {
       height: auto;
       margin-bottom: 10rem; } }
@@ -487,11 +487,30 @@ a:link {
       padding-bottom: 0;
       padding-left: 2rem;
       padding-right: 2rem; } }
+  .cooperation__svgLily {
+    width: 40rem;
+    height: 40rem;
+    opacity: 0.15;
+    position: absolute;
+    top: 5%;
+    right: 0;
+    z-index: -1; }
+    @media only screen and (max-width: 1400px) {
+      .cooperation__svgLily {
+        width: 35rem;
+        height: 35rem; } }
+    @media only screen and (max-width: 1100px) {
+      .cooperation__svgLily {
+        width: 25rem;
+        height: 25rem; } }
+    @media only screen and (max-width: 800px) {
+      .cooperation__svgLily {
+        display: none; } }
   .cooperation .heading-3 {
     margin-left: 8rem;
     margin-bottom: 10rem;
     position: relative; }
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 900px) {
       .cooperation .heading-3 {
         width: max-content;
         margin-left: auto;
@@ -509,7 +528,7 @@ a:link {
       display: block;
       position: absolute;
       left: -8rem; }
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 900px) {
         .cooperation .heading-3::before {
           left: 50%;
           top: -6rem;
@@ -520,6 +539,10 @@ a:link {
     @media screen and (max-width: 1300px) {
       .cooperation__container {
         flex-wrap: wrap; } }
+    @media screen and (max-width: 900px) {
+      .cooperation__container {
+        flex-direction: column;
+        align-items: center; } }
   .cooperation__bottom-gradient {
     height: 10rem;
     width: 100%;
@@ -852,6 +875,33 @@ a:link {
       width: 100%;
       height: 100%;
       transform: scaleX(-1) rotate(-10deg); }
+  .organizations__svgLeaf {
+    width: 25rem;
+    height: 20rem;
+    position: absolute;
+    transform: rotate(-150deg) scaleY(-1) translateY(-50%);
+    top: 48rem;
+    right: 6rem;
+    /* @media only screen and (max-width: 1400px) {
+            right: -3%;
+        }
+        @media only screen and (max-width: 1150px) {
+            right: -4%;
+        }
+        @media only screen and (max-width: 1000px) {
+            width: 20rem;
+            height: 15rem;
+        }
+        @media only screen and (max-width: 949px) {
+            top: 33%;
+            right: -5%;
+        }
+        @media only screen and (max-width: 850px) {
+            right: -6%;
+        } */ }
+    @media only screen and (max-width: 800px) {
+      .organizations__svgLeaf {
+        display: none; } }
   .organizations .heading-3 {
     width: 30rem;
     color: #000000;
@@ -1117,37 +1167,54 @@ a:link {
   @media screen and (max-width: 800px) {
     .profile {
       flex-direction: column; } }
-  .profile__svg {
+  .profile__svgTop {
+    width: 40rem;
+    height: 30rem;
     position: absolute;
-    /* &--timber {
-            width: calc(100% - 50rem);
-
-            right: 0;
-            top: 0;
-            transform: translateY(-1.5rem);
-
-            @media screen and (max-width: 1200px) {
-                width: calc(100% - 40rem);
-            }
-            @media screen and (max-width: $bp-profile-mobile) {
-                display: none;
-            }
-            @media only screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-                top: -45.3%;
-                right: 0.3%;
-            }
-        } */ }
-    .profile__svg--root {
-      width: 40%;
-      height: 15rem;
-      left: 0;
-      top: 65rem;
-      transform: translateY(-50%);
-      position: absolute;
-      z-index: 2; }
-      @media screen and (max-width: 800px) {
-        .profile__svg--root {
-          display: none; } }
+    transform: rotate(-30deg);
+    top: -15%;
+    right: -5%; }
+    @media only screen and (max-width: 1600px) {
+      .profile__svgTop {
+        right: -6%; } }
+    @media only screen and (max-width: 1400px) {
+      .profile__svgTop {
+        right: -7%; } }
+    @media only screen and (max-width: 1150px) {
+      .profile__svgTop {
+        right: -8%; } }
+    @media only screen and (max-width: 1000px) {
+      .profile__svgTop {
+        width: 35rem;
+        height: 25rem; } }
+    @media only screen and (max-width: 950px) {
+      .profile__svgTop {
+        right: -9%; } }
+    @media only screen and (max-width: 850px) {
+      .profile__svgTop {
+        right: -10%; } }
+    @media only screen and (max-width: 800px) {
+      .profile__svgTop {
+        display: none; } }
+  .profile__svgLily {
+    width: 35rem;
+    height: 35rem;
+    opacity: 0.15;
+    position: absolute;
+    top: 40%;
+    right: 10%; }
+    @media only screen and (max-width: 1400px) {
+      .profile__svgLily {
+        width: 30rem;
+        height: 30rem; } }
+    @media only screen and (max-width: 1100px) {
+      .profile__svgLily {
+        width: 20rem;
+        height: 20rem;
+        top: 45%; } }
+    @media only screen and (max-width: 800px) {
+      .profile__svgLily {
+        display: none; } }
   .profile__photo-container {
     width: 50rem;
     height: 110%;
@@ -1256,40 +1323,50 @@ a:link {
       flex-direction: column;
       justify-content: center; } }
   .topics__svgTop {
+    width: 40rem;
+    height: 40rem;
+    opacity: 0.15;
     position: absolute;
     right: 15%;
     top: -22%;
     z-index: -1; }
     @media only screen and (max-width: 1400px) {
       .topics__svgTop {
-        width: 45rem;
-        height: 45rem;
+        width: 35rem;
+        height: 35rem;
         top: -10%;
         right: 0; } }
-    @media only screen and (max-width: 1000px) {
+    @media only screen and (max-width: 1100px) {
       .topics__svgTop {
-        width: 30rem;
-        height: 30rem;
+        width: 25rem;
+        height: 25rem;
         top: 0; } }
     @media only screen and (max-width: 800px) {
       .topics__svgTop {
         display: none; } }
   .topics__svgBottom {
+    width: 35rem;
+    height: 35rem;
+    opacity: 0.15;
     position: absolute;
-    right: 3%;
-    bottom: -44%;
+    top: 80%;
+    right: 35%;
     z-index: -1;
     animation: testAnimation 5s; }
     @media only screen and (max-width: 1400px) {
       .topics__svgBottom {
-        width: 45rem;
-        height: 45rem;
-        bottom: -20%; } }
-    @media only screen and (max-width: 1000px) {
-      .topics__svgBottom {
         width: 30rem;
         height: 30rem;
-        bottom: 0; } }
+        bottom: -20%; } }
+    @media only screen and (max-width: 1100px) {
+      .topics__svgBottom {
+        width: 15rem;
+        height: 15rem;
+        bottom: 0;
+        right: 40%; } }
+    @media only screen and (max-width: 950px) {
+      .topics__svgBottom {
+        right: 30%; } }
     @media only screen and (max-width: 800px) {
       .topics__svgBottom {
         display: none; } }
@@ -1406,6 +1483,27 @@ a:link {
   @media only screen and (max-width: 500px) {
     .way__text {
       font-size: 1.6rem; } }
+  .way__svgBottom {
+    width: 35rem;
+    height: 35rem;
+    opacity: 0.15;
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    z-index: -1; }
+    @media only screen and (max-width: 1400px) {
+      .way__svgBottom {
+        width: 30rem;
+        height: 30rem; } }
+    @media only screen and (max-width: 1100px) {
+      .way__svgBottom {
+        width: 15rem;
+        height: 15rem;
+        top: 60%;
+        left: -5%; } }
+    @media only screen and (max-width: 800px) {
+      .way__svgBottom {
+        display: none; } }
 
 .reviews {
   padding-top: 10rem;
