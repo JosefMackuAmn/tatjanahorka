@@ -1,6 +1,6 @@
 .profile {
     background-image: linear-gradient(180deg, rgba(#9FBF73, 0.1) 0%, rgba(#81A84C, 0.1) 100%);
-    padding-bottom : 5rem;
+    padding-bottom : 10rem;
 
     display: flex;
     justify-content: flex-end;
@@ -93,9 +93,8 @@
             bottom: 0;
         }
         @media screen and (max-width: $bp-profile-mobile) {
-            width: 50rem;
+            width: 35rem;
             height: auto;
-            padding: 10rem 7.5rem;
             padding-bottom: 0;
             margin-left: auto;
             margin-right: auto;
@@ -124,8 +123,6 @@
         object-fit: cover;
 
         display: block;
-
-        
     }
     &__text {
         width: calc(100% - 65rem);

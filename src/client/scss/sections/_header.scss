@@ -4,6 +4,9 @@
 
   position: relative;
 
+  @media screen and (max-width: 1000px) {
+    margin-bottom: -12rem;
+   }
   @media screen and (max-width: $bp-header-mobile) {
    margin-bottom: -5rem;
   }
