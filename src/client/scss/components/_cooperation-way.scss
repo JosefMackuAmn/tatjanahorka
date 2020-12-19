@@ -23,6 +23,11 @@
 
     flex-direction: column;
     align-items: center;
+
+    &.delay {
+      animation-delay: 0s;
+      transition-delay: 0s;
+    }
   }
   @media screen and (max-width: $bp-cooperation-mobile) {
     height: auto;

@@ -252,7 +252,7 @@ emailInput.addEventListener('input', () => {
 const toBeAnimatedElements = document.querySelectorAll('.toBeAnimated');
 
 //Creating array of pairs of to be animated elements and their distance from document top border  -> [[element1, distance1], [element2, distance2], ... ]
-const toBeAnimated = [];
+let toBeAnimated = [];
 for (const element of toBeAnimatedElements) {
     toBeAnimated.push([element, element.getBoundingClientRect().y + document.documentElement.scrollTop]);
 }
@@ -263,8 +263,11 @@ const animationTriggerer = () => {
     //Contains id´s of elements (in toBeAnimated[]), that are going to be animated this function call
     const willBeAnimated = [];
 
-
     for (const animation of toBeAnimated) {
+
+        if (animation === undefined) {
+            continue;
+        }
 
         //If the distance between window top and element´s y coordinate is small enough, animating the element
         if (animation[1] - document.documentElement.scrollTop <= window.innerHeight - 100) {
@@ -295,7 +298,6 @@ const animationTriggerer = () => {
             return value;
         })
     }
-    
 }
 
 //When user scrolls, triggering animations

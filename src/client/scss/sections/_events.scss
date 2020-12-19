@@ -9,9 +9,9 @@
     position: relative;
     z-index: 2;
 
-    @media only screen and (max-width: 1000px) {
+   /*  @media only screen and (max-width: 800px) {
         background-image: linear-gradient(to right bottom, white, #f4f8ef);
-    }
+    } */
 
     &__container {
         height: 100%;
