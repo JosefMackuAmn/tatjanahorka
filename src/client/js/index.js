@@ -222,7 +222,7 @@ const reviewCycler = () => {
                 once: true,
                 passive: false
                 });
-        }, 10000);
+        }, 7000);
        
 
 }

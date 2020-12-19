@@ -1,6 +1,6 @@
 .organizations {
     padding-bottom: 20rem;
-    margin-top: -13rem;
+    margin-top: -15rem;
     clip-path: url(#organizations-clip-path);
 
     position: relative;
@@ -104,7 +104,7 @@
     & .heading-3 {
         width: 30rem;
 
-        color: $color-black;
+        color: $color-white;
         text-align: center;
         line-height: 1.2;
        
@@ -112,22 +112,6 @@
         top: 25rem;
         left: 50%;
         transform: translateY(-50%) translateX(-50%);
-
-        &::after {
-            content: "";
-            width: 40rem;
-            height: 40rem;
-            border-radius: 50%;
-            background-image: radial-gradient(white 56%, transparent 68%);
-
-            display: block;
-
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-        }
 
         @media screen and (max-width: 500px) {
             top: 18rem;
@@ -169,6 +153,9 @@
             justify-content: center;
         }
         @media screen and (max-width: $bp-organizations-mobile) {
+            padding: 0 2.5rem;
+            margin-top: 10rem;
+
             position: relative;
         }
         @media screen and (max-width: 500px) {

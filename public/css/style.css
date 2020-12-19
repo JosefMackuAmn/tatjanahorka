@@ -303,7 +303,7 @@ a:link {
     width: 20rem;
     height: 20rem;
     margin-top: auto;
-    transition: all .5s; }
+    transition: transform .5s; }
     .cooperation-way__drawing--resonance {
       transform: scaleY(1.15); }
       .cooperation-way__drawing--resonance:hover {
@@ -836,7 +836,7 @@ a:link {
 
 .organizations {
   padding-bottom: 20rem;
-  margin-top: -13rem;
+  margin-top: -15rem;
   clip-path: url(#organizations-clip-path);
   position: relative;
   overflow: hidden; }
@@ -915,25 +915,13 @@ a:link {
         display: none; } }
   .organizations .heading-3 {
     width: 30rem;
-    color: #000000;
+    color: #ffffff;
     text-align: center;
     line-height: 1.2;
     position: absolute;
     top: 25rem;
     left: 50%;
     transform: translateY(-50%) translateX(-50%); }
-    .organizations .heading-3::after {
-      content: "";
-      width: 40rem;
-      height: 40rem;
-      border-radius: 50%;
-      background-image: radial-gradient(white 56%, transparent 68%);
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      z-index: -1;
-      transform: translate(-50%, -50%); }
     @media screen and (max-width: 500px) {
       .organizations .heading-3 {
         top: 18rem; } }
@@ -966,6 +954,8 @@ a:link {
         justify-content: center; } }
     @media screen and (max-width: 800px) {
       .organizations__container {
+        padding: 0 2.5rem;
+        margin-top: 10rem;
         position: relative; } }
     @media screen and (max-width: 500px) {
       .organizations__container {
@@ -1238,10 +1228,10 @@ a:link {
         display: none; } }
   .profile__photo-container {
     width: 50rem;
-    height: 110%;
+    height: 60rem;
     position: absolute;
     left: 15rem;
-    bottom: -5%;
+    bottom: 10%;
     z-index: 3; }
     @media screen and (max-width: 1600px) {
       .profile__photo-container {
@@ -1253,8 +1243,7 @@ a:link {
     @media screen and (max-width: 1000px) {
       .profile__photo-container {
         width: 30rem;
-        height: 100%;
-        bottom: 0; } }
+        height: 60rem; } }
     @media screen and (max-width: 800px) {
       .profile__photo-container {
         width: 35rem;
