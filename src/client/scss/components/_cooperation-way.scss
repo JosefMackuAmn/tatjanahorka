@@ -33,12 +33,18 @@
     height: auto;
     margin-bottom: 10rem;
   }
+  @media screen and (max-width: 500px) {
+      width: 80%;
+  }
 
   & .heading-4 {
     margin-bottom: 1rem;
 
     @media screen and (max-width: $bp-cooperation-mobile) {
       text-align: center;
+    }
+    @media screen and (max-width: 500px) {
+        text-align: left;
     }
   }
   &__text {

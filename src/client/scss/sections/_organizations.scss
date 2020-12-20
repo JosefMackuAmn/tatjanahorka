@@ -104,9 +104,10 @@
     & .heading-3 {
         width: 30rem;
 
-        color: $color-black;
+        color: $color-white;
         text-align: center;
         line-height: 1.2;
+        font-weight: 300;
        
         position: absolute;
         top: 25rem;
@@ -118,7 +119,6 @@
             width: 40rem;
             height: 40rem;
             border-radius: 50%;
-            background-image: radial-gradient(white 56%, transparent 68%);
 
             display: block;
 
