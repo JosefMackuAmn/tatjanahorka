@@ -1,6 +1,7 @@
 .organizations {
     padding-bottom: 20rem;
-    clip-path: url(#organizations-clip-path);
+    clip-path: url(#organizationsBackgroundClipPath);
+    margin-top: -2rem;
 
     position: relative;
     overflow: hidden;
@@ -77,24 +78,7 @@
         transform: rotate(-150deg) scaleY(-1) translateY(-50%);
         top: 48rem;
         right: 6rem;
-
-        /* @media only screen and (max-width: 1400px) {
-            right: -3%;
-        }
-        @media only screen and (max-width: 1150px) {
-            right: -4%;
-        }
-        @media only screen and (max-width: 1000px) {
-            width: 20rem;
-            height: 15rem;
-        }
-        @media only screen and (max-width: 949px) {
-            top: 33%;
-            right: -5%;
-        }
-        @media only screen and (max-width: 850px) {
-            right: -6%;
-        } */
+        
         @media only screen and (max-width: 800px) {
             display: none;
         }
@@ -112,21 +96,6 @@
         top: 25rem;
         left: 50%;
         transform: translateY(-50%) translateX(-50%);
-
-        &::after {
-            content: "";
-            width: 40rem;
-            height: 40rem;
-            border-radius: 50%;
-
-            display: block;
-
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-        }
 
         @media screen and (max-width: 500px) {
             top: 18rem;
@@ -168,6 +137,9 @@
             justify-content: center;
         }
         @media screen and (max-width: $bp-organizations-mobile) {
+            padding: 0 2.5rem;
+            margin-top: 10rem;
+
             position: relative;
         }
         @media screen and (max-width: 500px) {
