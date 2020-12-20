@@ -61,7 +61,7 @@
             }
         }
         
-        &__help {
+        /*&__help {
             position: relative;
 
             @media only screen and (max-width: 1100px) {
@@ -71,7 +71,7 @@
                 margin: 1rem;
             }
 
-            /* &__photo {
+            &__photo {
                 width: 40rem;
                 height: 22rem;
 
@@ -109,12 +109,12 @@
                 @media only screen and (max-width: 330px) {
                     padding-left: 5rem;
                 }
-            } */
+            } 
             &__text {
-                /* transform: translate(-50%, 50%);
+                transform: translate(-50%, 50%);
 
                 position: absolute;
-                bottom: 0; */
+                bottom: 0;
                 width: 100%;
 
                 text-align: center;
@@ -123,6 +123,6 @@
                     text-align: left;
                 }
             }
-        }
+        }*/
     }
 }
