@@ -33,12 +33,18 @@
     height: auto;
     margin-bottom: 10rem;
   }
+  @media screen and (max-width: 500px) {
+      width: 80%;
+  }
 
   & .heading-4 {
     margin-bottom: 1rem;
 
     @media screen and (max-width: $bp-cooperation-mobile) {
       text-align: center;
+    }
+    @media screen and (max-width: 500px) {
+        text-align: left;
     }
   }
   &__text {
@@ -65,7 +71,7 @@
     width: 20rem;
     height: 20rem;
     margin-top: auto;
-    transition: all .5s;
+    transition: transform .5s;
 
     &--resonance {
       transform: scaleY(1.15);

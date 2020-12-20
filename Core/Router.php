@@ -112,7 +112,7 @@ class Router {
 
             global $easyCSRF;
 
-            $easyCSRF->check(Config::TOKEN_SECRET, $csrfToken, 60*60, true);
+            $easyCSRF->check(Config::TOKEN_SECRET, $csrfToken, null, true);
 
             return true;
             

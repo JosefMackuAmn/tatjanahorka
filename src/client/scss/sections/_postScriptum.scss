@@ -1,0 +1,37 @@
+.postScriptum {
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    &__photo {
+        width: 100%;
+        height: auto;
+
+        object-fit: cover;
+    }
+    & .heading-2 {
+        width: 70%;
+        background-color: $color-black-background;
+
+        padding: 4rem;
+
+        position: absolute;
+
+        top: 80%;
+        right: 15%;
+
+        @media only screen and (max-width: 1250px) {
+            font-size: $font-large;
+        }
+        @media only screen and (max-width: 1050px) {
+            font-size: $font-bigger;
+
+            top: 70%;
+        }
+        @media only screen and (max-width: 950px) {
+            font-size: $font-big;
+        }
+    }
+}
