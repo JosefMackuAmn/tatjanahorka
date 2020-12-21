@@ -1210,6 +1210,31 @@ a:link {
     @media only screen and (max-width: 950px) {
       .postScriptum .heading-2 {
         font-size: 2.5rem; } }
+    @media only screen and (max-width: 800px) {
+      .postScriptum .heading-2 {
+        width: 100%;
+        padding: 8rem 4rem 4rem 4rem;
+        top: 65%;
+        right: 0;
+        bottom: 0; } }
+    @media only screen and (max-width: 600px) {
+      .postScriptum .heading-2 {
+        padding: 6rem 4rem 4rem 4rem; } }
+    @media only screen and (max-width: 600px) {
+      .postScriptum .heading-2 {
+        padding: 4rem 4rem 4rem 4rem; } }
+    @media only screen and (max-width: 450px) {
+      .postScriptum .heading-2 {
+        padding: 3rem 4rem 4rem 4rem; } }
+    @media only screen and (max-width: 400px) {
+      .postScriptum .heading-2 {
+        padding: 2rem 4rem 4rem 4rem; } }
+    @media only screen and (max-width: 360px) {
+      .postScriptum .heading-2 {
+        padding: 1rem 3rem 0rem 3rem; } }
+    @media only screen and (max-width: 330px) {
+      .postScriptum .heading-2 {
+        padding: 0.5rem 2rem 0rem 2rem; } }
 
 .profile {
   background-image: linear-gradient(180deg, rgba(159, 191, 115, 0.1) 0%, rgba(129, 168, 76, 0.1) 100%);
