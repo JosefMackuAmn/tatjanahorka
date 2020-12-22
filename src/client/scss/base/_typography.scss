@@ -5,16 +5,24 @@
 .heading-1 {
     font-family: $font-cursive;
     font-weight: normal;
-    font-size: 7rem;
+    font-size: 4rem;
     color: white;
     text-align: center;
+
+    @media screen and (max-width: 700px) {
+        font-size: 3.5rem;
+    }
 }
 .heading-2 {
     font-family: $font-cursive;
     font-weight: normal;
-    font-size: 4rem;
+    font-size: 3rem;
     color: white;
     text-align: center;
+
+    @media screen and (max-width: 500px) {
+        font-size: 2.5rem;
+    }
 }
 .heading-3 {
     font-size: 3.5rem;

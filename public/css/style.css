@@ -189,16 +189,22 @@ a:link {
 .heading-1 {
   font-family: "Dancing Script", cursive;
   font-weight: normal;
-  font-size: 7rem;
+  font-size: 4rem;
   color: white;
   text-align: center; }
+  @media screen and (max-width: 700px) {
+    .heading-1 {
+      font-size: 3.5rem; } }
 
 .heading-2 {
   font-family: "Dancing Script", cursive;
   font-weight: normal;
-  font-size: 4rem;
+  font-size: 3rem;
   color: white;
   text-align: center; }
+  @media screen and (max-width: 500px) {
+    .heading-2 {
+      font-size: 2.5rem; } }
 
 .heading-3 {
   font-size: 3.5rem;
@@ -562,22 +568,38 @@ a:link {
 
 .events {
   width: 100vw;
-  height: auto;
-  padding-top: 12rem;
-  background-image: url("../img/eventsBackground.svg");
-  background-size: cover;
-  overflow: hidden;
+  height: 50vh;
+  margin-top: -35vh;
+  background-color: transparent;
+  padding-bottom: 5rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
   position: relative;
-  z-index: 2;
-  /*  @media only screen and (max-width: 800px) {
-        background-image: linear-gradient(to right bottom, white, #f4f8ef);
-    } */ }
+  z-index: 2; }
+  @media only screen and (max-width: 1600px) {
+    .events {
+      padding-left: 5rem;
+      padding-right: 5rem; } }
+  @media only screen and (max-width: 1200px) {
+    .events {
+      padding-left: 3rem;
+      padding-right: 3rem; } }
+  @media screen and (max-width: 1000px) {
+    .events {
+      height: auto;
+      margin-top: 3rem;
+      padding-left: 3rem;
+      padding-right: 3rem; } }
+  @media only screen and (max-width: 500px) {
+    .events {
+      margin-top: 1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem; } }
   .events__container {
     height: 100%;
     width: 100%;
-    padding: 20rem 15rem;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     position: relative;
     z-index: 2; }
@@ -586,54 +608,65 @@ a:link {
         align-content: center;
         flex-wrap: wrap; } }
   .events__event {
-    width: 35rem;
-    height: 25rem;
-    margin: 6rem 0;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-    transform: translateY(-25%);
-    position: relative;
-    flex-shrink: 0; }
+    border-radius: 1rem;
+    background-color: #DBF2BA;
+    padding: 3rem;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.35);
+    width: 100%;
+    position: relative; }
     @media only screen and (max-width: 1600px) {
       .events__event {
-        width: 32rem; } }
-    @media only screen and (max-width: 1300px) {
+        padding: 2.5rem; } }
+    @media only screen and (max-width: 1200px) {
       .events__event {
-        width: 27rem; } }
-    .events__event svg {
-      width: 100%;
-      height: 150%;
-      fill: #ffffff; }
-    .events__event__image {
-      width: 75%;
-      height: 15rem;
-      border-radius: 5px;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-      object-position: center center;
-      position: absolute;
-      top: 6rem;
-      left: 52%; }
+        padding: 2rem; } }
+    @media only screen and (max-width: 1000px) {
+      .events__event {
+        width: 100%; } }
+    @media screen and (max-width: 1000px) {
+      .events__event.delay {
+        animation-delay: 0s;
+        transition-delay: 0s; } }
+    .events__event:not(:last-child) {
+      margin-right: 5rem; }
+      @media only screen and (max-width: 1000px) {
+        .events__event:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 5rem; } }
+      @media only screen and (max-width: 700px) {
+        .events__event:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 3rem; } }
+      @media only screen and (max-width: 500px) {
+        .events__event:not(:last-child) {
+          margin-right: 0;
+          margin-bottom: 1.5rem; } }
     .events__event .heading-4 {
-      width: calc(100% - 8rem);
-      position: absolute;
-      top: 16rem;
-      left: 5rem; }
-      @media only screen and (max-width: 1300px) {
+      margin-bottom: 2rem; }
+      @media only screen and (max-width: 1000px) {
         .events__event .heading-4 {
-          width: calc(100% - 6rem);
-          font-size: 1.6rem;
-          left: 4rem; } }
-    .events__event .paragraph-small {
-      width: calc(100% - 8rem);
+          margin-bottom: 1rem; } }
+    .events__event__description {
+      margin-bottom: 2rem; }
+      @media only screen and (max-width: 1000px) {
+        .events__event__description {
+          margin-bottom: 1rem; } }
+    .events__event__link {
+      color: #9CBD6F !important;
       position: absolute;
-      top: 26rem;
-      left: 5rem; }
-      @media only screen and (max-width: 1300px) {
-        .events__event .paragraph-small {
-          width: calc(100% - 6rem);
-          top: 24rem;
-          left: 4rem;
-          font-size: 1.6rem; } }
+      right: 5rem;
+      bottom: 5rem;
+      transition: all .2s; }
+      @media only screen and (max-width: 1600px) {
+        .events__event__link {
+          right: 3rem;
+          bottom: 3rem; } }
+      @media only screen and (max-width: 1200px) {
+        .events__event__link {
+          right: 2rem;
+          bottom: 2rem; } }
+      .events__event__link:hover {
+        transform: translateY(2px); }
 
 .footer {
   width: 100vw;
@@ -746,107 +779,62 @@ a:link {
           width: 100%; } }
 
 .header {
-  height: 100vh;
-  min-height: 80rem;
-  margin-bottom: -15rem;
-  position: relative; }
-  @media screen and (max-width: 1000px) {
+  height: 80vh;
+  min-height: 70rem;
+  position: relative;
+  overflow: hidden; }
+  @media screen and (max-width: 700px) {
     .header {
-      margin-bottom: -12rem; } }
-  @media screen and (max-width: 800px) {
-    .header {
-      margin-bottom: -5rem; } }
-  .header__svg {
-    position: absolute; }
-    .header__svg--bottom {
-      fill: #9CBD6F;
-      height: 30rem;
-      width: 100%;
-      bottom: 0;
-      left: 0;
-      z-index: 1; }
-      @media screen and (max-width: 900px) {
-        .header__svg--bottom {
-          height: 28rem; } }
-      @media screen and (max-width: 800px) {
-        .header__svg--bottom {
-          height: 20rem;
-          width: 200%;
-          left: -100%; } }
-      @media screen and (max-width: 400px) {
-        .header__svg--bottom {
-          height: 15rem;
-          width: 300%;
-          left: -170%; } }
-    .header__svg--flower {
-      width: 15rem;
-      height: 15rem;
-      bottom: 20rem;
-      right: 5rem; }
+      min-height: 50rem; } }
   .header__bg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 108%;
+    object-position: center 70%;
     position: absolute; }
+    @media screen and (max-width: 1750px) {
+      .header__bg {
+        transform: scale(1.05) translateY(-5rem); } }
+    @media screen and (max-width: 1500px) {
+      .header__bg {
+        transform: scale(1.1) translateY(-10rem); } }
+    @media screen and (max-width: 1300px) {
+      .header__bg {
+        transform: scale(1.3) translateY(-10rem); } }
+    @media screen and (max-width: 1000px) {
+      .header__bg {
+        transform: scale(1.3) translateY(-5rem); } }
+    @media screen and (max-width: 500px) {
+      .header__bg {
+        transform: scale(1.2) translateY(-5rem); } }
   .header__text {
     position: absolute;
     z-index: 1;
-    bottom: 13rem;
-    right: 10rem; }
-    @media screen and (max-width: 1500px) {
-      .header__text {
-        right: 5rem; } }
-    @media screen and (max-width: 1300px) {
-      .header__text {
-        bottom: 15rem;
-        right: 3rem; } }
-    @media screen and (max-width: 900px) {
-      .header__text {
-        bottom: 15rem;
-        right: 1rem; } }
-    @media screen and (max-width: 800px) {
+    top: 5rem;
+    left: 5rem;
+    display: flex;
+    flex-direction: column-reverse; }
+    @media screen and (max-width: 1000px) {
       .header__text {
         width: 100%;
-        height: 100%;
-        bottom: 0;
-        right: 0; } }
-  @media screen and (max-width: 1300px) {
-    .header .heading-2 {
-      font-size: 3rem; } }
-  @media screen and (max-width: 1200px) {
-    .header .heading-2 {
-      font-size: 3rem; } }
-  @media screen and (max-width: 900px) {
-    .header .heading-2 {
-      font-size: 2.5rem; } }
-  @media screen and (max-width: 800px) {
-    .header .heading-2 {
-      width: 100%;
-      font-size: 4rem;
-      text-align: center;
-      position: absolute;
-      top: 2rem; } }
-  @media screen and (max-width: 1300px) {
-    .header .heading-1 {
-      font-size: 6rem; } }
-  @media screen and (max-width: 1200px) {
-    .header .heading-1 {
-      font-size: 5rem; } }
-  @media screen and (max-width: 900px) {
-    .header .heading-1 {
-      font-size: 4.5rem; } }
-  @media screen and (max-width: 800px) {
-    .header .heading-1 {
-      font-size: 3.5rem;
-      position: absolute;
-      bottom: 10rem;
-      right: 4rem; } }
-  @media screen and (max-width: 400px) {
-    .header .heading-1 {
-      font-size: 3rem;
-      bottom: 7rem;
-      right: 2rem; } }
+        background-color: rgba(255, 255, 255, 0.5);
+        margin-top: auto;
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        left: unset;
+        top: unset;
+        bottom: 0; } }
+    @media screen and (max-width: 700px) {
+      .header__text {
+        padding-top: 3rem;
+        padding-bottom: 3rem; } }
+  .header .heading-2 {
+    text-align: left; }
+    @media screen and (max-width: 1000px) {
+      .header .heading-2 {
+        text-align: center; } }
+  .header .heading-1 {
+    text-align: center; }
 
 .organizations {
   padding-bottom: 20rem;
@@ -1030,6 +1018,7 @@ a:link {
 .passedEvents {
   width: 100vw;
   height: 80rem;
+  margin-top: 10rem;
   position: relative;
   z-index: 3; }
   @media only screen and (max-width: 900px) {
@@ -1550,3 +1539,167 @@ a:link {
     .reviews {
       height: 70rem;
       padding-bottom: 10rem; } }
+
+.book {
+  height: auto;
+  padding-left: 5rem;
+  margin-top: 5rem;
+  padding-right: 5rem;
+  overflow: hidden;
+  position: relative; }
+  @media screen and (max-width: 1000px) {
+    .book {
+      margin-top: 3rem;
+      padding-left: 3rem;
+      padding-right: 3rem; } }
+  @media only screen and (max-width: 500px) {
+    .book {
+      margin-top: 1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem; } }
+  .book__image-container {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden; }
+    @media screen and (max-width: 1000px) {
+      .book__image-container {
+        height: 75rem;
+        width: auto; } }
+    @media screen and (max-width: 700px) {
+      .book__image-container {
+        height: 40rem; } }
+    @media screen and (max-width: 500px) {
+      .book__image-container {
+        height: 30rem; } }
+  .book__content {
+    font-size: 1.8rem;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%); }
+    @media screen and (max-width: 1200px) {
+      .book__content {
+        top: 70%; } }
+    @media screen and (max-width: 1050px) {
+      .book__content {
+        font-size: 1.6rem; } }
+    @media screen and (max-width: 1000px) {
+      .book__content {
+        top: 75%; } }
+    @media screen and (max-width: 700px) {
+      .book__content {
+        position: relative;
+        transform: none;
+        left: unset;
+        top: unset; } }
+  .book__image {
+    width: 100%;
+    height: auto; }
+    @media screen and (max-width: 1300px) {
+      .book__image {
+        transform: scale(1.2); } }
+    @media screen and (max-width: 1200px) {
+      .book__image {
+        transform: scale(1.2) translateY(-5rem); } }
+    @media screen and (max-width: 1000px) {
+      .book__image {
+        height: 100%;
+        width: auto;
+        transform: scale(1.2) translateX(-8rem) translateY(-5rem); } }
+    @media screen and (max-width: 900px) {
+      .book__image {
+        transform: translateX(-12rem); } }
+    @media screen and (max-width: 800px) {
+      .book__image {
+        transform: translateX(-16rem); } }
+    @media screen and (max-width: 700px) {
+      .book__image {
+        transform: scale(1.2) translateX(1rem) translateY(-2rem); } }
+    @media screen and (max-width: 600px) {
+      .book__image {
+        transform: scale(1.2) translateX(-3rem) translateY(-2rem); } }
+    @media screen and (max-width: 500px) {
+      .book__image {
+        transform: scale(1.2) translateX(-1rem) translateY(-2rem); } }
+    @media screen and (max-width: 400px) {
+      .book__image {
+        transform: scale(1.2) translateX(-5rem) translateY(-2rem); } }
+    @media screen and (max-width: 350px) {
+      .book__image {
+        transform: scale(1) translateX(-8rem) translateY(0rem); } }
+  .book__cta {
+    background-color: #ffffff;
+    padding: 1rem 0;
+    border: none;
+    width: 25rem;
+    outline: none;
+    border-radius: 5rem;
+    cursor: pointer;
+    font-size: 1.8rem;
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    left: 75%;
+    bottom: 0;
+    transform: translateY(50%) translateX(-50%);
+    z-index: 1; }
+    @media screen and (max-width: 1050px) {
+      .book__cta {
+        font-size: 1.6rem; } }
+    @media screen and (max-width: 1000px) {
+      .book__cta {
+        border: 2px solid #9CBD6F; } }
+    @media screen and (max-width: 700px) {
+      .book__cta {
+        height: 5rem;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        top: 0; } }
+    @media screen and (max-width: 500px) {
+      .book__cta {
+        height: 4rem;
+        width: 20rem;
+        padding: .5rem 0; } }
+    .book__cta::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #9CBD6F;
+      transition: all 0.2s;
+      position: absolute;
+      transform: translateY(-100%);
+      top: 0;
+      left: 0;
+      z-index: -1; }
+    .book__cta:hover {
+      color: #ffffff; }
+      .book__cta:hover::before {
+        transform: translateY(0); }
+  .book__text {
+    padding: 5rem;
+    background: rgba(255, 255, 255, 0.79);
+    border-radius: 0.5rem;
+    width: 100rem; }
+    @media screen and (max-width: 1400px) {
+      .book__text {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        padding-left: 3rem;
+        padding-right: 3rem; } }
+    @media screen and (max-width: 1200px) {
+      .book__text {
+        width: 70rem; } }
+    @media screen and (max-width: 1000px) {
+      .book__text {
+        background: white; } }
+    @media screen and (max-width: 900px) {
+      .book__text {
+        width: 50rem; } }
+    @media screen and (max-width: 700px) {
+      .book__text {
+        padding: 0;
+        padding-top: 5rem;
+        width: 100%; } }

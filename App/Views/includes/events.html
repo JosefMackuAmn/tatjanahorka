@@ -4,15 +4,31 @@
         {% for event in events %}
     
             <div class="events__event">
-                <svg width="414" height="308" viewBox="0 0 414 308" xmlns="http://www.w3.org/2000/svg">
-                    <use xlink:href="#eventBlock" />
-                </svg>
-                <img class="events__event__image" src="/img/{{ event.event_imageUrl }}" alt="{{ event.event_title }}">
                 <h4 class="heading-4">{{ event.event_title }}</h4>
                 <p class="paragraph-small">{{ event.event_prettyDate }}</p>
             </div>
     
         {% endfor %}
+
+        <!-- FOR TESTING PURPOSES -->
+        <div class="events__event delay toBeAnimated animation-bounceUp delay--05">
+            <h4 class="heading-4">Takže ahoj</h4>
+            <p class="events__event__description">Budliky čudlíky, na plotně smetana klohne, random báseň je toto africa, otoč se a vezmu tě botouBudliky čudlíky, na plotně smetana klohne, random báseň je toto africa, otoč se a vezmu tě botou</p>
+            <p class="paragraph-small">24.9.2020</p>
+            <a href="" class="events__event__link">Více</a>
+        </div>
+        <div class="events__event delay toBeAnimated animation-bounceUp delay--10">
+            <h4 class="heading-4">Takže ahoj</h4>
+            <p class="events__event__description">Budliky čudlíky, na plotně smetana klohne, random báseň je toto africa, otoč se a vezmu tě botou</p>
+            <p class="paragraph-small">24.9.2020</p>
+            <a href="" class="events__event__link">Více</a> 
+        </div>
+        <div class="events__event delay toBeAnimated animation-bounceUp delay--15">
+            <h4 class="heading-4">Takže ahoj</h4>
+            <p class="events__event__description">Budliky čudlíky, na plotně smetana klohne, random báseň je toto africa, otoč se a vezmu tě botou</p>
+            <p class="paragraph-small">24.9.2020</p>
+            <a href="" class="events__event__link">Více</a>
+        </div>
 
     </container>
 </section>

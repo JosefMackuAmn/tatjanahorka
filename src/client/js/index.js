@@ -257,6 +257,8 @@ for (const element of toBeAnimatedElements) {
     toBeAnimated.push([element, element.getBoundingClientRect().y + document.documentElement.scrollTop]);
 }
 
+const toBeAnimatedSnapshot = toBeAnimated;
+
 //Handler for 'scroll' event on document.window, triggers animations
 const animationTriggerer = () => {
 
@@ -303,6 +305,11 @@ const animationTriggerer = () => {
 //When user scrolls, triggering animations
 window.addEventListener('scroll', () => {
     animationTriggerer();
+})
+
+//Preventing misbehavior on window resize
+window.addEventListener('resize', () => {
+    toBeAnimated = toBeAnimatedSnapshot;
 })
 
 //Triggering animations on page load
