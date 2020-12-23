@@ -7,7 +7,7 @@ use \App\Config;
 use \Exception;
 use \App\Models\Event;
 use \App\Models\Email;
-use \Helpers\File;
+//use \Helpers\File;
 
 class Admin extends \Core\Controller {
     
@@ -42,8 +42,8 @@ class Admin extends \Core\Controller {
         $this->loggedInCheck();
         $eventId = $params['id'];
 
-        $event = Event::getEvent($eventId);
-        File::delete($event['event_imageUrl']);
+        //$event = Event::getEvent($eventId);
+        //File::delete($event['event_imageUrl']);
         Event::deleteEvent($eventId);
 
         header('Location: /admin/events');
@@ -164,20 +164,21 @@ class Admin extends \Core\Controller {
         }
         $date = strtotime($dateFrom);
 
-        $imageUrl = File::upload();
-
-        if (!$imageUrl) {
+        //$imageUrl = File::upload();
+        /* if (!$imageUrl) {
             throw new \Exception('No image was uploaded');
-        }
+        } */
 
         $event = [
             "title" => $_POST['title'],
             "date" => $date,
             "dateFrom" => $dateFrom,
             "dateTo" => $_POST['dateTo'],
-            "imageUrl" => $imageUrl,
+            //"imageUrl" => $imageUrl,
             "link" => $_POST['link']
         ];
+
+        Email::sendEmails($event);
 
         Event::addEvent($event);
         header('Location: /admin/events?success=true');
@@ -209,21 +210,21 @@ class Admin extends \Core\Controller {
         $date = strtotime($dateFrom);
 
         // Update image if isset and delete the old one
-        $imageUrl = false;
+        /* $imageUrl = false;
         if (File::checkFile()) {
             $oldEvent = Event::getEvent($eventId);
             $oldImage = $oldEvent['event_imageUrl'];
 
             File::delete($oldImage);
             $imageUrl = File::upload();
-        }
+        } */
 
         $event = [
             "title" => $_POST['title'],
             "date" => $date,
             "dateFrom" => $dateFrom,
             "dateTo" => $_POST['dateTo'],
-            "imageUrl" => $imageUrl,
+            //"imageUrl" => $imageUrl,
             "link" => $_POST['link']
         ];
 

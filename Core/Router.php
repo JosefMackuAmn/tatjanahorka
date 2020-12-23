@@ -71,7 +71,8 @@ class Router {
                 throw new \Exception("Controller class $controller not found");
             }
         } else {
-            throw new \Exception("No route matched", 404);
+            header('Location: /');
+            exit();
         }
     }
 

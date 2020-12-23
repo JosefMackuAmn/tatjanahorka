@@ -1,0 +1,443 @@
+&__svgLily {
+    width: 40rem;
+    height: 40rem;
+
+    opacity: 0.15;
+
+    position: absolute;
+
+    top: 5%;
+    right: 0;
+    z-index: -1;
+
+    @media only screen and (max-width: 1400px) {
+        width: 35rem;
+        height: 35rem;
+    }
+    @media only screen and (max-width: 1100px) {
+        width: 25rem;
+        height: 25rem;
+    }
+    @media only screen and (max-width: 800px) {
+        display: none;
+    }
+}
+.footer {
+    width: 100vw;
+    padding: 15rem 20rem;
+    background-color: $color-green-footer;
+
+    color: white;
+
+    position: relative;
+
+    @media only screen and (max-width: 1450px) {
+        padding: 15rem;
+    }
+    @media only screen and (max-width: 1250px) {
+        padding: 10rem;
+    }
+    @media only screen and (max-width: 1150px) {
+        padding: 7.5rem;
+    }
+    @media only screen and (max-width: 500px) {
+        padding: 5rem;
+    }
+    @media only screen and (max-width: 400px) {
+        padding: 5rem 3rem;
+    }
+
+    &__columns {
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        @media only screen and (max-width: 1100px) {
+            flex-wrap: wrap;
+        }
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        & .paragraph-1 {
+            &__break {
+                @media only screen and (max-width: 800px) {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        &__column {
+            &:not(:last-child) {
+                margin-right: 3rem;
+
+                @media only screen and (max-width: 1100px) {
+                    width: 50%;
+                    margin-right: 0;
+                    margin-bottom: 3rem;
+                }
+                @media only screen and (max-width: 800px) {
+                    width: 100%;
+                }
+            }
+        }
+&__svgLeaf {
+    width: 25rem;
+    height: 20rem;
+
+    position: absolute;
+
+    transform: rotate(-150deg) scaleY(-1) translateY(-50%);
+    top: 48rem;
+    right: 2rem;
+.postScriptum {
+    width: 100vw;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+& .heading-2 {
+        width: 70%;
+        padding: 4rem;
+        background-color: $color-black-background;
+        transform: translate(-50%, -50%);
+
+        position: absolute;
+        top: 80%;
+        left: 50%;
+
+        transition: all 1s ease-out;
+
+        @media only screen and (max-width: 1250px) {
+            font-size: $font-large;
+        }
+        @media only screen and (max-width: 1050px) {
+            font-size: $font-bigger;
+
+            top: 70%;
+        }
+        @media only screen and (max-width: 950px) {
+            font-size: $font-big;
+        }
+        @media only screen and (max-width: 800px) {
+            width: 100%;
+            padding: 4rem;
+
+            top: 80%;
+            right: 0;
+        }
+        @media only screen and (max-width: 400px) {
+            padding: 2rem;
+        }
+    }
+}
+.topics {
+    width: 100vw;
+    height: auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    position: relative;
+
+    @media only screen and (max-width: 1050px) {
+        padding-right: 5rem;
+    }
+    @media only screen and (max-width: 800px) {
+        height: auto;
+        padding-right: 0;
+
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__svgTop {
+        width: 40rem;
+        height: 40rem;
+
+        opacity: 0.15;
+
+        position: absolute;
+    
+        right: 15%;
+        top: -22%;
+        z-index: -1;
+
+        @media only screen and (max-width: 1400px) {
+            width: 35rem;
+            height: 35rem;
+
+            top: -10%;
+            right: 0;
+        }
+        @media only screen and (max-width: 1100px) {
+            width: 25rem;
+            height: 25rem;
+
+            top: 0;
+        }
+        @media only screen and (max-width: 800px) {
+            display: none;
+        }
+    }
+    &__svgBottom {
+        width: 35rem;
+        height: 35rem;
+
+        opacity: 0.15;
+
+        position: absolute;
+
+        top: 80%;
+        right: 35%;
+        z-index: -1;
+
+        animation: testAnimation 5s;
+
+        @media only screen and (max-width: 1400px) {
+            width: 30rem;
+            height: 30rem;
+
+            bottom: -20%;
+        }
+        @media only screen and (max-width: 1100px) {
+            width: 15rem;
+            height: 15rem;
+
+            bottom: 0;
+            right: 40%;
+        }
+        @media only screen and (max-width: 950px) {
+            right: 30%;
+        }
+        @media only screen and (max-width: 800px) {
+            display: none;
+        }
+    }
+    &__img {
+        &__container {
+            width: 450px;
+            flex-shrink: 0;
+
+            &:last-of-type {
+                display : none;
+            }
+
+            @media only screen and (max-width: 1100px) {
+                width: 298px;
+            }
+            @media only screen and (max-width: 800px) {
+                &:first-of-type {
+                    display : none;
+                }
+                &:last-of-type {
+                    width: 100%;
+                    height: 60vw;
+
+                    display : block;
+
+                    overflow: hidden;
+                }   
+            }
+            @media only screen and (max-width: 500px) {
+                &:last-of-type {
+                    height: 80vw;
+                }
+            }
+            
+        }
+
+        &__regular {
+            width: 100%;
+            height: 100%;
+            
+            @media only screen and (max-width: 800px) {
+                display: none;
+            }
+            @media only screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+                padding-right: 5rem;
+            }
+        }
+        &__mobile {
+            width: 100%;
+
+            transform: translateY(-25%);
+
+            @media only screen and (min-width: 801px) {
+                display: none;
+            }
+        }
+    }
+    &__text {
+        width: 100%;
+        margin: 15rem 10rem;
+
+        &__head {
+            margin-bottom: 5rem;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            @media only screen and (max-width: 800px) {
+                margin-bottom: 2rem;
+                
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            &__svg {
+                margin-right: 2rem;
+
+                @media only screen and (max-width: 800px) {
+                    margin: 0;
+                }
+            }
+        }
+        &__consultation {
+            margin-bottom: 5rem;
+
+        }
+        &__reflect {
+            @media only screen and (max-width: 800px) {
+                font-size: $font-smallest;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+.way {
+    width: 100vw;
+    padding: 15rem 20rem;
+    overflow: hidden;
+
+    position: relative;
+
+    &__header {
+        margin-bottom: 5rem;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        @media only screen and (max-width: 800px) {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &__svg {
+            margin-right: 2rem;
+
+            @media only screen and (max-width: 800px) {
+                margin: 0;
+            }
+        }
+        &__text {
+            @media only screen and (max-width: 400px) {
+                font-size: $font-regular;
+            }
+        }
+    }
+    &__text {
+        @media only screen and (max-width: 500px) {
+            font-size: $font-smallest;
+        }
+    }
+    &__svgBottom {
+        width: 35rem;
+        height: 35rem;
+
+        opacity: 0.15;
+
+        position: absolute;
+
+        top: 50%;
+        left: -10%;
+        z-index: -1;
+
+        @media only screen and (max-width: 1400px) {
+            width: 30rem;
+            height: 30rem;
+        }
+        @media only screen and (max-width: 1100px) {
+            width: 15rem;
+            height: 15rem;
+
+            top: 60%;
+            left: -5%;
+        }
+        @media only screen and (max-width: 800px) {
+            display: none;
+        }
+    }
+}
+<section class="way">
+    <div class="way__header">
+        <svg class="way__header__svg" width="59" height="65" viewBox="0 0 59 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="#bloom"></use> 
+        </svg>
+        <h3 class="heading-3">Moje cesta k medecíně</h3>
+    </div>
+    <p class="paragraph-1 way__text">Moje cesta k medicíně a později k psychoterapii vedla přes úrodné pole mé skvělé rodiny, která byla tím nejlepším kompostem pro můj růst. O konflikty, hádky a někdy dramatické události nebyla nouze. Jako malinká holčička jsem chtěla zachraňovat mé blízké tam venku, aby se měli rádi a usmířili se...toužila jsem po lásce jako z pohádky. Později, již dospělá žena, jsem usmířila svoje blízké uvnitř sebe sama. Nejprve jsem chtěla léčit všechny venku, pak jsem uzdravovala celý svět v sobě. Dnes mám radost z obyčejných věcí, že vstanu z postele, vidím, můžu chodit. Potkávat se s lidmi a poznávat vzájemně pestrobarevnost života. Ta největší láska je k životu samému.</p>
+    <svg class="way__svgBottom" width="59" height="65" viewBox="0 0 59 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <use xlink:href="#bloom"></use> 
+    </svg>
+</section>
+<section class="topics">
+    <svg class="topics__svgTop" width="59" height="65" viewBox="0 0 59 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <use xlink:href="#bloom"></use> 
+    </svg>
+    <div class="topics__img__container toBeAnimated animation-rollInFromRight">
+        <img src="img/leafs.jpg" alt="rose" class="topics__img__regular">
+    </div>
+    <div class="topics__text">
+        <div class="topics__text__head">
+            <svg class="topics__text__head__svg" width="59" height="65" viewBox="0 0 59 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use xlink:href="#bloom"></use> 
+            </svg>
+            <h3 class="heading-3">Témata konzultací</h3>
+        </div>
+        <div class="topics__text__consultation paragraph-1">Konzultace se nejčastěji týkají mezilidských vztahů, komunikace, osobnostního rozvoje, zvyšování kvality života, hledaní zdrojů při zvládání stresu, zlepšování zdravotní a psychické kondice, řešení konfliktních situací a zvladaní emocí. Dále se objevují témata, jak přistupovat k dětem a doprovázet je při emočních konfrontacích, partnerská problematika, posílení vlastních kompetencí při komunikaci v týmu, s nadřízeným, při prezentaci ve firmach.</div>
+        <div class="topics__text__reflect paragraph-1">- Osobní rozvoj</div>
+        <div class="topics__text__reflect paragraph-1">- Tělesné a duševní zdraví</div>
+        <div class="topics__text__reflect paragraph-1">- Komunikace</div>
+        <div class="topics__text__reflect paragraph-1">- Mezilidské vztahy</div>        
+    </div>
+    <svg class="topics__svgBottom" width="59" height="65" viewBox="0 0 59 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <use xlink:href="#bloom"></use> 
+    </svg>
+    <div class="topics__img__container toBeAnimated animation-rollInFromRight">
+        <img src="img/leafs.jpg" alt="rose" class="topics__img__mobile">
+    </div>
+</section>
+<section class="postScriptum closed" id="post-scriptum">
+    <img src="img/amnion.jpg" alt="AmnionTeam" class="postScriptum__photo">
+    <h2 class="heading-2">S tvorbou webu jsme Táni rádi pomohli, AmnioN&nbsp;Web</h2>
+</section>
+<footer class="footer">
+    <div class="footer__columns">
+        <div class="footer__columns__column">
+            <h5 class="heading-5">Kontakt</h5>
+            <p class="paragraph-1">Ič: 079 52 320</p>
+            <p class="paragraph-1">tatjanahorka@gmail.com</p>
+            <p class="paragraph-1 paragraph-1__break">+420 777 743 704</p>
+            <p class="paragraph-1">Volejte Po - Pá mezi 18:00-19:00</p>
+        </div>
+        <div class="footer__columns__column">
+            <h5 class="heading-5">Cena za konzultační služby</h5>
+            <p class="paragraph-1">Individuální konzultační hodina / 2&nbsp;500&nbsp;Kč</p>
+            <p class="paragraph-1">Párová konzultační hodina / 3&nbsp;700&nbsp;Kč</p>
+            <p class="paragraph-1 paragraph-1__break">Skupinová práce hodina / 5&nbsp;000&nbsp;Kč</p>
+            <p class="paragraph-1">Cestovní náhrady jsou stanoveny podle počtu kilometrů</p>
+        </div>
+    </div>   
+</footer>
+<svg class="cooperation__svgLily" width="59" height="65" viewBox="0 0 59 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <use xlink:href="#bloom"></use> 
+</svg>

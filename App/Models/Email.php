@@ -43,6 +43,19 @@ class Email extends \Core\Model {
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
+        
+    }
+
+    public static function sendEmails($event) {
+        
+        $emails = static::getEmails();
+
+        $headers = "From: web@tatjanahorka.cz";
+
+        foreach ($emails as $email) {
+            mail($email['email_email'], "Taťjana Horká: " . $event['title'], $event['title'], $headers);
+        }
+
     }
 
 }

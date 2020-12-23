@@ -1,0 +1,481 @@
+@keyframes showHideModal {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-3rem);
+    animation-timing-function: ease-out;
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%);
+    animation-timing-function: linear;
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(-50%);
+  }
+  100% {
+    opacity: 0;
+    animation-timing-function: linear;
+  }
+}
+.modal {
+    width: 50rem;
+    height: 10rem;
+    background-color: $color-white-overlay;
+    transform: translateX(-50%);
+    border-radius: .5rem;
+    box-shadow: 2px 2px 4px 1px $color-black-overlay-light;
+
+    font-size: $font-big;
+    letter-spacing: 1px;
+
+    position: fixed;
+    top: 5rem;
+    left: 50%;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: showHideModal 5s linear forwards;
+
+    @media only screen and (max-width: 600px) {
+        width: 35rem;
+        height: 8rem;
+
+        font-size: $font-regular;
+    }
+    @media only screen and (max-width: 400px) {
+        width: 30rem;
+        height: 6rem;
+
+        font-size: $font-small;
+    }
+
+    &.success {
+        color: $color-green;
+    }
+    &.fail {
+        color: brown;
+    }
+}
+@media screen and (max-width: 1500px) {
+    padding: 25rem 5rem;
+}
+@media screen and (max-width: 1300px) {        
+    padding: 15rem 5rem;
+}
+  &__overlay {
+    width: 100%;
+    height: calc(100% + 2px);
+    background-image: linear-gradient(to bottom, transparent 95%, white 99%);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @media screen and (max-width: 1750px) {  
+      transform: scale(1.05) translateY(-5rem);    
+    }
+    @media screen and (max-width: 1500px) {  
+      transform: scale(1.1) translateY(-10rem);    
+    }
+    @media screen and (max-width: 1300px) {  
+      transform: scale(1.3) translateY(-10rem);    
+    }
+    @media screen and (max-width: 1000px) {  
+      transform: scale(1.3) translateY(-5rem);
+    }
+    @media screen and (max-width: 500px) {  
+      transform: scale(1.2) translateY(-5rem);
+    }
+  }
+& > * {
+text-shadow: 1px 2px 1px $color-black-overlay-light;
+
+@media screen and (max-width: $bp-header-mobile) {
+text-shadow: 1px 1px 1px $color-black-overlay;
+}
+}
+.passedEvents {
+    width: 100vw;
+    height: 80rem;
+    margin-top: 10rem;
+
+    position: relative;
+    z-index: 3;
+    
+    @media only screen and (max-width: 900px) {
+        height: auto;
+    }
+    
+    &__image-container {
+        width: 110%;
+        height: 100%;
+        background-color: transparent;
+
+        display: block;
+
+        overflow: hidden;
+        position: relative;
+        left: -35%;
+    }
+    &__image {
+        width: 100%;
+        height: 100%;
+        transform: scaleX(-1);
+        object-fit: cover;
+        background-color: transparent;
+
+        position: absolute; 
+
+        animation: linear flowerZoom 30s infinite;
+
+        @media only screen and (max-width: 900px) {
+            display: none;
+        }
+    }
+    &__content {
+        height: 105%;
+        width: auto;
+        transform: translateY(-50%);
+
+        position: absolute;
+        top: 50%;
+        right: -2rem; // Who knows why there is a white space
+        z-index: 2;
+
+        @media only screen and (max-width: 1100px) {
+            height: 100%;
+            right: -4rem;
+        }
+        @media only screen and (max-width: 900px) {
+            width: 100%;
+            height: auto;
+            background-color: $color-green;
+            transform: none;
+
+            position: static;
+        }
+
+        &__background {
+            height: 100%;
+
+            @media only screen and (max-width: 900px) {
+                display: none;
+            }
+        }
+        &__flowerBase {
+            position: absolute;
+            bottom: -4px; // Because of 4px blured gradient
+            left: -6rem;
+
+            @media only screen and (max-width: 1100px) {
+                display: none;
+            }
+        }
+
+        &__text-content {
+            width: 69rem;
+            height: 100%;
+            padding: 12rem 12rem 0 0;
+    
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            @media only screen and (max-width: 900px) {
+                width: 100%;
+                padding: 12rem 6rem;
+
+                position: static;
+            }
+            @media only screen and (max-width: 380px) {
+                width: 100%;
+                padding: 12rem 4rem;
+
+                position: static;
+            }
+
+            & .heading-3 {
+                margin-bottom: 12rem;
+
+                color: $color-white;
+                text-align: right;
+
+                position: relative;
+    
+                &::after {
+                    content: "";
+                    width: 20rem;
+                    height: 4px;
+                    border-radius: 1rem;
+                    background-color: $color-white;
+    
+                    display: block;
+    
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                }
+
+                @media only screen and (max-width: 900px) {
+                    margin-bottom: 6rem;
+
+                    text-align: left;
+
+                    &::after {
+                        right: unset;
+                        left: 0;
+                    }
+                }
+            }
+        }
+        &__list {
+            list-style-type: none;
+
+        }
+        &__item {
+            color: $color-white;
+            font-weight: 300;
+            font-size: 2rem;
+            line-height: 135%;
+
+            &:not(:last-child) {
+                margin-bottom: 4rem;
+            }
+
+            & span {
+                font-weight: 600;
+            }
+        }
+    }
+    &__form {
+        transform: translate(-50%, -50%);
+
+        position: absolute;
+        top: -3rem;
+        left: 50%;
+        z-index: 2; 
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        & label {
+            margin-bottom: 1rem;
+        }
+        &__email {
+            width: 50rem;
+            height: 6rem;
+            padding: 1rem;
+            border: none;
+            outline: none;
+            border-radius: 3rem;
+            box-shadow: 0 2px 4px 1px $color-black-overlay-light-2;
+
+            text-align: center;
+
+            @media only screen and (max-width: 650px) {
+                width: 40rem;
+                height: 5rem;
+            }
+            @media only screen and (max-width: 500px) {
+                width: 28rem;
+                height: 5rem;
+            }
+        }
+        &__submit {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+            opacity: 0; // Restored by JS
+
+            color: $color-white;
+            font-size: $font-regular;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 3px $color-black-overlay-light-2;
+
+            position: absolute;
+            bottom: -6rem;
+            left: 50%;
+            z-index: 2;
+
+            transition: all .3s;
+
+            &.hidden {
+                display: none;
+            }
+        }
+    }
+}
+&.closed {
+height: 30rem;
+cursor: pointer;
+
+.heading-2 {
+    top: 50% !important;
+}
+
+&:hover .postScriptum__photo {
+    transform: scale(1.05);
+}
+}
+&__photo {
+width: 100%;
+height: 100%;
+
+object-position: 50% 35%;
+object-fit: cover;
+
+transition: all .2s ease-out;
+}
+@media screen and (max-width: 1600px) {
+    width: calc(100% - 60rem);
+    padding: 15rem;
+}
+@media screen and (max-width: 1600px) {
+    width: calc(100% - 60rem);
+    padding: 10rem 15rem;
+}
+@media screen and (max-width: 1200px) {
+    width: calc(100% - 40rem);
+    height: 60rem;
+    padding: 10rem;
+}
+@media screen and (max-width: 1000px) {
+    width: calc(100% - 30rem);
+    height: auto;
+    padding: 7.5rem;
+}
+@media screen and (max-width: $bp-profile-mobile) {
+    width: 100%;
+    padding: 10rem 7.5rem;
+    height: auto;
+}
+@media only screen and (max-width: 500px) {
+    padding: 7.5rem 5rem;
+}
+@media only screen and (max-width: 400px) {
+    padding: 5rem 3rem;
+}
+@media only screen and (max-width: 1350px) {
+    margin: 10rem;
+}
+@media only screen and (max-width: 1100px) {
+    margin: 0 5rem;
+}
+@media only screen and (max-width: 800px) {
+    width: 100%;
+    padding: 10rem 7.5rem;
+    margin: 0;
+    overflow-wrap: normal;
+}
+@media only screen and (max-width: 500px) {
+    padding: 7.5rem 5rem;
+}
+@media only screen and (max-width: 400px) {
+    padding: 5rem 3rem;
+}
+@media only screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    width: 100rem;
+}
+@media only screen and (max-width: 1450px) {
+    padding: 15rem;
+}
+@media only screen and (max-width: 1450px) {
+    padding: 15rem 10rem;
+}
+@media only screen and (max-width: 800px) {
+    padding: 10rem 7.5rem;
+}
+@media only screen and (max-width: 500px) {
+    padding: 7.5rem 5rem;
+}
+@media only screen and (max-width: 400px) {
+    padding: 5rem 3rem;
+}
+<section class="passedEvents">
+    <container class="passedEvents__image-container toBeAnimated animation-rollInVertically">
+        <img src="img/flower.jpg" alt="Květiny" class="passedEvents__image">
+    </container>
+    <div class="passedEvents__content">
+        <svg class="passedEvents__content__background" width="919" height="868" viewBox="0 0 919 868" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="#passedEventsBackground" />
+        </svg>
+        <svg class="passedEvents__content__flowerBase" width="232" height="499" viewBox="0 0 232 499" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <use xlink:href="#flowerBase" />
+        </svg>
+        <div class="passedEvents__content__text-content">
+            <h3 class="heading-3">Kde jsme se sešli naposled</h3>
+            <ul class="passedEvents__content__list">
+                <li class="passedEvents__content__item"><span>></span> Konzultační a vzdělávací servis pro skleněnku, z.s. ve Veselí nad Moravou</li>
+                <li class="passedEvents__content__item"><span>></span> pro MAS BRÁNA BRNĚNSKA, z.s., konzultace pro MŠ, ZŠ</li>
+                <li class="passedEvents__content__item"><span>></span> pro Škola Na Radosti setkání pedagogického týmu, propojení s rodiči žáků školy</li>
+                <li class="passedEvents__content__item"><span>></span> Na Slovensku společné workshopy s Mgr. Zuzanou Bajkaiovou - téma: Vnútorné dieťa aj.</li>
+            </ul>
+        </div>
+    </div>
+    <form class="passedEvents__form" action="/subscribe" method="POST" autocomplete="off">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <label class="toBeAnimated animation-bounceUp delay--10" for="email">Každou akci posílám na mail</label>
+        <input class="passedEvents__form__email delay--15 toBeAnimated animation-bounceUp" type="email" name="email" id="email" placeholder="vas@email.cz">
+        <input class="passedEvents__form__submit hidden" type="submit" name="submit" id="submit" value="Přidat se">
+    </form>
+</section>
+{% include 'admin/includes/head.html' %}
+</head>
+<body>
+
+    {% set navigationVars = { 'activeLink': 'events' } %}
+    {% include 'admin/includes/navigation.html' with navigationVars %}
+    
+    <div class="wrapper">
+        
+        {% set dynamicTitle = event.event_title ?: 'Vytvořit' %}
+        {% set headerVars = { 'logout': true, 'adminTitle': 'Akce: ' ~ dynamicTitle } %}
+        {% include 'admin/includes/header.html' with headerVars %}
+
+        <main class="main main--event-detail">
+
+            <form class="event-form" id="event-form" enctype="multipart/form-data" method="POST" action="/admin/events/{{ event.event_id }}">
+                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                <div class="event-form__row">
+                    <div class="event-form__data-cell">
+                        <label for="title">Název akce</label>
+                        <input type="text" name="title" id="title" placeholder="Název akce" value="{{ event.event_title }}">
+                    </div>
+                    <div class="event-form__data-cell">
+                        <label for="dateFrom">Od:</label>
+                        <input type="date" name="dateFrom" id="dateFrom" value="{{ event.event_dateFrom }}">
+                    </div>
+                    <div class="event-form__data-cell">
+                        <label for="dateTo">Do:</label>
+                        <input type="date" name="dateTo" id="dateTo" value="{{ event.event_dateTo }}">
+                    </div>
+                </div>
+                <div class="event-form__row">
+                    <div class="event-form__data-cell">
+                        <label for="link">Odkaz</label>
+                        <input type="text" name="link" id="link" placeholder="Odkaz" value="{{ event.event_link }}" />
+                    </div>
+                </div>
+                <div class="event-form__actions">
+                    <input class="event-form__btn event-form__btn--submit" id="submit" name="submit" type="submit" value="Odeslat">
+                    <a href="/admin/events" class="event-form__btn event-form__btn--cancel">Zrušit</a>
+                </div>
+            </form>
+            
+        </main>
+
+    </div>
+    
+{% include 'admin/includes/end.html' %}
+&--events, &--event-detail, &--emails {        
+    padding: 12rem;
+}

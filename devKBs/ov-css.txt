@@ -1,0 +1,1577 @@
+.animation-rollInFromLeft {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    height: 100%;
+    width: 100%;
+    content: "";
+    background-color: $color-white;
+
+    display: block;
+
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+
+    transition: transform cubic-bezier(0.74, 0.01, 0.35, 0.95) 1s;
+  }
+
+  &:not(.toBeAnimated) {
+    &::before {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.animation-rollInFromRight {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    height: 100%;
+    width: 100%;
+    content: "";
+    background-color: $color-white;
+
+    display: block;
+
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+
+    transition: transform cubic-bezier(0.74, 0.01, 0.35, 0.95) 1s;
+  }
+  &:not(.toBeAnimated) {
+    &::before {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.animation-bounceUp {
+  transform: translateY(5%);
+  opacity: 0;
+
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+
+  &:not(.toBeAnimated) {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+//DELAY CLASSES
+.delay {
+  //0.5s delay
+  &--05 {
+    &:not(.toBeAnimated) {
+      animation-delay: 0.5s;
+      transition-delay: 0.5s;
+    }
+  }
+  //1s delay
+  &--10 {
+    &:not(.toBeAnimated) {
+      animation-delay: 1s;
+      transition-delay: 1s;
+    }
+  }
+  //1.5s delay
+  &--15 {
+    &:not(.toBeAnimated) {
+      animation-delay: 1.5s;
+      transition-delay: 1.5s;
+    }
+  }
+}
+//REVIEWS
+
+@keyframes leafFall {
+  0% {
+    transform: translateY(-50%) translateX(-50%);
+    transform-origin: 0 100%;
+  }
+
+  20% {
+    transform: translateY(calc(-50% + 2rem)) scaleY(-1)
+      translateX(calc(-50% + 1rem));
+  }
+
+  40% {
+    transform: translateY(calc(-50% + 4rem)) scaleY(-1) rotateX(180deg)
+      rotateY(30deg) translateX(-50%);
+  }
+
+  50% {
+    transform: translateY(5rem) scaleY(-1) rotateX(270deg);
+  }
+
+  60% {
+    transform: translateY(6rem) scaleY(-1) rotateX(360deg) rotateY(30deg)
+      rotate(15deg) translateX(1rem);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(9rem) scaleY(-1) rotateX(540deg) translateX(1rem);
+  }
+  100% {
+    transform: translateY(12rem) rotateX(760deg) scaleY(-1) translateX(2rem);
+    opacity: 0;
+  }
+}
+
+@keyframes reviewDisappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    filter: blur(0.3px);
+  }
+}
+
+@keyframes reviewAppear {
+  0% {
+    opacity: 0;
+    filter: blur(0.3px);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+// PASSED EVENTS
+@keyframes flowerZoom {
+  0% {
+    transform: scale(1.2) translateX(-5rem);
+    filter: grayscale(0.75) blur(5px);
+    opacity: 0;
+  }
+  5% {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  95% {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4) rotate(3deg) translateX(-15rem);
+    filter: grayscale(0.75) blur(5px);
+    opacity: 0;
+  }
+}
+
+//ON "APPROACH" ANIMATIONS
+
+.animation-rollInVertically {
+  position: relative;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    height: 50%;
+    width: 100%;
+    content: "";
+    background-color: $color-white;
+
+    display: block;
+
+    position: absolute;
+    z-index: 1;
+
+    transition: transform cubic-bezier(0.74, 0.01, 0.35, 0.95) 1s;
+  }
+  &::after {
+    top: 0;
+    left: 0;
+  }
+  &::before {
+    bottom: 0;
+    left: 0;
+  }
+  &:not(.toBeAnimated) {
+    &::after {
+      transform: translateY(-100%);
+    }
+    &::before {
+      transform: translateY(100%);
+    }
+  }
+}
+.cooperation-way {
+  height: 45rem;
+  width: 22%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (max-width: 1300px) {
+    width: 50rem;
+    height: 30rem;
+
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  @media screen and (max-width: 1200px) {
+    width: 48rem;
+  }
+  @media screen and (max-width: 1100px) {
+    width: 40rem;
+    height: 40rem;
+    margin-bottom: 5rem;
+
+    flex-direction: column;
+    align-items: center;
+
+    &.delay {
+      animation-delay: 0s;
+      transition-delay: 0s;
+    }
+  }
+  @media screen and (max-width: 900px) {
+    height: auto;
+    margin-bottom: 10rem;
+  }
+  @media screen and (max-width: 500px) {
+      width: 80%;
+  }
+
+  & .heading-4 {
+    margin-bottom: 1rem;
+
+    @media screen and (max-width: $bp-cooperation-mobile) {
+      text-align: center;
+    }
+    @media screen and (max-width: 500px) {
+        text-align: left;
+    }
+  }
+  &__text {
+    font-size: 1.6rem;
+
+    @media only screen and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      width: 25rem; 
+    }
+  }
+  &__content {
+    @media screen and (max-width: 1300px) {
+      padding-right: 5rem;
+      width: 60%;
+    }
+    @media screen and (max-width: 1200px) {
+      padding-right: 3rem;
+    }
+    @media screen and (max-width: 1100px) {
+      width: 100%;
+      padding-right: 0;
+    }
+  }
+  &__drawing {
+    width: 20rem;
+    height: 20rem;
+    margin-top: auto;
+    transition: transform .5s;
+
+    &--resonance {
+      transform: scaleY(1.15);
+
+      &:hover {
+        transform: scaleY(1.15) rotate(4deg);
+      }
+    }
+    &--dynamics {
+      transform: scaleY(1.4) translateY(10%);
+
+      &:hover {
+        transform: scaleY(1.4) translateY(10%) rotate(-4deg);
+      }
+    }
+    &--institutions {
+      transform: scaleY(.75);
+
+      &:hover {
+        transform: scaleY(.75) rotate(4deg);
+      }
+    }
+    &--consultations {
+      &:hover {
+        transform: rotate(-4deg);
+      }
+    }
+
+    @media screen and (max-width: 1300px) {
+      margin-top: 0;
+      width: 40%;
+    }
+    @media screen and (max-width: 1200px) {
+      width: 30%;
+    }
+    @media screen and (max-width: 1100px) {
+      width: 18rem;
+      height: 18rem;
+      margin-top: auto;
+    }
+    @media screen and (max-width: $bp-cooperation-mobile) {
+      margin-top: 2rem;
+    }
+  }
+}
+.review {
+  width: 70rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+
+  transform: none;
+
+  &--active {
+    display: flex;  
+  }
+
+  @media screen and (max-width: 1400px) {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+
+    justify-content: flex-start;
+  }
+  @media screen and (max-width: $bp-reviews-mobile) {
+    flex-direction: column;
+  }
+
+  &__person {
+    position: relative;
+
+    @media screen and (max-width: $bp-reviews-mobile) {
+      width: 100%;
+     }
+
+    &--hidden {
+      display: none;
+    }
+    &--hiding {
+      display: flex;
+  
+      animation: $animation-review-disappear;
+    }
+    &--visible {
+      display: flex;
+  
+      animation: $animation-review-appear;
+    }
+
+    @media screen and (max-width: 1400px) {
+      margin-left: auto;
+      margin-right: 30rem;
+    }
+    @media screen and (max-width: 1200px) {
+      margin-right: 20rem;
+    }
+    @media screen and (max-width: 950px) {
+      margin-right: 12rem;
+    }
+    @media screen and (max-width: $bp-reviews-mobile) {
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 15rem;
+    }
+    @media screen and (max-width: 350px) {
+        margin-bottom: 17rem;
+    }
+  }
+  &__p {
+    width: 30rem;
+
+    font-weight: 300;
+    font-size: $font-small;
+
+    position: relative;
+
+    @media screen and (max-width: 1400px) {
+      margin-left: 30rem;
+    }
+    @media screen and (max-width: 1200px) {
+      margin-left: 20rem;
+    }
+    @media screen and (max-width: 950px) {
+      margin-left: 12rem;
+    }
+    @media screen and (max-width: $bp-reviews-mobile) {
+      margin-left: 0;
+      margin-top: 5rem;
+
+      font-size: $font-smallest;
+
+      order: 1;
+    }
+    @media screen and (max-width: 350px) {
+       width: 20rem;
+
+       text-align: center;
+    }
+  }
+  &__leaf {
+    width: 4rem;
+    height: 4rem;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    left: -4rem;
+
+    &--hidden {
+      display: none;
+    }
+    &--hiding {
+      display: block;
+      animation: $animation-leaf-fall;
+    }
+    &--visible {
+      display: block;
+
+      animation: $animation-review-appear;
+    }
+
+    @media screen and (max-width: $bp-reviews-mobile) {
+      width: 5rem;
+      height: 5rem;
+
+      top: -4rem;
+      left: 50%;
+    }
+  }
+  &__img {
+   width: 15rem;
+   height: 15rem;
+    border-radius: 50%;
+    border: 2px solid $color-white;
+
+    @media screen and (max-width: $bp-reviews-mobile) {
+      width: 10rem;
+      height: 10rem;
+     }
+  }
+  &__wooden-plate {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: -1;
+
+    @media screen and (max-width: $bp-reviews-mobile) {
+      width: 15rem;
+      height: 17rem;
+     }
+  }
+  &__photo {
+    width: 20rem;
+    height: 25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    @media screen and (max-width: $bp-reviews-mobile) {
+      width: 100%;
+      height: 100%;
+     }
+    
+  }
+  & .heading-5 {
+    width: 100%;
+
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-align: center;
+
+    position: absolute;
+    bottom: -5rem;
+
+    @media screen and (max-width: $bp-reviews-mobile) {
+      bottom: -8rem;
+     }
+  }
+  &__text {
+    &--hidden {
+      display: none;
+    }
+    &--hiding {
+      display: flex;
+  
+      animation: $animation-review-disappear;
+    }
+    &--visible {
+      display: flex;
+  
+      animation: $animation-review-appear;
+    }
+  }
+}
+.book {
+  height: auto;
+  padding-left: 5rem;
+  margin-top: 5rem;
+  padding-right: 5rem;
+
+  overflow: hidden;
+  position: relative;
+
+  @media screen and (max-width: $bp-events-mobile) {
+    margin-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  @media only screen and (max-width: 500px) {
+    margin-top: 1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  &__image-container {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    position: relative;
+    overflow: hidden;
+
+    @media screen and (max-width: 1000px) {
+      height: 75rem;
+      width: auto;
+    }
+    @media screen and (max-width: 700px) {
+        height: 40rem;
+    }
+    @media screen and (max-width: 500px) {
+        height: 30rem;
+    }
+  }
+  &__content {
+    font-size: 1.8rem;
+
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+
+    @media screen and (max-width: 1200px) {
+      top: 70%;
+    }
+    @media screen and (max-width: 1050px) {
+      font-size: 1.6rem;
+    }
+    @media screen and (max-width: 1000px) {
+        top: 75%;
+    }
+    @media screen and (max-width: 700px) {
+        position: relative;
+        transform: none;
+        left: unset;
+        top: unset;
+    }
+  }
+  &__image {
+    width: 100%;
+    height: auto;
+
+    @media screen and (max-width: 1300px) {
+      transform: scale(1.2);
+    }
+    @media screen and (max-width: 1200px) {
+      transform: scale(1.2) translateY(-5rem);
+    }
+    @media screen and (max-width: 1000px) {
+      height: 100%;
+      width: auto;
+
+      transform: scale(1.2) translateX(-8rem) translateY(-5rem);
+    }
+    @media screen and (max-width: 900px) {
+        transform: translateX(-12rem);        
+    }
+    @media screen and (max-width: 800px) {
+        transform: translateX(-16rem);        
+    }
+    @media screen and (max-width: 700px) {
+        transform: scale(1.2) translateX(1rem) translateY(-2rem);                        
+    }
+    @media screen and (max-width: 600px) {
+        transform: scale(1.2) translateX(-3rem) translateY(-2rem);                        
+    }
+    @media screen and (max-width: 500px) {
+        transform: scale(1.2) translateX(-1rem) translateY(-2rem);                        
+    }
+    @media screen and (max-width: 400px) {
+        transform: scale(1.2) translateX(-5rem) translateY(-2rem);                        
+    }
+    @media screen and (max-width: 350px) {
+        transform: scale(1) translateX(-8rem) translateY(0rem);                        
+    }
+  }
+  &__cta {
+    width: 25rem;
+    padding: 1rem 0;
+    background-color: $color-white;
+    border: none;
+    border-radius: 5rem;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+
+    font-size: 1.8rem;
+    font-family: $font-kalam;
+
+    display: block;
+
+    position: absolute;
+    left: 75%;
+    bottom: 0;
+    transform: translateY(50%) translateX(-50%);
+    z-index: 1;
+
+    @media screen and (max-width: 1050px) {
+      font-size: 1.6rem;
+    }
+    @media screen and (max-width: 1000px) {
+      box-shadow: 1px 1px 4px 1px $color-black-overlay-light;
+    }
+    @media screen and (max-width: 900px) {  
+      left: 50%;
+    }
+    @media screen and (max-width: 700px) {
+      height: 5rem;
+
+      transform: translateX(-50%) translateY(-50%);
+      top: 0; 
+    }
+    @media screen and (max-width: 500px) {
+      height: 4rem;
+      width: 20rem;
+      padding: .5rem 0;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: $color-green;
+      transition: all 0.2s;
+
+      position: absolute;
+      transform: translateY(-100%);
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    &:hover {
+      color: $color-white;
+
+      &::before {
+        transform: translateY(0);
+      }
+    }
+  }
+  &__text {
+    width: 100rem;
+    padding: 5rem;
+    background: rgba($color-white, 0.79);
+    border-radius: 0.5rem;
+
+    font-size: $font-small;
+    font-weight: 300;
+
+    @media screen and (max-width: 1400px) {
+      padding-top: 5rem 3rem;
+    }
+    @media screen and (max-width: 1200px) {
+      width: 70rem;
+    }
+    @media screen and (max-width: 1000px) {
+      background: rgba($color-white, 1);
+    }
+    @media screen and (max-width: 900px) {
+      width: 50rem;
+    }
+    @media screen and (max-width: 700px) {
+      padding: 5rem 3.5rem 0 3.5rem;
+      width: 100%;
+    }
+    @media screen and (max-width: 500px) {
+      padding: 5rem 2rem 0 2rem;
+    }
+  }
+}
+.cooperation {
+    width: 100%;
+    padding: 25rem 20rem;
+
+    position: relative;
+
+    @media screen and (max-width: $bp-cooperation-mobile) {
+        padding-bottom: 0;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    & .heading-3 {
+        margin-left: 8rem;
+        margin-bottom: 10rem;
+
+        position: relative;
+
+        @media screen and (max-width: 900px) {
+            width: max-content;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media screen and (max-width: 400px) {
+            width: min-content;
+
+            text-align: center;
+        }
+
+        &::before {
+            content: "";
+            width: 5rem;
+            height: 5rem;
+            background-image: url(../img/bloom.svg);
+            background-position: 50% 50%;
+
+            display: block;
+
+            position: absolute;
+            left: -8rem;
+
+            @media screen and (max-width: 900px) {
+               left: 50%;
+               top: -6rem;
+               transform: translateX(-50%);
+            }
+        }
+    }
+    &__container {
+        display: flex;
+        justify-content: space-between;
+
+        @media screen and (max-width: 1300px) {
+            flex-wrap: wrap;
+        }
+        @media screen and (max-width: 900px) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &__bottom-gradient {
+        height: 10rem;
+        width: 100%;
+        background-image: linear-gradient(180deg, rgba(159, 191, 115, 0) 0%, rgba(159, 191, 115, 0.1) 100%);
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
+.events {
+    width: 100vw;
+    height: 50vh;
+    margin-top: -35vh;
+    background-color: transparent;
+    padding-bottom: 5rem;
+    padding-left: 10rem;
+    padding-right: 10rem;  
+
+    position: relative;
+    z-index: 2;
+
+    @media only screen and (max-width: 1600px) {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+    @media only screen and (max-width: 1200px) {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    @media screen and (max-width: $bp-events-mobile) {
+        height: auto;
+        margin-top: 3rem;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    @media only screen and (max-width: 500px) {
+        margin-top: 1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    &__container {
+        height: 100%;
+        width: 100%;
+
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    
+        position: relative;
+        z-index: 2;
+    
+        @media only screen and (max-width: $bp-events-mobile) {
+            align-content: center;
+            flex-wrap: wrap;
+        }
+    }
+    &__event {
+        border-radius: 1rem;
+        background-color: $color-green-lighter;
+        padding: 3rem;
+        box-shadow: 0 3px 3px rgba($color-black, .35);
+        width: 100%;
+
+        position: relative;
+
+        @media only screen and (max-width: 1600px) {
+            padding: 2.5rem;
+        }
+        @media only screen and (max-width: 1200px) {
+            padding: 2rem;
+        }
+        @media only screen and (max-width: $bp-events-mobile) {
+            width: 100%;
+        }
+
+        &.delay {
+            @media screen and (max-width: $bp-events-mobile) {
+                animation-delay: 0s;
+                transition-delay: 0s;
+            }
+        }
+        &:not(:last-child) {
+            margin-right: 5rem;
+
+            @media only screen and (max-width: $bp-events-mobile) {
+                margin-right: 0;
+                margin-bottom: 5rem;
+            }
+            @media only screen and (max-width: 700px) {
+                margin-right: 0;
+                margin-bottom: 3rem;
+            }
+            @media only screen and (max-width: 500px) {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        & .heading-4 {
+            margin-bottom: .5rem;
+
+            //letter-spacing: px;
+        }
+        &__description {
+            margin-bottom: 2rem;
+
+            font-size: $font-smallest;
+            font-weight: 300;
+
+            @media only screen and (max-width: $bp-events-mobile) {
+                margin-bottom: 1rem;
+            }
+        }
+        &__link {
+            color: $color-green-dark !important;
+
+            position: absolute;
+            right: 5rem;
+            bottom: 5rem;   
+
+            transition: all .2s;
+
+            @media only screen and (max-width: 1600px) {
+                right: 3rem;
+                bottom: 3rem;
+            }
+            @media only screen and (max-width: 1200px) {
+                right: 2rem;
+                bottom: 2rem;
+            }
+
+            &:hover {
+                transform: translateY(2px);
+            }
+        }
+    }
+}
+  & .heading-2 {
+    text-align: left;
+
+    @media screen and (max-width: $bp-header-mobile) {
+     text-align: center;
+    }
+  }
+  & .heading-1 {
+    margin-bottom: .5rem;
+
+    text-align: center;
+  } 
+}
+&__text {
+position: absolute;
+z-index: 1;
+top: 5rem;
+left: 5rem;
+
+display: flex;
+flex-direction: column-reverse;
+
+@media screen and (max-width: $bp-header-mobile) {
+    width: 100%;
+    background-color: rgba($color-white, .5);
+    margin-top: auto;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    left: unset;
+    top: unset;
+    bottom: 0;
+}
+@media screen and (max-width: 700px) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.header {
+  height: 80vh;
+  min-height: 70rem;
+
+  position: relative;
+  overflow: hidden;
+
+  @media screen and (max-width: 700px) {  
+   min-height: 50rem;
+  }
+
+  &__bg {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 70%;
+
+    position: absolute;
+
+    @media screen and (max-width: 1750px) {  
+      transform: scale(1.05) translateY(-5rem);    
+    }
+    @media screen and (max-width: 1500px) {  
+      transform: scale(1.1) translateY(-10rem);    
+    }
+    @media screen and (max-width: 1300px) {  
+      transform: scale(1.3) translateY(-10rem);    
+    }
+    @media screen and (max-width: 1000px) {  
+      transform: scale(1.3) translateY(-5rem);
+    }
+    @media screen and (max-width: 500px) {  
+      transform: scale(1.2) translateY(-5rem);
+    }
+  }
+        @media only screen and (max-width: 800px) {
+            display: none;
+        }
+    }
+
+    & .heading-3 {
+        width: 30rem;
+
+        color: $color-white;
+        text-align: center;
+        line-height: 1.2;
+        font-weight: 300;
+       
+        position: absolute;
+        top: 25rem;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+
+        @media screen and (max-width: 500px) {
+            top: 18rem;
+        }
+    }
+    & .heading-4 {
+        text-align: center;
+
+        position: relative;
+        z-index: 2;
+
+        @media screen and (max-width: 800px) {
+            font-size: 1.6rem;
+        }
+    }
+    &__bg {
+        height: 48rem;
+        background: $color-green;
+
+        @media screen and (max-width: 500px) {
+            height: 33rem;
+        }
+    }
+    &__container {
+        margin-top: 15rem;
+        padding: 0 25rem;
+        
+        display: flex;
+        justify-content: space-between;
+
+        @media only screen and (max-width: 1400px) {
+            padding: 0 15rem;
+        }
+        @media only screen and (max-width: 1100px) {
+            padding: 0 10rem;
+            
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        @media screen and (max-width: $bp-organizations-mobile) {
+            padding: 0 2.5rem;
+            margin-top: 10rem;
+
+            position: relative;
+        }
+        @media screen and (max-width: 500px) {
+            padding: 0;
+        }
+
+    }
+    &__organization {
+        width: 25rem;
+
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        position: relative;
+
+        @media only screen and (max-width: 1100px) {
+            margin-bottom: 3rem;
+        }
+        @media only screen and (max-width: 800px) {
+            margin-bottom: 5rem;
+
+            &.delay {
+                animation-delay: 0s;
+                transition-delay: 0s;
+            }
+        }
+        @media screen and (max-width: 500px) {
+            height: 10rem;
+        }
+
+        &:hover {
+            & .organizations__waterlily {
+                transform: translateY(.5rem);
+            }
+        }
+    }
+    &__wave {
+        background-image: url('../img/wave.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 8rem;
+        height: 8rem;
+
+        position: absolute;
+        top: .5rem;
+        z-index: -1;
+
+        @media screen and (max-width: 1100px) {
+            width: 6rem;
+            height: 6rem;
+        }
+        @media screen and (max-width: $bp-organizations-mobile) {
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+        @media screen and (max-width: 500px) {
+            width: 4rem;
+            height: 4rem;
+        }
+    }
+    &__waterlily {
+        width: 6rem;
+        height: 6rem;
+        transition: transform .3s;
+
+        position: relative;
+
+        @media screen and (max-width: $bp-organizations-mobile) {
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+}
+.organizations {
+    padding-bottom: 20rem;
+    clip-path: url(#organizationsBackgroundClipPath);
+    margin-top: -2rem;
+
+    position: relative;
+    overflow: hidden;
+
+    @media screen and (max-width: $bp-organizations-mobile) {
+       padding-bottom: 0;
+       clip-path: none;
+    }
+
+    & .svg {
+        width: 0;
+        height: 0;
+    }
+    &__svg {
+        position: absolute;
+        z-index: 50;
+
+        &--elipse {
+            width: 45rem;
+            height: 45rem;
+
+            top: 25rem;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+
+            @media screen and (max-width: $bp-organizations-mobile) {
+                width: 45rem;
+                height: 45rem;
+            }
+            @media screen and (max-width: 500px) {
+                width: 35rem;
+                height: 35rem;
+
+                top: 18rem;
+            }
+            @media screen and (max-width: 400px) {
+                width: 30rem;
+                height: 30rem;
+            }
+        }
+        &--leaf {
+            width: 100%;
+            height: 100%;
+
+            &:first-of-type {
+                transform: translateX(-3rem) translateY(.5rem) rotate(-10deg) scale(.75); 
+
+                @media screen and (max-width: $bp-organizations-mobile) {
+                    transform: translateX(-2rem) translateY(.5rem) rotate(-10deg) scale(.75); 
+                }
+            }
+            &:not(:first-of-type) {
+                transform: translateX(2.5rem) translateY(0rem) rotate(130deg) scale(.75);
+
+                @media screen and (max-width: $bp-organizations-mobile) {
+                    transform: translateX(1.5rem) translateY(0rem) rotate(130deg) scale(.75);
+                }
+            }
+        }
+        &--bloom {
+            width: 100%;
+            height: 100%;
+
+            transform: scaleX(-1) rotate(-10deg);
+        }
+    }
+.profile {
+    background-image: linear-gradient(180deg, rgba(#9FBF73, 0.1) 0%, rgba(#81A84C, 0.1) 100%);
+
+    display: flex;
+    justify-content: flex-end;
+
+    position: relative;
+
+    @media screen and (max-width: $bp-profile-mobile) {
+        flex-direction: column;
+    }
+    
+    &__photo-container {
+        width: 50rem;
+        height: 110%;
+        
+        position: absolute;
+        left: 15rem;
+        bottom: -5%;
+        z-index: 3;
+
+        @media screen and (max-width: 1600px) {
+            left: 10rem;
+        }
+        @media screen and (max-width: 1200px) {
+            width: 40rem;
+
+            left: 0;
+        }
+        @media screen and (max-width: 1000px) {
+            width: 30rem;
+            height: 100%;
+
+            bottom: 0;
+        }
+        @media screen and (max-width: $bp-profile-mobile) {
+            width: 35rem;
+            height: auto;
+            padding-bottom: 0;
+            margin-left: auto;
+            margin-right: auto;
+
+            position: relative;
+            right: unset;
+            top: unset;
+            transform: none;
+            bottom: -4rem;
+         }
+        @media only screen and (max-width: 500px) {
+            width: 80%; 
+            padding: 0;
+            padding-bottom: 0;
+        }
+        @media screen and (max-width: 450px) {
+            width: 100%;
+        }
+        @media only screen and (max-width: 400px) {
+           margin-bottom: 5rem;
+        }   
+    }
+    &__photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        display: block;
+    }
+    &__text {
+        width: calc(100% - 65rem);
+        min-height: 65rem;
+        padding: 15rem 20rem;
+        background-color: $color-white;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    & .paragraph-1 {
+        width: 100%;
+
+        &:not(:last-child) {
+            margin-bottom: 4rem;
+        }
+    }
+}
+.reviews {
+    padding-top: 10rem;
+    padding-bottom: 20rem;
+    height: 65rem;
+
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: $bp-reviews-mobile) {
+        height: 70rem;
+        padding-bottom: 10rem;
+    }
+}
+<section class="reviews" id="reviews">
+    <div class="review">
+        <p class="review__p">
+            <span class="review__text review__text--hidden">
+                “Miluji její humor i hloubku vhledů, které srozumitelně předává jednotlivcům i skupině. Její improvizační doprovázení je jedinečné.”
+            </span>
+            <svg viewBox="0 0 71 73" preserveAspectRatio="none" class="review__leaf review__leaf--hidden">
+                <use xlink:href="#leaf"></use>
+            </svg>
+        </p>
+        <div class="review__person review__person--hidden">
+            <div class="review__photo">
+                <svg viewBox="0 0 253 273" preserveAspectRatio="none" class="review__wooden-plate">
+                    <use xlink:href="#woodenPlate"></use>
+                </svg>
+                <img src="img/review_vykoupilova.jpg" class="review__img"></img>
+            </div>
+            <h5 class="heading-5">
+                Jarka Vykoupilová
+            </h5>
+        </div>
+    </div>
+    <div class="review">
+        <p class="review__p">
+            <span class="review__text review__text--hidden">
+                “Spolupráce s Táňou je vždy povzbuzující, povznášející a podnětná. Pohlazení po duši. První seminář s Táňou měl u klientů takový úspěch, že ji musím zvát znovu a znovu a znovu.”
+            </span>
+            <svg viewBox="0 0 71 73" preserveAspectRatio="none" class="review__leaf review__leaf--hidden">
+                <use xlink:href="#leaf"></use>
+            </svg>
+        </p>
+        <div class="review__person review__person--hidden">
+            <div class="review__photo">
+                <svg viewBox="0 0 253 273" preserveAspectRatio="none" class="review__wooden-plate">
+                    <use xlink:href="#woodenPlate"></use>
+                </svg>
+                <img src="img/review_badal.png" class="review__img"></img>
+            </div>
+            <h5 class="heading-5">
+                Jan Badal
+            </h5>
+        </div>
+    </div>
+    <div class="review">
+        <p class="review__p">
+            <span class="review__text review__text--hidden">
+                “Spolupráce s Táňou je pro mě plná radosti, nápadů, inspirace a smíchu. S touto směsí se nádherně a lehkostí pracuje.”
+            </span>
+            <svg viewBox="0 0 71 73" preserveAspectRatio="none" class="review__leaf review__leaf--hidden">
+                <use xlink:href="#leaf"></use>
+            </svg>
+        </p>
+        <div class="review__person review__person--hidden">
+            <div class="review__photo">
+                <svg viewBox="0 0 253 273" preserveAspectRatio="none" class="review__wooden-plate">
+                    <use xlink:href="#woodenPlate"></use>
+                </svg>
+                <img src="img/review_stastna.png" class="review__img"></img>
+            </div>
+            <h5 class="heading-5">
+                Jana Šťastná
+            </h5>
+        </div>
+    </div>
+    <div class="review">
+        <p class="review__p">
+            <span class="review__text review__text--hidden">
+                “Táňa Horká a způsob její práce mě zásadně ovlivnil jak v profesním, ale i osobním životě.”   
+            </span>
+            <svg viewBox="0 0 71 73" preserveAspectRatio="none" class="review__leaf review__leaf--hidden">       
+                <use xlink:href="#leaf"></use>
+            </svg>
+        </p>
+        <div class="review__person review__person--hidden">
+            <div class="review__photo">
+                <svg viewBox="0 0 253 273" preserveAspectRatio="none" class="review__wooden-plate">
+                    <use xlink:href="#woodenPlate"></use>
+                </svg>
+                <img src="img/review_dobesova.jpg" class="review__img"></img>
+            </div>
+            <h5 class="heading-5">
+                Barbora Dobešová
+            </h5>
+        </div>
+    </div>
+    <div class="review">
+        <p class="review__p">
+            <span class="review__text review__text--hidden">
+                “Taťjana a její program mi pomohli si znovu uvědomit vzájemné pochopení a toleranci, což jsou podle mne jedny z nejvyšších životních hodnot.” 
+            </span>
+                    <svg viewBox="0 0 71 73" preserveAspectRatio="none" class="review__leaf review__leaf--hidden">
+                <use xlink:href="#leaf"></use>
+            </svg>
+        </p>
+        <div class="review__person review__person--hidden">
+            <div class="review__photo">
+                <svg viewBox="0 0 253 273" preserveAspectRatio="none" class="review__wooden-plate">
+                    <use xlink:href="#woodenPlate"></use>
+                </svg>
+                <img src="img/review_kaderkova.jpg" class="review__img"></img>
+            </div>
+            <h5 class="heading-5">
+                Petra Kaderková
+            </h5>
+        </div>
+    </div>
+    <div class="review">
+        <p class="review__p">
+            <span class="review__text review__text--hidden">
+                “Učím sa od ní nebrať sa príliš vážne, nadľahčovať ,prijímať,  baviť sa a milovať život aj v časoch, keď nám nie je zrovna najveselšie.”      
+            </span>
+                  <svg viewBox="0 0 71 73" preserveAspectRatio="none" class="review__leaf review__leaf--hidden">
+                <use xlink:href="#leaf"></use>
+            </svg>
+        </p>
+        <div class="review__person review__person--hidden">
+            <div class="review__photo">
+                <svg viewBox="0 0 253 273" preserveAspectRatio="none" class="review__wooden-plate">
+                    <use xlink:href="#woodenPlate"></use>
+                </svg>
+                <img src="img/review_bajkaiova.jpg" class="review__img"></img>
+            </div>
+            <h5 class="heading-5">
+                Zuzana Bajkaiova
+            </h5>
+        </div>
+    </div>
+</section>
+<section class="profile">
+  <container class="profile__photo-container toBeAnimated animation-rollInFromLeft">
+    <img src="img/profile.jpg" alt="" class="profile__photo toBeAnimated"></img>
+  </container>
+  <div class="profile__text">
+    <p class="paragraph-1">
+      Jmenuji se MUDr. Taťjana Horká, desítky let se zabývám konzultační
+      činnosti v oblasti mezilidských vztahů. V roce 2020 jsem se rozhodla
+      ukončit svoji třicetiletou lékařskou praxi. Pracovala jsem v oborech
+      dětského a dorostového lékařství, dětské a dorostové psychiatrie, věnovala
+      jsem se individuální, párové a rodinné psychoterapii. Aktuálně se chci
+      setkávat s lidmi prostřednictvím rozhovoru, bez diagnostiky, bez
+      předepisování léků.
+    </p>
+    <p class="paragraph-1">
+      Nabízím společný čas, svůj (ne)klid a zkušenosti. Konzultační činnost
+      provozuji ve formě workshopů, seminářů, interaktivních besed a přednášek.
+      Orientuji se na skupinovou práci (optimální počet ve skupině je 5-15
+      lidí).
+    </p>
+  </div>
+</section>
+<section class="organizations">
+    <div class="organizations__bg">
+    </div>
+    <svg
+    class="organizations__svg organizations__svg--elipse"
+    viewBox="0 0 496 457"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+    >
+        <use xlink:href="#elipse"></use>
+    </svg>
+    <svg class="organizations__svgLeaf" width="71" height="73" viewBox="0 0 71 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <use xlink:href="#leaf"></use>
+      </svg>
+    <h3 class="heading-3">Spolupracuji s neziskovými organizacemi</h3>
+    <container class="organizations__container">
+        <div class="organizations__organization toBeAnimated animation-bounceUp">
+            <a class="organizations__waterlily" href="https://www.branabrnenska.cz/">
+                <svg preserveAspectRatio="none" viewBox="0 0 71 73" class="organizations__svg organizations__svg--leaf">
+                    <use xlink:href="#leaf"></use>
+                </svg>
+                <svg preserveAspectRatio="none" viewBox="0 0 71 73" class="organizations__svg organizations__svg--leaf">
+                    <use xlink:href="#leaf"></use>
+                </svg>
+                <svg preserveAspectRatio="none" viewBox="0 0 59 65" class="organizations__svg organizations__svg--bloom">
+                    <use xlink:href="#bloom"></use>
+                </svg>
+            </a>
+            <h4 class="heading-4"><a href="https://www.branabrnenska.cz/">MAS BRÁNA BRNĚNSKA</a></h4>
+        </div>
+        <div class="organizations__organization delay toBeAnimated animation-bounceUp delay--05">
+            <a class="organizations__waterlily" href="http://duhovasklenenka.cz/">
+                <svg preserveAspectRatio="none" viewBox="0 0 71 73" class="organizations__svg organizations__svg--leaf">
+                    <use xlink:href="#leaf"></use>
+                </svg>
+                <svg preserveAspectRatio="none" viewBox="0 0 71 73" class="organizations__svg organizations__svg--leaf">
+                    <use xlink:href="#leaf"></use>
+                </svg>
+                <svg preserveAspectRatio="none" viewBox="0 0 59 65" class="organizations__svg organizations__svg--bloom">
+                    <use xlink:href="#bloom"></use>
+                </svg>
+            </a>
+            <h4 class="heading-4"><a href="http://duhovasklenenka.cz/">Skleněnka z.s.</a></h4>
+        </div>
+        <div class="organizations__organization delay toBeAnimated animation-bounceUp delay--10">
+            <a class="organizations__waterlily" href="http://svobodnaskola.cz/">
+                <svg preserveAspectRatio="none" viewBox="0 0 71 73" class="organizations__svg organizations__svg--leaf">
+                    <use xlink:href="#leaf"></use>
+                </svg>
+                <svg preserveAspectRatio="none" viewBox="0 0 71 73" class="organizations__svg organizations__svg--leaf">
+                    <use xlink:href="#leaf"></use>
+                </svg>
+                <svg preserveAspectRatio="none" viewBox="0 0 59 65" class="organizations__svg organizations__svg--bloom">
+                    <use xlink:href="#bloom"></use>
+                </svg>
+            </a>
+            <h4 class="heading-4"><a href="http://svobodnaskola.cz/">Škola CoLibri</a></h4>   
+        </div>
+    </container>
+</section>
+<header class="header" id="header">
+  <div class="header__text">
+    <h2 class="heading-2">Taťjana Horká</h2>
+    <h1 class="heading-1">Vzájemně v pohybu</h1>
+  </div>
+  <img class="header__bg" src="img/hero.jpg" alt="Táňa a strom">
+  <div class="header__overlay"></div>
+</header>
+<div class="events__event delay toBeAnimated animation-bounceUp <!-- delay--05 -->">
+<h4 class="heading-4">{{ event.event_title }}</h4>
+<p class="events__event__description">{{ event.event_content }}</p>
+<p class="paragraph-small">{{ event.event_prettyDate }}</p>
+{% if event.event_link %}
+    <a href="{{ event.event_link }}" class="events__event__link">Více</a>
+{% endif %}
+</div>
+<section class="cooperation">
+    <h3 class="heading-3">
+        Způsob spolupráce
+    </h3>
+    <container class="cooperation__container">
+        <div class="cooperation-way toBeAnimated animation-bounceUp">
+            <div class="cooperation-way__content">
+                <h4 class="heading-4 heading-4--bold">Rezonance</h4>
+                <p class="paragraph-1">
+                    Když to se mnou rezonuje, když to s tebou rezonuje, přišel okamžik, kdy se můžeme setkat.
+                </p>
+            </div>
+            <svg viewBox="0 0 293 221" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" class="cooperation-way__drawing cooperation-way__drawing--resonance">
+                <use xlink:href="#resonance"></use>
+            </svg>
+        </div>
+        <div class="cooperation-way toBeAnimated animation-bounceUp delay delay--05">
+            <div class="cooperation-way__content">
+                <h4 class="heading-4 heading-4--bold">Dynamika skupiny</h4>
+                <p class="paragraph-1">
+                    V dynamice skupiny vidím obrovský potenciál, velkou sílu, obohacení a inspiraci pro rozvoj každého z nás. Miluji sdílení příběhů a propojování v bytostném naladění se
+                    na život.                 
+                </p>
+            </div>
+            <svg preserveAspectRatio="none" viewBox="0 0 278 233" fill="none" xmlns="http://www.w3.org/2000/svg" class="cooperation-way__drawing cooperation-way__drawing--dynamics">
+                <use xlink:href="#dynamics"></use>
+            </svg>
+        </div>
+        <div class="cooperation-way toBeAnimated animation-bounceUp delay delay--10">
+            <div class="cooperation-way__content">
+                <h4 class="heading-4 heading-4--bold">Instituce a organizace</h4>
+                <p class="paragraph-1">
+                    Přicházím do institucí, organizací
+                    a rodin. Vstupuji tam jako host.
+                    V průběhu setkávání se stávám jejich součástí. Loučíme se ve vzájemné proměně.
+                </p>
+            </div>
+            <svg preserveAspectRatio="none" viewBox="0 0 219 203" fill="none" xmlns="http://www.w3.org/2000/svg" class="cooperation-way__drawing cooperation-way__drawing--institutions">
+                <use xlink:href="#institutions"></use>
+            </svg>
+        </div>
+        <div class="cooperation-way toBeAnimated animation-bounceUp delay delay--15">
+            <div class="cooperation-way__content">
+                <h4 class="heading-4 heading-4--bold">Individuální konzultace</h4>
+                <p class="paragraph-1">
+                    Kapacita pro individuální konzultace je naplněna, nové klienty v současné době nepřijímám.
+                </p>
+            </div>
+            <svg preserveAspectRatio="none" viewBox="0 0 219 203" fill="none" xmlns="http://www.w3.org/2000/svg" class="cooperation-way__drawing cooperation-way__drawing--consultations">
+                <use xlink:href="#consultations"></use>
+            </svg>
+        </div>
+        <div class="cooperation__bottom-gradient">
+
+        </div>
+    </container>
+   
+</section>

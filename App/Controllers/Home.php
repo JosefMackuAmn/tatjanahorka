@@ -25,6 +25,22 @@ class Home extends \Core\Controller {
             header('Location: /?success=false');
             exit();
         }
+        if (!isset($_POST['email'])) {
+            header('Location: /?success=false');
+            exit();            
+        }
+    
+        $split_email = explode('@', $_POST['email']);
+        if (count($split_email) < 2) {
+            header('Location: /?success=false');
+            exit();
+        }
+        
+        $split_domain = explode('.', $split_email[1]);        
+        if (count($split_domain) < 2) {
+            header('Location: /?success=false');
+            exit();
+        }
 
         Email::addEmail($_POST['email']);
 

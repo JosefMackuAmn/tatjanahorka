@@ -89,21 +89,22 @@
         }
 
         & .heading-4 {
-            margin-bottom: 2rem;
+            margin-bottom: .5rem;
 
-            @media only screen and (max-width: $bp-events-mobile) {
-                margin-bottom: 1rem;
-            }
+            //letter-spacing: px;
         }
         &__description {
             margin-bottom: 2rem;
+
+            font-size: $font-smallest;
+            font-weight: 300;
 
             @media only screen and (max-width: $bp-events-mobile) {
                 margin-bottom: 1rem;
             }
         }
         &__link {
-            color: $color-green !important;
+            color: $color-green-dark !important;
 
             position: absolute;
             right: 5rem;

@@ -1,26 +1,44 @@
 .postScriptum {
     width: 100vw;
+    overflow: hidden;
 
     display: flex;
     flex-direction: column;
     position: relative;
 
+    &.closed {
+        height: 30rem;
+        cursor: pointer;
+
+        .heading-2 {
+            top: 50% !important;
+        }
+
+        &:hover .postScriptum__photo {
+            transform: scale(1.05);
+        }
+    }
+
     &__photo {
         width: 100%;
-        height: auto;
+        height: 100%;
 
+        object-position: 50% 35%;
         object-fit: cover;
+
+        transition: all .2s ease-out;
     }
     & .heading-2 {
         width: 70%;
-        background-color: $color-black-background;
-
         padding: 4rem;
+        background-color: $color-black-background;
+        transform: translate(-50%, -50%);
 
         position: absolute;
-
         top: 80%;
-        right: 15%;
+        left: 50%;
+
+        transition: all 1s ease-out;
 
         @media only screen and (max-width: 1250px) {
             font-size: $font-large;
@@ -35,30 +53,13 @@
         }
         @media only screen and (max-width: 800px) {
             width: 100%;
+            padding: 4rem;
 
-            padding: 8rem 4rem 4rem 4rem;
-
-            top: 65%;
+            top: 80%;
             right: 0;
-            bottom: 0;
-        }
-        @media only screen and (max-width: 600px) {
-            padding: 6rem 4rem 4rem 4rem;
-        }
-        @media only screen and (max-width: 600px) {
-            padding: 4rem 4rem 4rem 4rem;
-        }
-        @media only screen and (max-width: 450px) {
-            padding: 3rem 4rem 4rem 4rem;
         }
         @media only screen and (max-width: 400px) {
-            padding: 2rem 4rem 4rem 4rem;
-        }
-        @media only screen and (max-width: 360px) {
-            padding: 1rem 3rem 0rem 3rem;
-        }
-        @media only screen and (max-width: 330px) {
-            padding: 0.5rem 2rem 0rem 2rem;
+            padding: 2rem;
         }
     }
 }

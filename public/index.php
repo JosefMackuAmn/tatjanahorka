@@ -33,5 +33,6 @@ $router->add('admin/events/new/?', ['controller'=>'Admin', 'action'=>'newEvent']
 $router->add('admin/events/delete/{id:\d+}/?', ['controller'=>'Admin', 'action'=>'delete']); // GET
 $router->add('admin/events/{id:\d+}/?', ['controller' => 'Admin', 'action' => 'event']); // GET, PUT, POST
 $router->add('admin/*', ['controller' => 'Admin', 'action' => 'notFound']); // GET
+$router->add('/*', ['controller' => 'Home', 'action' => 'index']); // GET
 
 $router->dispatch($_SERVER['QUERY_STRING']);

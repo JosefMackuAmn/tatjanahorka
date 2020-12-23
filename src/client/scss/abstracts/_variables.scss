@@ -8,10 +8,11 @@
 
 // GREEN
 
-$color-green-footer: rgba(159, 191, 115, 1);
-$color-green-light: #F0F5E9;
+$color-green-dark: #739545;
 $color-green: #9CBD6F;
-$color-green-lighter: #DBF2BA;
+$color-green-footer: rgba(159, 191, 115, 1);
+$color-green-lighter: #f4ffe4;
+$color-green-light: #F0F5E9;
 
 /////
 // SHADES
@@ -23,6 +24,7 @@ $color-black-overlay-light: rgba($color-black, .2);
 $color-black-overlay-light-2: rgba($color-black, .1);
 $color-black-background: rgba($color-black, 0.45);
 $color-white: #ffffff;
+$color-white-overlay: rgba($color-white, .75);
 
 //////////////////////////////////
 ///// FONT SIZES

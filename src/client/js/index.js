@@ -243,6 +243,52 @@ emailInput.addEventListener('input', () => {
     }, 20);
 });
 
+//////////////////
+///// POST-SCRIPTUM EXPANSION
+//////////////////
+const postScriptum = document.getElementById('post-scriptum');
+const showPSPhoto = () => {
+    postScriptum.classList.remove('closed');
+    postScriptum.removeEventListener('click', showPSPhoto);
+}
+postScriptum.addEventListener('click', showPSPhoto);
+
+//////////////////
+///// SUCCESS MODAL
+//////////////////
+const search = window.location.search;
+if (search) {
+    const params = search.split('=');
+    if (params && params[0] === '?success' || params[0] === 'success') {
+        const success = params[1];
+
+        const showHideModal = (className, text) => {
+            const modalEl = document.createElement('div');        
+            const header = document.getElementById('header');
+            modalEl.classList.add('modal');
+            modalEl.classList.add(className);
+            modalEl.textContent = text;
+            header.append(modalEl);
+
+            setTimeout(() => {
+                modalEl.remove();
+            }, 5000);
+        }
+
+        switch (success) {
+            case 'true': {
+                showHideModal('success', 'Povedlo se přidat Váš e-mail!');
+                break;
+            }
+            case 'false': {
+                showHideModal('fail', 'Přidání e-mailu se nepodařilo.');
+                break;
+            }
+            default: null;
+        }
+    }
+}
+
 
 //////////////////
 ///// ANIMATIONS

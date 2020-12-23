@@ -101,20 +101,21 @@
     }
   }
   &__cta {
-    background-color: $color-white;
-    padding: 1rem 0;
-    border: none;
     width: 25rem;
-    outline: none;
+    padding: 1rem 0;
+    background-color: $color-white;
+    border: none;
     border-radius: 5rem;
+    outline: none;
     cursor: pointer;
+    overflow: hidden;
+
     font-size: 1.8rem;
+    font-family: $font-kalam;
 
     display: block;
 
     position: absolute;
-    overflow: hidden;
-
     left: 75%;
     bottom: 0;
     transform: translateY(50%) translateX(-50%);
@@ -124,19 +125,21 @@
       font-size: 1.6rem;
     }
     @media screen and (max-width: 1000px) {
-        border: 2px solid $color-green; 
+      box-shadow: 1px 1px 4px 1px $color-black-overlay-light;
+    }
+    @media screen and (max-width: 900px) {  
+      left: 50%;
     }
     @media screen and (max-width: 700px) {
-        height: 5rem;
-    
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        top: 0; 
+      height: 5rem;
+
+      transform: translateX(-50%) translateY(-50%);
+      top: 0; 
     }
     @media screen and (max-width: 500px) {
-        height: 4rem;
-        width: 20rem;
-        padding: .5rem 0;
+      height: 4rem;
+      width: 20rem;
+      padding: .5rem 0;
     }
 
     &::before {
@@ -162,30 +165,32 @@
     }
   }
   &__text {
+    width: 100rem;
     padding: 5rem;
     background: rgba($color-white, 0.79);
     border-radius: 0.5rem;
-    width: 100rem;
+
+    font-size: $font-small;
+    font-weight: 300;
 
     @media screen and (max-width: 1400px) {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-      padding-left: 3rem;
-      padding-right: 3rem;
+      padding-top: 5rem 3rem;
     }
     @media screen and (max-width: 1200px) {
       width: 70rem;
     }
     @media screen and (max-width: 1000px) {
-        background: rgba($color-white, 1);
+      background: rgba($color-white, 1);
     }
     @media screen and (max-width: 900px) {
       width: 50rem;
     }
     @media screen and (max-width: 700px) {
-        padding: 0;
-        padding-top: 5rem;
-        width: 100%;
+      padding: 5rem 3.5rem 0 3.5rem;
+      width: 100%;
+    }
+    @media screen and (max-width: 500px) {
+      padding: 5rem 2rem 0 2rem;
     }
   }
 }

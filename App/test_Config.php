@@ -7,6 +7,6 @@ class Config {
     const DB_NAME = 'testingsubbo2914';
     const DB_USER = 'testingsubbo2914';
     const DB_PASSWORD = 'eV-D-Uv*)D0cXrIFc%5I';
-    const SHOW_ERRORS = true;
+    const SHOW_ERRORS = false;
     const TOKEN_SECRET = 'mostsecrettokenstringeva';
 }
