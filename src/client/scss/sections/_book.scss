@@ -64,10 +64,10 @@
       transform: translateX(calc(50vw - 590px)) scale(1.2) translateY(-5rem);
     }
     @media screen and (max-width: 700px) { 
-      transform: translateY(-2.5rem) translateX(calc(50vw - 330px));
+      transform: translateY(-2.5rem) scale(1.2) translateX(calc(50vw - 330px));
     }
     @media screen and (max-width: 500px) { 
-      transform: translateY(-2.5rem) translateX(calc(50vw - 240px));
+      transform: translateY(-2.5rem) scale(1.2) translateX(calc(50vw - 230px));
     }
 
   }
