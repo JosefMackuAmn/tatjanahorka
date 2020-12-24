@@ -1633,14 +1633,13 @@ a:link {
       padding-right: 1.5rem; } }
   .book__image-container {
     width: 100%;
-    height: 100%;
+    height: 85rem;
     display: block;
     position: relative;
     overflow: hidden; }
     @media screen and (max-width: 1000px) {
       .book__image-container {
-        height: 75rem;
-        width: auto; } }
+        height: 75rem; } }
     @media screen and (max-width: 700px) {
       .book__image-container {
         height: 40rem; } }
@@ -1653,15 +1652,9 @@ a:link {
     top: 75%;
     left: 50%;
     transform: translateY(-50%) translateX(-50%); }
-    @media screen and (max-width: 1200px) {
-      .book__content {
-        top: 70%; } }
     @media screen and (max-width: 1050px) {
       .book__content {
         font-size: 1.6rem; } }
-    @media screen and (max-width: 1000px) {
-      .book__content {
-        top: 75%; } }
     @media screen and (max-width: 700px) {
       .book__content {
         position: relative;
@@ -1669,40 +1662,17 @@ a:link {
         left: unset;
         top: unset; } }
   .book__image {
-    width: 100%;
-    height: auto; }
-    @media screen and (max-width: 1300px) {
-      .book__image {
-        transform: scale(1.2); } }
-    @media screen and (max-width: 1200px) {
-      .book__image {
-        transform: scale(1.2) translateY(-5rem); } }
+    height: 100%;
+    transform: translateX(calc(50vw - 680px)) scale(1.3); }
     @media screen and (max-width: 1000px) {
       .book__image {
-        height: 100%;
-        width: auto;
-        transform: scale(1.2) translateX(-8rem) translateY(-5rem); } }
-    @media screen and (max-width: 900px) {
-      .book__image {
-        transform: translateX(-12rem); } }
-    @media screen and (max-width: 800px) {
-      .book__image {
-        transform: translateX(-16rem); } }
+        transform: translateX(calc(50vw - 590px)) scale(1.2) translateY(-5rem); } }
     @media screen and (max-width: 700px) {
       .book__image {
-        transform: scale(1.2) translateX(1rem) translateY(-2rem); } }
-    @media screen and (max-width: 600px) {
-      .book__image {
-        transform: scale(1.2) translateX(-3rem) translateY(-2rem); } }
+        transform: translateY(-2.5rem) translateX(calc(50vw - 330px)); } }
     @media screen and (max-width: 500px) {
       .book__image {
-        transform: scale(1.2) translateX(-1rem) translateY(-2rem); } }
-    @media screen and (max-width: 400px) {
-      .book__image {
-        transform: scale(1.2) translateX(-5rem) translateY(-2rem); } }
-    @media screen and (max-width: 350px) {
-      .book__image {
-        transform: scale(1) translateX(-8rem) translateY(0rem); } }
+        transform: translateY(-2.5rem) translateX(calc(50vw - 240px)); } }
   .book__cta {
     width: 25rem;
     padding: 1rem 0;
@@ -1773,7 +1743,8 @@ a:link {
         background: white; } }
     @media screen and (max-width: 900px) {
       .book__text {
-        width: 50rem; } }
+        width: 60rem;
+        padding: 3rem; } }
     @media screen and (max-width: 700px) {
       .book__text {
         padding: 5rem 3.5rem 0 3.5rem;
