@@ -18,15 +18,15 @@
                 <div class="event-form__row">
                     <div class="event-form__data-cell">
                         <label for="title">Název akce</label>
-                        <input type="text" name="title" id="title" placeholder="Název akce" value="{{ event.event_title }}">
+                        <input required type="text" name="title" id="title" placeholder="Název akce" value="{{ event.event_title }}">
                     </div>
                     <div class="event-form__data-cell">
                         <label for="dateFrom">Od:</label>
-                        <input type="date" name="dateFrom" id="dateFrom" value="{{ event.event_dateFrom }}">
+                        <input required type="date" name="dateFrom" id="dateFrom" value="{{ event.event_dateFrom }}">
                     </div>
                     <div class="event-form__data-cell">
                         <label for="dateTo">Do:</label>
-                        <input type="date" name="dateTo" id="dateTo" value="{{ event.event_dateTo }}">
+                        <input required type="date" name="dateTo" id="dateTo" value="{{ event.event_dateTo }}">
                     </div>
                 </div>
                 <div class="event-form__row">
@@ -34,10 +34,10 @@
                         <label for="link">Odkaz</label>
                         <input type="text" name="link" id="link" placeholder="Odkaz" value="{{ event.event_link }}" />
                     </div>
-                    <!-- <div class="event-form__data-cell">
-                        <label for="image">Obrázek</label>
-                        <input type="file" name="image" id="image">
-                    </div> -->
+                    <div class="event-form__data-cell">
+                        <label for="image">Popisek</label>
+                        <textarea required name="content" id="content" cols="30" rows="10">{{ event.event_content }}</textarea>
+                    </div>
                 </div>
                 <div class="event-form__actions">
                     <input class="event-form__btn event-form__btn--submit" id="submit" name="submit" type="submit" value="Odeslat">

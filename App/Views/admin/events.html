@@ -22,7 +22,6 @@
                     <tr class="item-list__heading">
                         <th>Název</th>
                         <th>Datum</th>
-                        <th>Obrázek</th>
                         <th>Odkaz</th>
                         <th>Akce</th>
                     </tr>
@@ -32,7 +31,6 @@
                         <tr class="item-list__row" id="<%= product._id %>">
                             <td>{{ event.event_title }}</td>
                             <td>{{ event.event_prettyDate }}</td>
-                            <td><a href="/img/{{ event.event_imageUrl }}">Odkaz</a></td>
                             <td>{{ event.event_link }}</td>
                             <td>
                                 <a class="item-list__row__btn" href="/admin/events/{{ event.event_id }}">Upravit</a>

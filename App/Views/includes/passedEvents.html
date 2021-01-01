@@ -1,6 +1,17 @@
 <section class="passedEvents">
     <container class="passedEvents__image-container toBeAnimated animation-rollInVertically">
-        <img src="img/flower.jpg" alt="Květiny" class="passedEvents__image">
+        <img
+            src="img/flower_1920.jpg"
+            alt="Květiny"
+            class="passedEvents__image"
+            srcset="
+                img/flower_600.jpg 600w,
+                img/flower_1000.jpg 1000w,
+                img/flower_1400.jpg 1400w,
+                img/flower_1920.jpg 1920w,
+                img/flower_big.jpg 2400w
+            "
+        >
     </container>
     <div class="passedEvents__content">
         <svg class="passedEvents__content__background" width="919" height="868" viewBox="0 0 919 868" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,10 +23,13 @@
         <div class="passedEvents__content__text-content">
             <h3 class="heading-3">Kde jsme se sešli naposled</h3>
             <ul class="passedEvents__content__list">
-                <li class="passedEvents__content__item"><span>></span> Konzultační a vzdělávací servis pro skleněnku, z.s. ve Veselí nad Moravou</li>
-                <li class="passedEvents__content__item"><span>></span> pro MAS BRÁNA BRNĚNSKA, z.s., konzultace pro MŠ, ZŠ</li>
-                <li class="passedEvents__content__item"><span>></span> pro Škola Na Radosti setkání pedagogického týmu, propojení s rodiči žáků školy</li>
-                <li class="passedEvents__content__item"><span>></span> Na Slovensku společné workshopy s Mgr. Zuzanou Bajkaiovou - téma: Vnútorné dieťa aj.</li>
+
+                {% for event in passedEvents %}
+
+                    <li class="passedEvents__content__item"><span>></span> {{ event.event_title }}</li>
+
+                {% endfor %}
+                
             </ul>
         </div>
     </div>

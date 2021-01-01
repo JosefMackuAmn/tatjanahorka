@@ -113,7 +113,12 @@ class Router {
 
             global $easyCSRF;
 
-            $easyCSRF->check(Config::TOKEN_SECRET, $csrfToken, null, true);
+            try {
+                $easyCSRF->check(Config::TOKEN_SECRET, $csrfToken, null, true);
+            } catch (\Exception $e) {
+                header('Location: /?error=csrf');
+                exit();
+            }
 
             return true;
             

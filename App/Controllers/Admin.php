@@ -127,7 +127,7 @@ class Admin extends \Core\Controller {
         if (isset($_POST['submit'])) {
             $accesKey = $_POST['password'];
 
-            if ($accesKey === getenv('HTTP_ACCESS_CODE')) {
+            if ($accesKey === Config::ACCESS_CODE) {
                 $_SESSION['isAdmin'] = true;
                 return header('Location: /admin');
             } else {
@@ -174,13 +174,18 @@ class Admin extends \Core\Controller {
             "date" => $date,
             "dateFrom" => $dateFrom,
             "dateTo" => $_POST['dateTo'],
-            //"imageUrl" => $imageUrl,
+            "content" => $_POST['content'],
             "link" => $_POST['link']
         ];
 
-        Email::sendEmails($event);
-
         Event::addEvent($event);
+        
+        try {
+            Email::sendEmails($event);
+        } catch (\ErrorException $e) {
+            header('Location: /admin/events?success=true&mailSent=false');
+            exit();
+        }
         header('Location: /admin/events?success=true');
         exit();
     }
@@ -224,7 +229,7 @@ class Admin extends \Core\Controller {
             "date" => $date,
             "dateFrom" => $dateFrom,
             "dateTo" => $_POST['dateTo'],
-            //"imageUrl" => $imageUrl,
+            "content" => $_POST['content'],
             "link" => $_POST['link']
         ];
 

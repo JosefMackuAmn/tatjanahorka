@@ -39,6 +39,24 @@ class Event extends \Core\Model {
         }
     }
 
+    public static function getPassedEvents($number = 4) {
+        $todayDate = time();
+
+        try {
+            $db = static::getDB();
+            $stmt = $db->query("SELECT * FROM events WHERE event_date < $todayDate ORDER BY event_date DESC LIMIT $number;");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($results as &$result) {
+                $result['event_prettyDate'] = Dates::format($result['event_dateFrom'], $result['event_dateTo']);
+            }
+
+            return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public static function getEvent($id) {
         
         $db = static::getDB();
@@ -54,24 +72,26 @@ class Event extends \Core\Model {
 
     public static function addEvent($event) {
         $db = static::getDB();
-        $stmt = $db->prepare('INSERT INTO events (event_title, event_date, event_link, event_dateFrom, event_dateTo) VALUES (:title, :date, :link, :dateFrom, :dateTo);');
+        $stmt = $db->prepare('INSERT INTO events (event_title, event_date, event_link, event_dateFrom, event_dateTo, event_content) VALUES (:title, :date, :link, :dateFrom, :dateTo, :content);');
         $stmt->bindParam(':title', $event['title']);
         $stmt->bindParam(':date', $event['date']);
         $stmt->bindParam(':link', $event['link']);
         $stmt->bindParam(':dateFrom', $event['dateFrom']);
         $stmt->bindParam(':dateTo', $event['dateTo']);
+        $stmt->bindParam(':content', $event['content']);
         $stmt->execute();
     }
 
     public static function updateEvent($id, $event) {
         $db = static::getDB();
 
-        $stmt = $db->prepare('UPDATE events SET event_title=:title, event_date=:date, event_link=:link, event_dateFrom=:dateFrom, event_dateTo=:dateTo WHERE event_id=:id;');
+        $stmt = $db->prepare('UPDATE events SET event_title=:title, event_date=:date, event_link=:link, event_dateFrom=:dateFrom, event_dateTo=:dateTo, event_content=:content WHERE event_id=:id;');
         $stmt->bindParam(':title', $event['title']);
         $stmt->bindParam(':date', $event['date']);
         $stmt->bindParam(':link', $event['link']);
         $stmt->bindParam(':dateFrom', $event['dateFrom']);
         $stmt->bindParam(':dateTo', $event['dateTo']);
+        $stmt->bindParam(':content', $event['content']);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 

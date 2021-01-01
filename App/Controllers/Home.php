@@ -11,11 +11,20 @@ class Home extends \Core\Controller {
 
     public function indexAction() {
         // Find 3 upcoming events
-        $events = [];//Event::getEvents(3, false);
+        $events = Event::getEvents(3, false);
+        $passedEvents = Event::getPassedEvents();
+
+        $delays = ['05', '10', '15'];
+        $index = 0;
+        foreach ($events as &$event) {
+            $event['event_delay'] = "delay--" . $delays[$index];
+            $index++;
+        }
 
         View::renderTemplate('index.html', [
             'events' => $events,
-            'csrfToken' => $_SESSION['csrfToken']
+            'csrfToken' => $_SESSION['csrfToken'],
+            'passedEvents' => $passedEvents
         ]);
     }
     

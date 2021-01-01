@@ -9,4 +9,5 @@ class Config {
     const DB_PASSWORD = '';
     const SHOW_ERRORS = true;
     const TOKEN_SECRET = 'mostsecrettokenstringeva';
+    const ACCESS_CODE = '123456789';
 }

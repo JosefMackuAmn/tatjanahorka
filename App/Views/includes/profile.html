@@ -1,6 +1,24 @@
 <section class="profile">
   <container class="profile__photo-container toBeAnimated animation-rollInFromLeft">
-    <img src="img/profile.jpg" alt="" class="profile__photo toBeAnimated"></img>
+    <img
+      src="img/profile_1200.jpg"
+      alt="Táňa"
+      class="profile__photo toBeAnimated"
+      srcset="
+        img/profile_400.jpg 400w,
+        img/profile_600.jpg 600w,
+        img/profile_1200.jpg 1200w,
+        img/profile_big.jpg 1365w
+      "
+      sizes="
+        (max-width: 1600px) 500px, 
+        (max-width: 1200px) 400px, 
+        (max-width: 1000px) 300px, 
+        (max-width: 800px) 350px, 
+        (max-width: 500px) 80vw,
+        (max-width: 450px) 100vw
+      "
+    >
   </container>
   <div class="profile__text">
     <p class="paragraph-1">

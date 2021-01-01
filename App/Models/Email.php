@@ -50,10 +50,17 @@ class Email extends \Core\Model {
         
         $emails = static::getEmails();
 
-        $headers = "From: web@tatjanahorka.cz";
+        $subject = "Taťjana Horká: " . $event['title'];
+        $headers = array(
+            'From' => "web@tatjanahorka.cz",
+            'Reply-To' => "tatjanahorka@gmail.cz",
+            'Content-Type' => 'text/html; charset=UTF-8'
+        );
+
+        $message = "Zveme Vás na akci:" . "<br /><br />" . $event['content'] . "<br /><br />S úctou,<br />Taťjana Horká<br /><br />Tato zpráva byla vygenerována automaticky.";
 
         foreach ($emails as $email) {
-            mail($email['email_email'], "Taťjana Horká: " . $event['title'], $event['title'], $headers);
+            mail($email['email_email'], $subject, $message, $headers);
         }
 
     }

@@ -1,0 +1,71 @@
+-------------------------------------------------------------------
+----- JS, PHP, SCSS, HTML:
+
+JM - PRG: 21kB (66%)
+JM - CSS: 15kB (21%)
+
+OV - PRG: 11kB (34%)
+OV - CSS: 43kB (60%)
+
+PD - CSS: 14kB (19%)
+
+Celkem - PRG: 32kB * 1.5 = 48kB
+Celkem - CSS: 72kB
+
+Celkem kB: 120
+PRG: 40%
+CSS: 60%
+
+S designem:
+  PRG  :  CSS  :  DSG
+   40  :   60
+	   60  :   40
+-----------------------
+   2   :   3   :   2
+
+-------------------------------------------------------------------
+----- DESIGN:
+
+DESKTOP: 11 * 5 = 	55
+MOBILE:  11 * 1 = 	11
+CELKEM:			66
+
+DESKTOP:
+JF:	- 7.5
+	- events, book (1/2)
+
+JM:	- 47.5
+	- header, passedEvents, cooperation, profile, organizations, topics, way, reviews, footer & PS, book (1/2)
+
+MOBILE:
+JF:	- 8.5
+	- header, passedEvents, cooperation, profile, organizations, topics, way, reviews, footer & PS (1/2)
+JM:	- 1.5
+	- events (1/2), book (1/2), footer & PS (1/2)
+MT:	- 1
+	- events (1/2), book (1/2)
+
+JF: 16 = 24.5%
+JM: 49 = 74.0%
+MT:  1 =  1.5%
+
+
+-------------------------------------------------------------------
+----- VÝSLEDEK:
+Základ:		17.000Kč
+Do fondu:	-2.300Kč
+K rozdělení:	14.700Kč
+
+Programování:	4.200Kč
+Markup & CSS:	6.300Kč
+Design:		4.200Kč
+
+
+     PRG   -   CSS   -   DSG   |   SUM
+JM  2772   -  1323   -  3108   |  7203
+OV  1428   -  3780   -   ---   |  5208
+PD   ---   -  1197   -   ---   |  1197
+JF   ---   -   ---   -  1029   |  1029
+MT   ---   -   ---   -    63   |    63
+
+

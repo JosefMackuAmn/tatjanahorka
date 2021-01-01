@@ -1,10 +1,5 @@
 RewriteEngine On
 
-# RewriteCond ${REQUEST_FILENAME} !-f
-# RewriteCond ${REQUEST_FILENAME} !-d
-# RewriteCond %{REQUEST_URI} !public/
-# RewriteRule (.*) public/index.php?$1 [L]
-
 RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2
 RewriteCond %{DOCUMENT_ROOT}%1public/%2 -f
 RewriteRule ^(.*)$  public/$1 [END]
@@ -17,4 +12,23 @@ RewriteRule ^(.*)$ public/index.php?$1 [L,QSA]
 RewriteCond %{REQUEST_URI} !public/
 RewriteRule (.*) public/$1 [L,QSA]
 
-SetEnv HTTP_ACCESS_CODE "123456789"
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+AddOutputFilterByType DEFLATE application/x-font
+AddOutputFilterByType DEFLATE application/x-font-opentype
+AddOutputFilterByType DEFLATE application/x-font-otf
+AddOutputFilterByType DEFLATE application/x-font-truetype
+</IfModule>
+
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>

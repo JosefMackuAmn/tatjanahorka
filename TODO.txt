@@ -1,13 +1,19 @@
 Backend:
-- Send an email to all registered email addresses after creating new event
+- Fix multiple mails
+- Fix mail text
 
 Frontend:
-- Modal for /?success=true or /?success=false: Alert on (un)successful email registration
-- Flowers in the background instead of green stains
-- Add animations to photos (maybe slow zooming in and out in the .passed-events section and on other photos similar effect as it is in the current website)
-- Add leafs
-- Change the shape of the background of the .organizations section
-- Dynamically display passed events
+- EJS transpilation
+- Responsive images
 
-Design:
-- First section redesign (add Táňa's book and change the way events are displayed)
+
+
+
+DONE:
+- Send an email to all registered email addresses after creating new event
+- Add content when creating an event
+- Dynamically display passed events
+- Dynamically display events
+- Don't index admin pages
+- OG tags & meta-tags
+- CSRF Error handling

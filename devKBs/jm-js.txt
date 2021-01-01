@@ -57,11 +57,6 @@ if (search) {
 }
 RewriteEngine On
 
-# RewriteCond ${REQUEST_FILENAME} !-f
-# RewriteCond ${REQUEST_FILENAME} !-d
-# RewriteCond %{REQUEST_URI} !public/
-# RewriteRule (.*) public/index.php?$1 [L]
-
 RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2
 RewriteCond %{DOCUMENT_ROOT}%1public/%2 -f
 RewriteRule ^(.*)$  public/$1 [END]
@@ -74,4 +69,649 @@ RewriteRule ^(.*)$ public/index.php?$1 [L,QSA]
 RewriteCond %{REQUEST_URI} !public/
 RewriteRule (.*) public/$1 [L,QSA]
 
-SetEnv HTTP_ACCESS_CODE "123456789"
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+AddOutputFilterByType DEFLATE application/x-font
+AddOutputFilterByType DEFLATE application/x-font-opentype
+AddOutputFilterByType DEFLATE application/x-font-otf
+AddOutputFilterByType DEFLATE application/x-font-truetype
+</IfModule>
+
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+//php
+<?php
+
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+set_error_handler('Core\Error::errorHandler');
+set_exception_handler('Core\Error::exceptionHandler');
+
+session_start();
+if (!isset($_SESSION['isAdmin'])) {
+    $_SESSION['isAdmin'] = false;
+}
+
+$sessionProvider = new \EasyCSRF\NativeSessionProvider();
+$easyCSRF = new \EasyCSRF\EasyCSRF($sessionProvider);
+
+/////
+// ROUTES
+/////
+$router = new Core\Router();
+
+///// PAGES & USER DATA
+$router->add('', ['controller'=>'Home', 'action'=>'index']); // GET
+$router->add('subscribe/?', ['controller'=>'Home', 'action'=>'subscribe']); // POST
+
+///// ADMIN
+$router->add('admin/?', ['controller'=>'Admin', 'action'=>'index']); // GET
+$router->add('admin/login/?', ['controller'=>'Admin', 'action'=>'login']); // GET, POST
+$router->add('admin/logout/?', ['controller'=>'Admin', 'action'=>'logout']); // POST
+$router->add('admin/emails/?', ['controller'=>'Admin', 'action'=>'emails']); // GET
+$router->add('admin/emails/delete/{id:\d+}/?', ['controller'=>'Admin', 'action'=>'deleteEmail']); // GET
+$router->add('admin/events/?', ['controller'=>'Admin', 'action'=>'events']); // GET, POST
+$router->add('admin/events/new/?', ['controller'=>'Admin', 'action'=>'newEvent']); // GET
+$router->add('admin/events/delete/{id:\d+}/?', ['controller'=>'Admin', 'action'=>'delete']); // GET
+$router->add('admin/events/{id:\d+}/?', ['controller' => 'Admin', 'action' => 'event']); // GET, PUT, POST
+$router->add('admin/*', ['controller' => 'Admin', 'action' => 'notFound']); // GET
+$router->add('/*', ['controller' => 'Home', 'action' => 'index']); // GET
+
+$router->dispatch($_SERVER['QUERY_STRING']);
+    protected function checkCSRF() {
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+            $csrfToken = $_POST['_csrf'];
+
+            global $easyCSRF;
+
+            try {
+                $easyCSRF->check(Config::TOKEN_SECRET, $csrfToken, null, true);
+            } catch (\Exception $e) {
+                header('Location: /?error=csrf');
+                exit();
+            }
+
+            return true;
+            
+        } else {
+            return true;
+        }
+    }
+
+    protected function generateCSRF() {  
+
+        global $easyCSRF;
+
+        $_SESSION['csrfToken'] = $easyCSRF->generate(Config::TOKEN_SECRET);
+        return;
+    }
+    $this->checkCSRF();
+if (!isset($_SESSION['csrfToken'])) {
+    $this->generateCSRF();
+}
+<?php
+
+namespace App;
+
+class Config {
+    const DB_HOST = 'sql4.webzdarma.cz';
+    const DB_NAME = 'testingsubbo2914';
+    const DB_USER = 'testingsubbo2914';
+    const DB_PASSWORD = 'eV-D-Uv*)D0cXrIFc%5I';
+    const SHOW_ERRORS = true;
+    const TOKEN_SECRET = 'mostsecrettokenstringeva';
+    const ACCESS_CODE = '123456789';
+}
+<?php
+
+namespace App;
+
+class Config {
+    const DB_HOST = 'localhost';
+    const DB_NAME = 'tatjanahorka';
+    const DB_USER = 'root';
+    const DB_PASSWORD = '';
+    const SHOW_ERRORS = true;
+    const TOKEN_SECRET = 'mostsecrettokenstringeva';
+    const ACCESS_CODE = '123456789';
+}
+<?php
+
+namespace App\Models;
+
+use PDO;
+use \Helpers\Dates;
+
+class Event extends \Core\Model {
+    public static function getAll() {
+        try {
+            $db = static::getDB();
+            $stmt = $db->query('SELECT id, title, content FROM posts ORDER BY created_at');
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public static function getEvents($number = 3, $passed = true) {
+        $todayDate = 0;
+        if (!$passed) {
+            $todayDate = time();
+        }
+
+        try {
+            $db = static::getDB();
+            $stmt = $db->query("SELECT * FROM events WHERE event_date >= $todayDate ORDER BY event_date DESC LIMIT $number;");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($results as &$result) {
+                $result['event_prettyDate'] = Dates::format($result['event_dateFrom'], $result['event_dateTo']);
+            }
+
+            return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public static function getPassedEvents($number = 4) {
+        $todayDate = time();
+
+        try {
+            $db = static::getDB();
+            $stmt = $db->query("SELECT * FROM events WHERE event_date < $todayDate ORDER BY event_date DESC LIMIT $number;");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($results as &$result) {
+                $result['event_prettyDate'] = Dates::format($result['event_dateFrom'], $result['event_dateTo']);
+            }
+
+            return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public static function getEvent($id) {
+        
+        $db = static::getDB();
+        $stmt = $db->prepare('SELECT * FROM events WHERE event_id=:id;');
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $result = $stmt->fetch();
+
+        $result['event_prettyDate'] = Dates::format($result['event_dateFrom'], $result['event_dateTo']);
+
+        return $result;
+    }
+
+    public static function addEvent($event) {
+        $db = static::getDB();
+        $stmt = $db->prepare('INSERT INTO events (event_title, event_date, event_link, event_dateFrom, event_dateTo, event_content) VALUES (:title, :date, :link, :dateFrom, :dateTo, :content);');
+        $stmt->bindParam(':title', $event['title']);
+        $stmt->bindParam(':date', $event['date']);
+        $stmt->bindParam(':link', $event['link']);
+        $stmt->bindParam(':dateFrom', $event['dateFrom']);
+        $stmt->bindParam(':dateTo', $event['dateTo']);
+        $stmt->bindParam(':content', $event['content']);
+        $stmt->execute();
+    }
+
+    public static function updateEvent($id, $event) {
+        $db = static::getDB();
+
+        $stmt = $db->prepare('UPDATE events SET event_title=:title, event_date=:date, event_link=:link, event_dateFrom=:dateFrom, event_dateTo=:dateTo, event_content=:content WHERE event_id=:id;');
+        $stmt->bindParam(':title', $event['title']);
+        $stmt->bindParam(':date', $event['date']);
+        $stmt->bindParam(':link', $event['link']);
+        $stmt->bindParam(':dateFrom', $event['dateFrom']);
+        $stmt->bindParam(':dateTo', $event['dateTo']);
+        $stmt->bindParam(':content', $event['content']);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+    }
+
+    public static function deleteEvent($id) {
+        $db = static::getDB();
+        $stmt = $db->prepare('DELETE FROM events WHERE event_id=:id;');
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
+}
+<?php
+
+namespace App\Models;
+
+use PDO;
+
+class Email extends \Core\Model {
+
+    public static function getEmails() {
+        
+        try {
+            $db = static::getDB();
+            $stmt = $db->query("SELECT * FROM emails");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+    }
+
+    public static function addEmail($email) {
+
+        try {
+            $db = static::getDB();
+            $stmt = $db->prepare('INSERT INTO emails (email_email) VALUES (:email);');
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+
+    }
+
+    public static function deleteEmail($id) {
+
+        try {
+            $db = static::getDB();
+            $stmt = $db->prepare('DELETE FROM emails WHERE email_id=:id;');
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+        
+    }
+
+    public static function sendEmails($event) {
+        
+        $emails = static::getEmails();
+
+        $headers = "From: web@tatjanahorka.cz";
+
+        foreach ($emails as $email) {
+            mail($email['email_email'], "Taťjana Horká: " . $event['title'], $event['title'], $headers);
+        }
+
+    }
+
+}
+<?php
+
+namespace App\Controllers;
+
+use \Core\View;
+use \App\Config;
+use \App\Models\Event;
+use \App\Models\Email;
+
+class Home extends \Core\Controller {
+
+    public function indexAction() {
+        // Find 3 upcoming events
+        $events = Event::getEvents(3, false);
+        $passedEvents = Event::getPassedEvents();
+
+        $delays = ['05', '10', '15'];
+        $index = 0;
+        foreach ($events as &$event) {
+            $event['event_delay'] = "delay--" . $delays[$index];
+            $index++;
+        }
+
+        View::renderTemplate('index.html', [
+            'events' => $events,
+            'csrfToken' => $_SESSION['csrfToken'],
+            'passedEvents' => $passedEvents
+        ]);
+    }
+    
+
+    public function subscribeAction() {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            header('Location: /?success=false');
+            exit();
+        }
+        if (!isset($_POST['email'])) {
+            header('Location: /?success=false');
+            exit();            
+        }
+    
+        $split_email = explode('@', $_POST['email']);
+        if (count($split_email) < 2) {
+            header('Location: /?success=false');
+            exit();
+        }
+        
+        $split_domain = explode('.', $split_email[1]);        
+        if (count($split_domain) < 2) {
+            header('Location: /?success=false');
+            exit();
+        }
+
+        Email::addEmail($_POST['email']);
+
+        header('Location: /?success=true');
+        exit();
+
+    }
+
+}
+<?php
+
+namespace App\Controllers;
+
+use \Core\View;
+use \App\Config;
+use \Exception;
+use \App\Models\Event;
+use \App\Models\Email;
+//use \Helpers\File;
+
+class Admin extends \Core\Controller {
+    
+    protected function loggedInCheck() {
+        if (!isset($_SESSION['isAdmin']) OR !$_SESSION['isAdmin']) {
+            header('Location: /');
+            exit('You have to be signed in');
+        }
+    }
+
+    public function indexAction() {
+        $this->loggedInCheck();
+        View::renderTemplate('admin/index.html', [
+            'title' => ''
+        ]);
+    }
+
+    public function logoutAction() {
+        $_SESSION['isAdmin'] = false;
+        return header('Location: /');
+    }
+
+    public function newEventAction() {
+        $this->loggedInCheck();
+
+        View::renderTemplate('admin/event-detail.html', [
+            "csrfToken" => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
+        ]);
+    }
+
+    public function deleteAction($params) {
+        $this->loggedInCheck();
+        $eventId = $params['id'];
+
+        //$event = Event::getEvent($eventId);
+        //File::delete($event['event_imageUrl']);
+        Event::deleteEvent($eventId);
+
+        header('Location: /admin/events');
+        exit();
+    }
+
+    // ROUTING
+    public function loginAction() {
+        switch ($_SERVER['REQUEST_METHOD']) {
+            
+            case 'GET':
+                return $this->getLogin();
+            break;
+            
+            case 'POST':
+                return $this->postLogin();
+            break;
+            
+            default:
+                return $this->getLogin();
+            break;
+        }
+    }
+
+    // ROUTING
+    public function eventsAction() {
+        $this->loggedInCheck();
+
+        switch ($_SERVER['REQUEST_METHOD']) {
+            
+            case 'GET':
+                return $this->getEvents();
+            break;
+            
+            case 'POST':
+                return $this->postEvents();
+            break;
+            
+            default:
+                return $this->getEvents();
+            break;
+        }
+    }
+
+    // ROUTING
+    public function eventAction($params) {
+        $this->loggedInCheck();
+
+        switch ($_SERVER['REQUEST_METHOD']) {
+            
+            case 'GET':
+                return $this->getEvent($params);
+                break;
+
+            case 'POST':
+                return $this->postEvent($params);
+                break;
+
+            default:
+                return $this->getEvent($params);
+                break;
+        }
+    }
+
+    ///// admin/login
+    // LOGIN: GET
+    private function getLogin() {
+
+        if ($_SESSION['isAdmin']) {
+            header('Location: /admin');
+            exit();
+        }
+
+        View::renderTemplate('admin/login.html', [
+            'csrfToken' => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
+        ]);
+    }
+    // LOGIN: POST
+    private function postLogin() {
+
+        if (isset($_POST['submit'])) {
+            $accesKey = $_POST['password'];
+
+            if ($accesKey === Config::ACCESS_CODE) {
+                $_SESSION['isAdmin'] = true;
+                return header('Location: /admin');
+            } else {
+                throw new Exception('Bad access code');
+            }
+
+        } else {
+            throw new Exception('Bad access code');
+        }
+
+        
+    }
+
+    ///// admin/events
+    // EVENTS: GET
+    private function getEvents() {
+        $events = Event::getEvents(1000, true);
+
+        View::renderTemplate('admin/events.html', [
+            "events" => $events,
+            "csrfToken" => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
+        ]);
+    }
+    // EVENTS: POST
+    private function postEvents() {
+
+        if (!isset($_POST['submit'])) {
+            header('Location: /admin/events?success=false');
+        }
+
+        $dateFrom = $_POST['dateFrom'];
+        if (strlen($dateFrom) !== 10) {
+            throw new \Exception('Date is in wrong format');
+        }
+        $date = strtotime($dateFrom);
+
+        //$imageUrl = File::upload();
+        /* if (!$imageUrl) {
+            throw new \Exception('No image was uploaded');
+        } */
+
+        $event = [
+            "title" => $_POST['title'],
+            "date" => $date,
+            "dateFrom" => $dateFrom,
+            "dateTo" => $_POST['dateTo'],
+            "content" => $_POST['content'],
+            "link" => $_POST['link']
+        ];
+
+        Event::addEvent($event);
+        
+        try {
+            Email::sendEmails($event);
+        } catch (\ErrorException $e) {
+            header('Location: /admin/events?success=true&mailSent=false');
+            exit();
+        }
+        header('Location: /admin/events?success=true');
+        exit();
+    }
+
+    ///// admin/events/{id:\d+}
+    private function getEvent($params) {
+        $eventId = $params['id'];
+
+        $result = Event::getEvent($eventId);
+
+        View::renderTemplate('admin/event-detail.html', [
+            "event" => $result,
+            "csrfToken" => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
+        ]);
+    }
+    private function postEvent($params) {
+        $eventId = $params['id'];
+
+        if (!isset($_POST['submit'])) {
+            header('Location: /admin/events?success=false');
+        }
+
+        $dateFrom = $_POST['dateFrom'];
+        if (strlen($dateFrom) !== 10) {
+            throw new \Exception('Date is in wrong format');
+        }
+        $date = strtotime($dateFrom);
+
+        // Update image if isset and delete the old one
+        /* $imageUrl = false;
+        if (File::checkFile()) {
+            $oldEvent = Event::getEvent($eventId);
+            $oldImage = $oldEvent['event_imageUrl'];
+
+            File::delete($oldImage);
+            $imageUrl = File::upload();
+        } */
+
+        $event = [
+            "title" => $_POST['title'],
+            "date" => $date,
+            "dateFrom" => $dateFrom,
+            "dateTo" => $_POST['dateTo'],
+            "content" => $_POST['content'],
+            "link" => $_POST['link']
+        ];
+
+        Event::updateEvent($eventId, $event);
+
+        header('Location: /admin/events?success=true');
+        exit();
+    }
+
+    public function emailsAction() {
+        $emails = Email::getEmails();
+
+        View::renderTemplate('admin/emails.html', [
+            "emails" => $emails,
+            "csrfToken" => $_SESSION['easycsrf_' . Config::TOKEN_SECRET]
+        ]);
+    }
+
+    public function deleteEmailAction($params) {
+        $emailId = $params['id'];
+
+        Email::deleteEmail($emailId);
+
+        header('Location: /admin/emails?success=true');
+        exit();
+    }
+}
+<?php
+
+namespace Helpers;
+
+class Dates {
+    
+    public static function format($from, $to) {
+
+        $from = str_replace("-0", "-", $from);
+        $to = str_replace("-0", "-", $to);
+
+        $fromPieces = explode('-', $from);
+        $toPieces = explode('-', $to);
+
+        $prettyDate;
+
+        // If year differs
+        if ($fromPieces[0] === $toPieces[0]) {
+
+            // If month differs
+            if ($fromPieces[1] === $toPieces[1]) {
+
+                // If day differs
+                if ($fromPieces[2] === $toPieces[2]) {
+
+                    $prettyDate = $toPieces[2] . "." . $toPieces[1] . "." . $toPieces[0];
+    
+                } else {
+                    $prettyDate = $fromPieces[2] . "." . " - " . $toPieces[2] . "." . $toPieces[1] . "." . $toPieces[0];
+                }
+
+            } else {
+                $prettyDate = $fromPieces[2] . "." . $fromPieces[1] . "." . " - " . $toPieces[2] . "." . $toPieces[1] . "." . $toPieces[0];
+            }
+
+        } else {
+            $prettyDate = $fromPieces[2] . "." . $fromPieces[1] . "." . $fromPieces[0] . " - " . $toPieces[2] . "." . $toPieces[1] . "." . $toPieces[0];
+        }
+
+        return $prettyDate;
+    }
+
+}

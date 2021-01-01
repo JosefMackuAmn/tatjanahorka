@@ -47,11 +47,12 @@
         }
     }
     &__event {
-        border-radius: 1rem;
-        background-color: $color-green-lighter;
-        padding: 3rem;
-        box-shadow: 0 3px 3px rgba($color-black, .35);
         width: 100%;
+        max-width: 70rem;
+        padding: 3rem;
+        background-color: $color-green-lighter;
+        border-radius: 1rem;
+        box-shadow: 0 3px 3px rgba($color-black, .35);
 
         position: relative;
 
@@ -107,15 +108,11 @@
             color: $color-green-dark !important;
 
             position: absolute;
-            right: 5rem;
-            bottom: 5rem;   
+            right: 3rem;
+            bottom: 3rem;   
 
             transition: all .2s;
 
-            @media only screen and (max-width: 1600px) {
-                right: 3rem;
-                bottom: 3rem;
-            }
             @media only screen and (max-width: 1200px) {
                 right: 2rem;
                 bottom: 2rem;
