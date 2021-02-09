@@ -334,8 +334,6 @@ const animationTriggerer = () => {
 
     //If there are some elements that are going to be animated this function call
     if (willBeAnimated.length > 0) {
-
-        console.log(willBeAnimated);
         //Mapping toBeAnimated array to an array, in which the elements animated this function call are not included
         toBeAnimated = toBeAnimated.map((value, idx) => {
             for (const id of willBeAnimated) {
@@ -345,8 +343,6 @@ const animationTriggerer = () => {
             }
             return value;
         })
-        console.log('Q');
-        console.log(toBeAnimated);
     }
 }
 
