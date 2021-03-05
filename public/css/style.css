@@ -21,16 +21,13 @@
   0% {
     opacity: 1; }
   100% {
-    opacity: 0;
-    filter: blur(0.3px); } }
+    opacity: 0; } }
 
 @keyframes reviewAppear {
   0% {
-    opacity: 0;
-    filter: blur(0.3px); }
+    opacity: 0; }
   100% {
-    opacity: 1;
-    filter: none; } }
+    opacity: 1; } }
 
 @keyframes flowerZoom {
   0% {

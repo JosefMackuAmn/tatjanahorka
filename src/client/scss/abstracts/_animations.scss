@@ -40,18 +40,15 @@
   }
   100% {
     opacity: 0;
-    filter: blur(0.3px);
   }
 }
 
 @keyframes reviewAppear {
   0% {
     opacity: 0;
-    filter: blur(0.3px);
   }
   100% {
     opacity: 1;
-    filter: none;
   }
 }
 
