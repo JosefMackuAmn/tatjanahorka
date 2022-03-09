@@ -363,3 +363,11 @@ window.addEventListener('resize', () => {
 
 //Triggering animations on page load
 animationTriggerer();
+
+// Removing book img bug
+const bookImg = document.querySelector('.book__image');
+if (bookImg) {
+    setTimeout(() => {
+        bookImg.style.minWidth = '5rem';
+    }, 500);
+}
