@@ -1,85 +1,89 @@
 .organizations {
-    padding-bottom: 20rem;
-    clip-path: url(#organizationsBackgroundClipPath);
-    margin-top: -2rem;
+  padding-bottom: 20rem;
+  clip-path: url(#organizationsBackgroundClipPath);
+  margin-top: -2rem;
 
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 
-    @media screen and (max-width: $bp-organizations-mobile) {
-       padding-bottom: 0;
-       clip-path: none;
+  @media screen and (max-width: $bp-organizations-mobile) {
+    padding-bottom: 0;
+    clip-path: none;
+  }
+
+  & .svg {
+    width: 0;
+    height: 0;
+  }
+  &__svg {
+    position: absolute;
+    z-index: 50;
+
+    &--elipse {
+      width: 45rem;
+      height: 45rem;
+
+      top: 25rem;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+
+      @media screen and (max-width: $bp-organizations-mobile) {
+        width: 45rem;
+        height: 45rem;
+      }
+      @media screen and (max-width: 500px) {
+        width: 35rem;
+        height: 35rem;
+
+        top: 18rem;
+      }
+      @media screen and (max-width: 400px) {
+        width: 30rem;
+        height: 30rem;
+      }
     }
+    &--leaf {
+      width: 100%;
+      height: 100%;
 
-    & .svg {
-        width: 0;
-        height: 0;
+      &:first-of-type {
+        transform: translateX(-3rem) translateY(0.5rem) rotate(-10deg)
+          scale(0.75);
+
+        @media screen and (max-width: $bp-organizations-mobile) {
+          transform: translateX(-2rem) translateY(0.5rem) rotate(-10deg)
+            scale(0.75);
+        }
+      }
+      &:not(:first-of-type) {
+        transform: translateX(2.5rem) translateY(0rem) rotate(130deg)
+          scale(0.75);
+
+        @media screen and (max-width: $bp-organizations-mobile) {
+          transform: translateX(1.5rem) translateY(0rem) rotate(130deg)
+            scale(0.75);
+        }
+      }
     }
-    &__svg {
-        position: absolute;
-        z-index: 50;
+    &--bloom {
+      width: 100%;
+      height: 100%;
 
-        &--elipse {
-            width: 45rem;
-            height: 45rem;
-
-            top: 25rem;
-            left: 50%;
-            transform: translateY(-50%) translateX(-50%);
-
-            @media screen and (max-width: $bp-organizations-mobile) {
-                width: 45rem;
-                height: 45rem;
-            }
-            @media screen and (max-width: 500px) {
-                width: 35rem;
-                height: 35rem;
-
-                top: 18rem;
-            }
-            @media screen and (max-width: 400px) {
-                width: 30rem;
-                height: 30rem;
-            }
-        }
-        &--leaf {
-            width: 100%;
-            height: 100%;
-
-            &:first-of-type {
-                transform: translateX(-3rem) translateY(.5rem) rotate(-10deg) scale(.75); 
-
-                @media screen and (max-width: $bp-organizations-mobile) {
-                    transform: translateX(-2rem) translateY(.5rem) rotate(-10deg) scale(.75); 
-                }
-            }
-            &:not(:first-of-type) {
-                transform: translateX(2.5rem) translateY(0rem) rotate(130deg) scale(.75);
-
-                @media screen and (max-width: $bp-organizations-mobile) {
-                    transform: translateX(1.5rem) translateY(0rem) rotate(130deg) scale(.75);
-                }
-            }
-        }
-        &--bloom {
-            width: 100%;
-            height: 100%;
-
-            transform: scaleX(-1) rotate(-10deg);
-        }
+      transform: scaleX(-1) rotate(-10deg);
     }
+  }
 
-    &__svgLeaf {
-        width: 25rem;
-        height: 20rem;
+  &__svgLeaf {
+    width: 25rem;
+    height: 20rem;
 
-        position: absolute;
+    position: absolute;
 
-        transform: rotate(-150deg) scaleY(-1) translateY(-50%);
-        top: 48rem;
-        right: 2rem;
+    transform: rotate(-150deg) scaleY(-1) translateY(-50%);
+    top: 48rem;
+    right: 2rem;
 
-        /* @media only screen and (max-width: 1400px) {
+    /* @media only screen and (max-width: 1400px) {
             right: -3%;
         }
         @media only screen and (max-width: 1150px) {
@@ -96,139 +100,138 @@
         @media only screen and (max-width: 850px) {
             right: -6%;
         } */
-        @media only screen and (max-width: 800px) {
-            display: none;
-        }
+    @media only screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+
+  & .heading-3 {
+    width: 30rem;
+
+    color: $color-white;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 300;
+
+    position: absolute;
+    top: 25rem;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+
+    @media screen and (max-width: 500px) {
+      top: 18rem;
+    }
+  }
+  & .heading-4 {
+    text-align: center;
+
+    position: relative;
+    z-index: 2;
+
+    @media screen and (max-width: 800px) {
+      font-size: 1.6rem;
+    }
+  }
+  &__bg {
+    height: 48rem;
+    background: $color-green;
+
+    @media screen and (max-width: 500px) {
+      height: 33rem;
+    }
+  }
+  &__container {
+    margin-top: 15rem;
+    padding: 0 25rem;
+
+    display: flex;
+    justify-content: space-between;
+
+    @media only screen and (max-width: 1400px) {
+      padding: 0 15rem;
+    }
+    @media only screen and (max-width: 1100px) {
+      padding: 0 10rem;
+
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+    @media screen and (max-width: $bp-organizations-mobile) {
+      padding: 0 2.5rem;
+      margin-top: 10rem;
+
+      position: relative;
+    }
+    @media screen and (max-width: 500px) {
+      padding: 0;
+    }
+  }
+  &__organization {
+    width: 25rem;
+
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+
+    @media only screen and (max-width: 1100px) {
+      margin-bottom: 3rem;
+    }
+    @media only screen and (max-width: 800px) {
+      margin-bottom: 5rem;
+
+      &.delay {
+        animation-delay: 0s;
+        transition-delay: 0s;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      height: 10rem;
     }
 
-    & .heading-3 {
-        width: 30rem;
-
-        color: $color-white;
-        text-align: center;
-        line-height: 1.2;
-        font-weight: 300;
-       
-        position: absolute;
-        top: 25rem;
-        left: 50%;
-        transform: translateY(-50%) translateX(-50%);
-
-        @media screen and (max-width: 500px) {
-            top: 18rem;
-        }
+    &:hover {
+      & .organizations__waterlily {
+        transform: translateY(0.5rem);
+      }
     }
-    & .heading-4 {
-        text-align: center;
+  }
+  &__wave {
+    background-image: url("../img/wave.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 8rem;
+    height: 8rem;
 
-        position: relative;
-        z-index: 2;
+    position: absolute;
+    top: 0.5rem;
+    z-index: -1;
 
-        @media screen and (max-width: 800px) {
-            font-size: 1.6rem;
-        }
+    @media screen and (max-width: 1100px) {
+      width: 6rem;
+      height: 6rem;
     }
-    &__bg {
-        height: 48rem;
-        background: $color-green;
-
-        @media screen and (max-width: 500px) {
-            height: 33rem;
-        }
+    @media screen and (max-width: $bp-organizations-mobile) {
+      width: 4.5rem;
+      height: 4.5rem;
     }
-    &__container {
-        margin-top: 15rem;
-        padding: 0 25rem;
-        
-        display: flex;
-        justify-content: space-between;
-
-        @media only screen and (max-width: 1400px) {
-            padding: 0 15rem;
-        }
-        @media only screen and (max-width: 1100px) {
-            padding: 0 10rem;
-            
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-        }
-        @media screen and (max-width: $bp-organizations-mobile) {
-            padding: 0 2.5rem;
-            margin-top: 10rem;
-
-            position: relative;
-        }
-        @media screen and (max-width: 500px) {
-            padding: 0;
-        }
-
+    @media screen and (max-width: 500px) {
+      width: 4rem;
+      height: 4rem;
     }
-    &__organization {
-        width: 25rem;
+  }
+  &__waterlily {
+    width: 6rem;
+    height: 6rem;
+    transition: transform 0.3s;
 
-        flex-shrink: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    position: relative;
 
-        position: relative;
-
-        @media only screen and (max-width: 1100px) {
-            margin-bottom: 3rem;
-        }
-        @media only screen and (max-width: 800px) {
-            margin-bottom: 5rem;
-
-            &.delay {
-                animation-delay: 0s;
-                transition-delay: 0s;
-            }
-        }
-        @media screen and (max-width: 500px) {
-            height: 10rem;
-        }
-
-        &:hover {
-            & .organizations__waterlily {
-                transform: translateY(.5rem);
-            }
-        }
+    @media screen and (max-width: $bp-organizations-mobile) {
+      width: 5rem;
+      height: 5rem;
     }
-    &__wave {
-        background-image: url('../img/wave.svg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 8rem;
-        height: 8rem;
-
-        position: absolute;
-        top: .5rem;
-        z-index: -1;
-
-        @media screen and (max-width: 1100px) {
-            width: 6rem;
-            height: 6rem;
-        }
-        @media screen and (max-width: $bp-organizations-mobile) {
-            width: 4.5rem;
-            height: 4.5rem;
-        }
-        @media screen and (max-width: 500px) {
-            width: 4rem;
-            height: 4rem;
-        }
-    }
-    &__waterlily {
-        width: 6rem;
-        height: 6rem;
-        transition: transform .3s;
-
-        position: relative;
-
-        @media screen and (max-width: $bp-organizations-mobile) {
-            width: 5rem;
-            height: 5rem;
-        }
-    }
+  }
 }

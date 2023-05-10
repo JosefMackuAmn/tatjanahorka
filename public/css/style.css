@@ -881,18 +881,14 @@ a:link {
         padding-top: 3rem;
         padding-bottom: 3rem; } }
     .header__text > * {
-      text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2); }
-      @media screen and (max-width: 1000px) {
-        .header__text > * {
-          text-shadow: none;
-          color: #9CBD6F; } }
+      text-shadow: 1px 2px 8px #000000; }
   .header .heading-2 {
     text-align: left; }
     @media screen and (max-width: 1000px) {
       .header .heading-2 {
         text-align: center; } }
   .header .heading-1 {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     text-align: center; }
 
 .organizations {
@@ -1050,7 +1046,7 @@ a:link {
     width: 8rem;
     height: 8rem;
     position: absolute;
-    top: .5rem;
+    top: 0.5rem;
     z-index: -1; }
     @media screen and (max-width: 1100px) {
       .organizations__wave {
@@ -1067,7 +1063,7 @@ a:link {
   .organizations__waterlily {
     width: 6rem;
     height: 6rem;
-    transition: transform .3s;
+    transition: transform 0.3s;
     position: relative; }
     @media screen and (max-width: 800px) {
       .organizations__waterlily {
@@ -1677,143 +1673,98 @@ a:link {
     .ringana__cta__img {
       height: 7rem; }
 
-.book {
-  height: auto;
-  padding-left: 5rem;
-  margin-top: 5rem;
-  padding-right: 5rem;
-  overflow: hidden;
-  position: relative; }
-  @media screen and (max-width: 1000px) {
-    .book {
-      margin-top: 3rem;
-      padding-left: 3rem;
-      padding-right: 3rem; } }
-  @media only screen and (max-width: 500px) {
-    .book {
-      margin-top: 1.5rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem; } }
-  .book__image-container {
-    width: 100%;
-    height: 85rem;
-    display: block;
-    position: relative;
-    overflow: hidden; }
-    @media screen and (max-width: 1000px) {
-      .book__image-container {
-        height: 75rem; } }
-    @media screen and (max-width: 700px) {
-      .book__image-container {
-        height: 40rem; } }
-    @media screen and (max-width: 500px) {
-      .book__image-container {
-        height: 30rem; } }
-  .book__content {
-    font-size: 1.8rem;
+.course {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .course__bloom1 {
     position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translateY(-50%) translateX(-50%); }
-    @media screen and (max-width: 1050px) {
-      .book__content {
-        font-size: 1.6rem; } }
-    @media screen and (max-width: 700px) {
-      .book__content {
-        position: relative;
-        transform: none;
-        left: unset;
-        top: unset; } }
-  .book__image {
-    height: 100%;
-    width: auto;
-    object-fit: cover;
-    transform: translateX(calc(50vw - 680px)) scale(1.3); }
-    @media screen and (max-width: 1000px) {
-      .book__image {
-        transform: translateX(calc(50vw - 590px)) scale(1.2) translateY(-5rem); } }
-    @media screen and (max-width: 700px) {
-      .book__image {
-        transform: translateY(-2.5rem) scale(1.2) translateX(calc(50vw - 330px)); } }
-    @media screen and (max-width: 500px) {
-      .book__image {
-        transform: translateY(-2.5rem) scale(1.2) translateX(calc(50vw - 230px)); } }
-  .book__cta {
-    width: 25rem;
-    padding: 1rem 0;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 5rem;
+    opacity: 0.15;
+    top: 4rem;
+    left: 4rem;
+    transform: scale(3);
+    z-index: 0; }
+  .course__bloom2 {
+    position: absolute;
+    opacity: 0.15;
+    bottom: 4rem;
+    left: 6rem;
+    transform: scale(2);
+    z-index: 0; }
+  .course__bloom3 {
+    position: absolute;
+    opacity: 0.15;
+    bottom: 6rem;
+    right: 4rem;
+    transform: scale(4);
+    z-index: 0; }
+  .course__text {
+    font-weight: 400;
+    font-size: 45px;
+    width: 80vw;
+    max-width: 1000px;
+    text-align: center; }
+    @media only screen and (max-width: 550px) {
+      .course__text {
+        font-size: 2.8rem; } }
+    .course__text__bold {
+      font-weight: 700;
+      font-size: 45px;
+      text-align: center; }
+      @media only screen and (max-width: 550px) {
+        .course__text__bold {
+          font-size: 2.8rem; } }
+    .course__text__contact {
+      font-weight: 700;
+      font-size: 45px;
+      text-align: center; }
+      @media only screen and (max-width: 700px) {
+        .course__text__contact {
+          font-size: 2.6rem; } }
+  .course__phone {
+    margin: 5.8rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .course__phone *:first-child {
+      margin-right: 1rem; }
+    .course__phone__text {
+      font-size: 2.6rem;
+      font-weight: 300;
+      font-family: "Kalam", sans-serif;
+      color: black; }
+      @media only screen and (max-width: 700px) {
+        .course__phone__text {
+          font-size: 2.4rem; } }
+  .course__button:link, .course__button:active, .course__button:visited {
+    text-decoration: none;
     outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; }
+  .course__button {
+    width: 49rem;
+    height: 6.8rem;
+    border: none;
+    border-radius: 4.7rem;
+    background-color: #85ab52;
     cursor: pointer;
-    overflow: hidden;
-    font-size: 1.8rem;
-    font-family: "Kalam", cursive;
-    display: block;
-    position: absolute;
-    left: 75%;
-    bottom: 0;
-    transform: translateY(50%) translateX(-50%);
-    z-index: 1; }
-    @media screen and (max-width: 1050px) {
-      .book__cta {
-        font-size: 1.6rem; } }
-    @media screen and (max-width: 1000px) {
-      .book__cta {
-        box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.2); } }
-    @media screen and (max-width: 900px) {
-      .book__cta {
-        left: 50%; } }
-    @media screen and (max-width: 700px) {
-      .book__cta {
-        height: 5rem;
-        transform: translateX(-50%) translateY(-50%);
-        top: 0; } }
-    @media screen and (max-width: 500px) {
-      .book__cta {
-        height: 4rem;
-        width: 20rem;
-        padding: .5rem 0; } }
-    .book__cta::before {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 100%;
-      background-color: #9CBD6F;
-      transition: all 0.2s;
-      position: absolute;
-      transform: translateY(-100%);
-      top: 0;
-      left: 0;
-      z-index: -1; }
-    .book__cta:hover {
-      color: #ffffff; }
-      .book__cta:hover::before {
-        transform: translateY(0); }
-  .book__text {
-    width: 100rem;
-    padding: 5rem;
-    background: rgba(255, 255, 255, 0.79);
-    border-radius: 0.5rem;
-    font-size: 1.8rem;
-    font-weight: 300; }
-    @media screen and (max-width: 1400px) {
-      .book__text {
-        padding-top: 5rem 3rem; } }
-    @media screen and (max-width: 1200px) {
-      .book__text {
-        width: 70rem; } }
-    @media screen and (max-width: 1000px) {
-      .book__text {
-        background: white; } }
-    @media screen and (max-width: 900px) {
-      .book__text {
-        width: 60rem;
-        padding: 3rem; } }
-    @media screen and (max-width: 700px) {
-      .book__text {
-        padding: 5rem 3.5rem 0 3.5rem;
-        width: 100%; } }
-    @media screen and (max-width: 500px) {
-      .book__text {
-        padding: 5rem 2rem 0 2rem; } }
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: white;
+    font-family: "Kalam", sans-serif;
+    z-index: 10; }
+    @media only screen and (max-width: 550px) {
+      .course__button {
+        font-size: 2.4rem;
+        width: 32rem; } }
+    .course__button__padding {
+      margin-top: 11.2rem; }
+      .course__button__padding--contact {
+        margin-top: 2.6rem; }
