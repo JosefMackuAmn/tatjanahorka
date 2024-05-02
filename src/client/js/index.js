@@ -244,14 +244,14 @@ reviewCycler();
 //////////////////
 ///// POST EMAIL FORM
 //////////////////
-const emailInput = document.getElementById("email");
-emailInput.addEventListener("input", () => {
-  const submit = document.getElementById("submit");
-  submit.classList.remove("hidden");
-  setTimeout(() => {
-    submit.style.opacity = "1";
-  }, 20);
-});
+// const emailInput = document.getElementById("email");
+// emailInput.addEventListener("input", () => {
+//   const submit = document.getElementById("submit");
+//   submit.classList.remove("hidden");
+//   setTimeout(() => {
+//     submit.style.opacity = "1";
+//   }, 20);
+// });
 
 //////////////////
 ///// POST-SCRIPTUM EXPANSION
@@ -386,71 +386,71 @@ if (bookImg) {
   }, 500);
 }
 
-const courseButton = document.getElementById("course__button");
-const courseSection = document.getElementById("course__section");
+// const courseButton = document.getElementById("course__button");
+// const courseSection = document.getElementById("course__section");
 
-const courseHTML = `
-    <svg
-    class="course__bloom1"
-    width="59"
-    height="65"
-    viewBox="0 0 59 65"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    >
-    <use xlink:href="#bloom"></use>
-    </svg>
+// const courseHTML = `
+//     <svg
+//     class="course__bloom1"
+//     width="59"
+//     height="65"
+//     viewBox="0 0 59 65"
+//     fill="none"
+//     xmlns="http://www.w3.org/2000/svg"
+//     >
+//     <use xlink:href="#bloom"></use>
+//     </svg>
 
-    <svg
-    class="course__bloom2"
-    width="59"
-    height="65"
-    viewBox="0 0 59 65"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    >
-    <use xlink:href="#bloom"></use>
-    </svg>
+//     <svg
+//     class="course__bloom2"
+//     width="59"
+//     height="65"
+//     viewBox="0 0 59 65"
+//     fill="none"
+//     xmlns="http://www.w3.org/2000/svg"
+//     >
+//     <use xlink:href="#bloom"></use>
+//     </svg>
 
-    <svg
-    class="course__bloom3"
-    width="59"
-    height="65"
-    viewBox="0 0 59 65"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    >
-    <use xlink:href="#bloom"></use>
-    </svg>
+//     <svg
+//     class="course__bloom3"
+//     width="59"
+//     height="65"
+//     viewBox="0 0 59 65"
+//     fill="none"
+//     xmlns="http://www.w3.org/2000/svg"
+//     >
+//     <use xlink:href="#bloom"></use>
+//     </svg>
 
-    <p class="course__text__contact">
-        Kontaktujte nás prosím na mailu barbara.dobesova@seznam.cz
-    </p>
+//     <p class="course__text__contact">
+//         Kontaktujte nás prosím na mailu barbara.dobesova@seznam.cz
+//     </p>
 
-    <div class="course__phone">
-        <p class="course__phone__text">Tel. číslo :</p>
-        <p class="course__phone__text">732 588 884</p>
-    </div>
+//     <div class="course__phone">
+//         <p class="course__phone__text">Tel. číslo :</p>
+//         <p class="course__phone__text">732 588 884</p>
+//     </div>
 
-    <a
-        href="https://www.facebook.com/tatjana.horka.9"        
-        class="course__button course__button__padding--contact"
-        target="_blank"
-    >
-        Facebook: Tatjana Horká
-    </a>
+//     <a
+//         href="https://www.facebook.com/tatjana.horka.9"
+//         class="course__button course__button__padding--contact"
+//         target="_blank"
+//     >
+//         Facebook: Tatjana Horká
+//     </a>
 
-    <a     
-        href="https://www.facebook.com/barbara.dobesova"       
-        class="course__button course__button__padding--contact"
-        target="_blank"
-    >
-        Facebook: Barbara Dobešová
-    </a>
-`;
+//     <a
+//         href="https://www.facebook.com/barbara.dobesova"
+//         class="course__button course__button__padding--contact"
+//         target="_blank"
+//     >
+//         Facebook: Barbara Dobešová
+//     </a>
+// `;
 
-const handleCourseButton = () => {
-  courseSection.innerHTML = courseHTML;
-};
+// const handleCourseButton = () => {
+//   courseSection.innerHTML = courseHTML;
+// };
 
-courseButton.addEventListener("mousedown", handleCourseButton);
+// courseButton.addEventListener("mousedown", handleCourseButton);
